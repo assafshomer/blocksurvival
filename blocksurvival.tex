@@ -6,6 +6,7 @@
 \usepackage{fancyhdr}
 \usepackage[colorlinks=true,linkcolor=blue]{hyperref}
 \usepackage[all]{xy}
+\usepackage{tikz}
 
 \newtheorem{definition}{Definition}[chapter]
 \newtheorem{theorem}{Theorem}[chapter]
@@ -28,7 +29,7 @@
                     \end{comment}
 \makeatother
 
-\title{\textbf{Analysis of block survival probabilities}}
+\title{\textbf{Analysis of block withholding attacks}}
 
 \author{Assaf Shomer\\
 }
@@ -62,7 +63,7 @@ Our goal is to calculate the probability that an honestly mined block is retaine
 \section{Setup}\label{calcsetup}
 Let us denote by $\mathcal{H}$ the total hashing power of the network and divide it abstractly into an \emph{Honest} part which holds a portion $p\mathcal{H}$ of the total hashing power (where $p \in [0,1]$) and an \emph{Attacker} which holds the rest $q\mathcal{H}=(1-p)\mathcal{H}$. 
 
-We start our analysis at a given point in time where the block-chain is of length $L$ and denote the last block mined as $\mathit{B}_L$. As time marches on the honest miners continue to mine on top of it ( $\mathit{B}_{L+1}, \mathit{B}_{L+2}, \dots$) while the attackers are building a separate branch on top of $\mathit{B}_L$ ( $\mathit{\tilde{B}}_{L+1}, \mathit{\tilde{B}}_{L+2}, \dots$) with the hope of overtaking it.
+We start our analysis at a given point in time where the block-chain is of length $L$ and denote the last block mined as $\mathit{B}_L$. As time marches on the honest miners continue to mine on top of it ( $\mathit{B}_{L+1}, \mathit{B}_{L+2}, \dots$) while the attackers are building a separate branch on top of $\mathit{B}_L$ ( $\mathit{\tilde{B}}_{L+1}, \mathit{\tilde{B}}_{L+2}, \dots$) with the hope of overtaking it. This situation is depicted in Figure \ref{fig:secretbranch}.
 
 Treating block mining as a negative binomial random variable, the probability $\mathit{P_{n,p}(m)}$ that $m$ blocks are mined by the attackers $\mathbf{before}$ $n$ blocks were honestly mined is proportional to $p^nq^m$ and can be shown
 (appendix \ref{app:probmath}) to be given by
@@ -71,7 +72,15 @@ Treating block mining as a negative binomial random variable, the probability $\
 \mathit{P}_{n,p}(m)={n + m -1\choose m}p^nq^m \quad n=1,2,\dots
 \end{equation}
 
-The probability $\mathit{a}_{n,m}(p)$ that the attackers manage to overtake the block-chain given the situation above\footnote{Namely, that the honest network mined $n$ blocks on top of $\mathit{B}_L$ and the attackers managed, during that time, to mine $m$ blocks on top of $\mathit{B}_L$ constituting their hidden branch.} is given by a Markov chain that depends only on the advantage $z$ of the honest network over the attackers $z=n-m$ defined by the recurrence relation
+\begin{figure}[pos]
+\centering
+\includegraphics[width=30mm]{Blockwithholding.png}
+\caption{The attackers are building a secret branch on top of $\mathit{B}_L$}
+\label{fig:secretbranch}
+\end{figure}
+
+
+The probability $\mathit{a}_{n,m}(p)$ that the attackers manage to overtake the block-chain given the situation above\footnote{Namely, that from the beginning of the experiment until the moment the honest network mines it's $n$th block on top of $\mathit{B}_L$, the attackers managed to mine $m$ blocks on top of $\mathit{B}_L$ constituting their hidden branch.} is given by a Markov chain that depends only on the advantage $z$ of the honest network over the attackers $z=n-m$ defined by the recurrence relation
 
 \begin{equation}\label{eq:markov}
 \mathit{a}_z(p)=p\mathit{a}_{z+1}(p)+q\mathit{a}_{z-1}(p)
@@ -83,11 +92,17 @@ The relation can be solved with boundary conditions $\mathit{a}_{-1}=&1, \mathit
 \mathit{a}_z(p)=\begin{cases}\left( \dfrac{q}{p}\right)^{z+1} & q\in [0,\dfrac{1}{2}] \quad \mathrm{and} \quad z=0,1,2\dots \\ \quad 1 & \mathrm{otherwise} \end{cases}
 \end{equation}
 
-For example, to find the probability of a double spend after $n$ confirmations, the attacker needs to mine $B_{L+1}$ (assumed as the starting point so no need to multiply by $q$) and then catchup from a deficit of $n-(m+1)$ where the extra block is the block where the double spend occurs.
-This was calculated in \cite{Doublespend} to be 
+For example, to find the probability of a double spend after $n$ confirmations the attacker needs to catchup from a deficit of $n-(m+1)$ where the extra block is the block where the double spend occurs. This situation is depicted in Figure \ref{fig:doublespend} and was calculated in \cite{Doublespend} to be 
 \begin{equation}
 D_n(p)=\sum_{m=0}^{\infty}P_{n,p}(m)\mathit{a}_{n-(m+1)}(p)
 \end{equation}
+
+\begin{figure}[pos]
+\centering
+\includegraphics[width=50mm]{Doublespend.png}
+\caption{A Double-spend attack of $\mathit{B}_L$. Note that in this case, as opposed to \ref{fig:secretbranch}, the game starts after $\mathit{B}_L$ was mined but the attacker has to mine an extra block where the double spend occurs.}
+\label{fig:doublespend}
+\end{figure}
 
 \section{Probability of success}
 
