@@ -5,10 +5,10 @@
 \contentsline {subsection}{\numberline {1.2.2}Block withholding Miners}{1}{subsection.1.2.2}
 \contentsline {subsection}{\numberline {1.2.3}Goal}{1}{subsection.1.2.3}
 \contentsline {section}{\numberline {1.3}Setup}{2}{section.1.3}
-\contentsline {section}{\numberline {1.4}Probability of success}{2}{section.1.4}
-\contentsline {section}{\numberline {1.5}Attacker's reward}{7}{section.1.5}
-\contentsline {chapter}{\numberline {A}Calculation Details}{9}{appendix.A}
-\contentsline {section}{\numberline {A.1}Probability distribution}{9}{section.A.1}
-\contentsline {section}{\numberline {A.2}Calculating $\mathit {Q}(p)$ }{9}{section.A.2}
-\contentsline {section}{\numberline {A.3}Calculating $\mathit {R}(p)$ }{10}{section.A.3}
-\contentsline {chapter}{Bibliography}{11}{equation.A.3.1}
+\contentsline {section}{\numberline {1.4}Probability of success}{3}{section.1.4}
+\contentsline {section}{\numberline {1.5}Attacker's reward}{5}{section.1.5}
+\contentsline {chapter}{\numberline {A}Calculation Details}{7}{appendix.A}
+\contentsline {section}{\numberline {A.1}Probability distribution}{7}{section.A.1}
+\contentsline {section}{\numberline {A.2}Calculating $\mathit {Q}(p)$ }{7}{section.A.2}
+\contentsline {section}{\numberline {A.3}Calculating $\mathit {R}(p)$ }{8}{section.A.3}
+\contentsline {chapter}{Bibliography}{9}{equation.A.3.1}

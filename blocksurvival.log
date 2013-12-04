@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2013.11.18)  3 DEC 2013 10:59
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2013.11.18)  4 DEC 2013 10:45
 entering extended mode
  %&-line parsing enabled.
 **blocksurvival.tex
@@ -615,6 +615,9 @@ File: tikzlibrarytopaths.code.tex 2008/06/17 v2.10 (rcs-revision 1.2)
 \c@theorem=\count138
  (./blocksurvival.aux
 
+LaTeX Warning: Label `blockwithholdingchain' multiply defined.
+
+
 LaTeX Warning: Label `eq:rpcalc' multiply defined.
 
 )
@@ -682,7 +685,7 @@ ination with the same identifier (name{page.1}) has been already used, duplicat
 e ignored
 <to be read again> 
                    \relax 
-l.45 \end{abstract}
+l.46 \end{abstract}
                     [1] (./blocksurvival.toc)
 \tf@toc=\write6
 \openout6 = `blocksurvival.toc'.
@@ -695,21 +698,17 @@ pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.65 
+l.71 
       [1
 
 ]
 
 Package amsmath Warning: Foreign command \atopwithdelims;
 (amsmath)                \frac or \genfrac should be used instead
-(amsmath)                 on input line 72.
+(amsmath)                 on input line 86.
 
-<Images/Blockwithholding.png, id=101, 311.1625pt x 1143.27126pt>
-File: Images/Blockwithholding.png Graphic file (type png)
-
-<use Images/Blockwithholding.png>
 ! Misplaced alignment tab character &.
-l.89 ...ith boundary conditions $\mathit{a}_{-1}=&
+l.95 ...ith boundary conditions $\mathit{a}_{-1}=&
                                                   1, \mathit{a}_{\infty}=&0$ by
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
@@ -719,7 +718,7 @@ you're probably due for more error messages, and you
 might try typing `S' now just to see what is salvageable.
 
 ! Misplaced alignment tab character &.
-l.89 ...$\mathit{a}_{-1}=&1, \mathit{a}_{\infty}=&
+l.95 ...$\mathit{a}_{-1}=&1, \mathit{a}_{\infty}=&
                                                   0$ by
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
@@ -728,37 +727,33 @@ up above has ended a previous alignment prematurely,
 you're probably due for more error messages, and you
 might try typing `S' now just to see what is salvageable.
 
-<Images/Doublespend.png, id=106, 482.80376pt x 1143.27126pt>
-File: Images/Doublespend.png Graphic file (type png)
-
-<use Images/Doublespend.png> [2] [3 <./Images/Blockwithholding.png>] [4 <./Imag
-es/Doublespend.png>] <blocksurvival.png, id=148, 678.535pt x 589.20125pt>
+[2] <blocksurvival.png, id=133, 678.535pt x 589.20125pt>
 File: blocksurvival.png Graphic file (type png)
 
-<use blocksurvival.png> [5] [6 <./blocksurvival.png (PNG copy)>]
-<Images/AttackersReward.png, id=163, 658.46pt x 573.14125pt>
+<use blocksurvival.png> [3] [4 <./blocksurvival.png (PNG copy)>]
+<Images/AttackersReward.png, id=152, 658.46pt x 573.14125pt>
 File: Images/AttackersReward.png Graphic file (type png)
 
 <use Images/AttackersReward.png>
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 177.
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 186.
 
 
 (/usr/share/texmf-texlive/tex/latex/base/omscmr.fd
 File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 177.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 186.
 
 
-LaTeX Warning: Reference `app:derivative' on page 7 undefined on input line 180
+LaTeX Warning: Reference `app:derivative' on page 5 undefined on input line 189
 .
 
-[7] [8 <./Images/AttackersReward.png (PNG copy)>]
+[5] [6 <./Images/AttackersReward.png (PNG copy)>]
 Appendix A.
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.193 \dfrac{1}{(1-s)^n}
+l.202 \dfrac{1}{(1-s)^n}
                         =\sum_{k=0}^{\infty} {n + k -1\choose k}s^k.
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
@@ -766,7 +761,7 @@ you left one out. Proceed, with fingers crossed.
 ! Extra }, or forgotten $.
 \@genfrac ...egingroup #4\endgroup #2#3\relax #5}}
                                                   
-l.193 \dfrac{1}{(1-s)^n}
+l.202 \dfrac{1}{(1-s)^n}
                         =\sum_{k=0}^{\infty} {n + k -1\choose k}s^k.
 I've deleted a group-closing symbol because it seems to be
 spurious, as in `$x}$'. But perhaps the } is legitimate and
@@ -777,7 +772,7 @@ deleted material, e.g., by typing `I$}'.
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.194 
+l.203 
       
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
@@ -785,7 +780,7 @@ you left one out. Proceed, with fingers crossed.
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.197 \sum
+l.206 \sum
           _{m=0}^{\infty}\mathit{P}(n,m,p)=p^n\sum_{m=0}^{\infty}{n + m -1\c...
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
@@ -793,49 +788,49 @@ you left one out. Proceed, with fingers crossed.
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.198 
+l.207 
       
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 199.
+(hyperref)                removing `math shift' on input line 208.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 199.
+(hyperref)                removing `math shift' on input line 208.
 
-[9
+[7
 
 ]
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 244.
+(hyperref)                removing `math shift' on input line 253.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 244.
+(hyperref)                removing `math shift' on input line 253.
 
-[10pdfTeX warning (ext4): destination with the same identifier (name{equation.A
-.2.1}) has been already used, duplicate ignored
+[8pdfTeX warning (ext4): destination with the same identifier (name{equation.A.
+2.1}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.278 \newpage
+l.287 \newpage
               pdfTeX warning (ext4): destination with the same identifier (name
 {equation.A.3.1}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.278 \newpage
+l.287 \newpage
               ] (./blocksurvival.bbl
 Underfull \hbox (badness 10000) in paragraph at lines 13--16
 []\OT1/cmr/m/n/12 Meni Rosen-feld.  Anal-y-sis of hashrate-based double-spendin
 g.
  []
 
-) [11
+) [9
 
 ] (./blocksurvival.aux)
 
@@ -847,16 +842,16 @@ LaTeX Warning: There were multiply-defined labels.
  )
 (\end occurred inside a group at level 1)
 
-### simple group (level 1) entered at line 193 ({)
+### simple group (level 1) entered at line 202 ({)
 ### bottom level 
 Here is how much of TeX's memory you used:
- 15821 strings out of 493848
- 265253 string characters out of 1152822
- 363123 words of memory out of 3000000
- 18705 multiletter control sequences out of 15000+50000
+ 15812 strings out of 493848
+ 265018 string characters out of 1152822
+ 365023 words of memory out of 3000000
+ 18697 multiletter control sequences out of 15000+50000
  20338 words of font info for 78 fonts, out of 3000000 for 9000
  714 hyphenation exceptions out of 8191
- 56i,9n,55p,549b,357s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 56i,17n,55p,555b,357s stack positions out of 5000i,500n,10000p,200000b,50000s
 </usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmbx12
 .pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/
 share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texmf
@@ -871,9 +866,9 @@ e1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf-texlive/fonts/type1/public/a
 msfonts/cm/cmsy8.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/c
 mti10.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmti12.pfb><
 /usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmti8.pfb>
-Output written on blocksurvival.pdf (14 pages, 304975 bytes).
+Output written on blocksurvival.pdf (12 pages, 275667 bytes).
 PDF statistics:
- 258 PDF objects out of 1000 (max. 8388607)
- 46 named destinations out of 1000 (max. 500000)
- 145 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 246 PDF objects out of 1000 (max. 8388607)
+ 47 named destinations out of 1000 (max. 500000)
+ 135 words of extra memory for PDF output out of 10000 (max. 10000000)
 
