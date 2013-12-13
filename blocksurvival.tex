@@ -64,12 +64,14 @@ The attackers do not share their newly found blocks and instead work on a $\bf{s
 
 \subsection{Goal}\label{subsec:goal}
 
-Our goal is to calculate the probability of success of a block-withholding miner of relative power $q$ in decapitating the head of the blockchain .
+Our goal is to calculate the probability that a block-withholding miner of relative power $q$ succeeds in replacing a block (and possibly some number of confirmation blocks on top of it) by publishing a secretly mined branch of the block-tree that is longer than the main branch.
+The quantity we are interested in is complimentary to the probability that a given block remains in the block-chain in face of the said block-withholding attack.
+ 
 
 \section{Setup}\label{calcsetup}
 Let us denote by $\mathcal{H}$ the total hashing power of the network and divide it abstractly into an \emph{Honest} part which holds a portion $p\mathcal{H}$ of the total hashing power (where $p \in [0,1]$) and an \emph{Attacker} which holds the rest $q\mathcal{H}=(1-p)\mathcal{H}$. 
 
-We start our analysis at a given point in time where the blockchain is of length $L$ and denote the last block mined as $\mathit{B}_L$. As time marches on the honest miners continue to mine on top of it ( $\mathit{B}_{L+1}, \mathit{B}_{L+2}, \dots$) while the attackers are building a separate branch on top of $\mathit{B}_L$ ( $\mathit{\tilde{B}}_{L+1}, \mathit{\tilde{B}}_{L+2}, \dots$) with the hope of overtaking it:
+We start our analysis at a given point in time where the blockchain is of length $L$ and denote the last block mined as $\mathit{B}_L$. As time marches on the honest miners continue to mine on top of it ( $\mathit{B}_{L+1}, \mathit{B}_{L+2}, \dots$) while the attackers are building a separate branch on top of $\mathit{B}_L$ ( $\mathit{\tilde{B}}_{L+1}, \mathit{\tilde{B}}_{L+2}, \dots$) with the aim of overtaking it:
 
 \begin{eqnarray}\label{blockwithholdingchain}
  \dots \rightarrow \mathit{B}_L\rightarrow &\mathit{B}_{L+1}\rightarrow\mathit{B}_{L+2}
@@ -79,56 +81,81 @@ We start our analysis at a given point in time where the blockchain is of length
 \longrightarrow \quad \dots \longrightarrow\widetilde{\mathit{B}}_{L+m}\qquad \mathrm{Secret}
 \end{eqnarray}
 
-Treating block mining as a negative binomial random variable, the probability $\mathit{P_{n,p}(m)}$ that $m$ blocks are mined by the attackers $\mathbf{before}$ $n$ blocks were honestly mined is proportional to $p^nq^m$ and can be shown
+Treating block mining as a negative binomial random variable, the probability $\mathit{P_{n,p}(m)}$ that $m$ blocks are mined by the attackers {\bf before} $n$ blocks were honestly mined is proportional to $p^nq^m$ and can be shown
 (appendix \ref{app:probmath}) to be given by
 
 \begin{equation}\label{eq:pnm}
-\mathit{P}_{n,p}(m)={n + m -1\choose m}p^nq^m \quad n=1,2,\dots
+\mathit{P}_{n,q}(m)={n + m -1\choose m}(1-q)^nq^m \quad n=1,2,\dots
 \end{equation}
 
-The probability $\mathit{a}_{n,m}(p)$ that the attackers manage to overtake the blockchain given the situation above\footnote{Namely, that from the beginning of the experiment until the moment the honest network mines it's $n$th block on top of $\mathit{B}_L$, the attackers managed to mine $m$ blocks on top of $\mathit{B}_L$ constituting their secret branch.} is given by a Markov chain that depends only on the advantage $z$ of the honest network over the attackers $z=n-m$ defined by the recurrence relation
+The probability $\mathit{a}_{n,m}(q)$ that the attackers manage to catch-up and overtake the blockchain given the situation above\footnote{Namely, that from the beginning of the experiment until the moment the honest network mines it's $n$th block on top of $\mathit{B}_L$, the attackers managed to mine $m$ blocks on top of $\mathit{B}_L$ constituting their secret branch.} is given by a Markov chain that depends only on the advantage $z$ of the honest network over the attackers $z=n-m$ defined by the recurrence relation
 
 \begin{equation}\label{eq:markov}
-\mathit{a}_z(p)=p\mathit{a}_{z+1}(p)+q\mathit{a}_{z-1}(p)
+\mathit{a}_z(q)=(1-q)\mathit{a}_{z+1}(q)+q\mathit{a}_{z-1}(q)
 \end{equation}
 
-The relation can be solved with boundary conditions $\mathit{a}_{-1}=&1, \mathit{a}_{\infty}=&0$ by
+The relation can be solved with boundary conditions\footnote{Note that the condition $\mathit{a}_{-1}=&1$ encodes the fact that the attack is successful once the secret chain is \b{longer} than the main chain.} $\mathit{a}_{-1}=&1, \mathit{a}_{\infty}=&0$ by
 
 \begin{equation}\label{eq:az}
-\mathit{a}_z(p)=\begin{cases}\left( \dfrac{q}{p}\right)^{z+1} & q\in [0,\dfrac{1}{2}] \quad \mathrm{and} \quad z=0,1,2\dots \\ \quad 1 & \mathrm{otherwise} \end{cases}
+\mathit{a}_z(q)=\begin{cases}\left( \dfrac{q}{1-q}\right)^{z+1} & q\in [0,\dfrac{1}{2}] \quad \mathrm{and} \quad z=0,1,2\dots \\ \quad 1 & \mathrm{otherwise} \end{cases}
 \end{equation}
 
-For example, to find the probability of a double spend attack after $n$ confirmations the attacker needs to catchup from a deficit of $n-(m+1)$ where the extra block is the block where the double spend occurs. 
+For example, to find the probability of a {\bf double spend attack} on a transaction included in the block $\mathit{B}}_L$ in the main block-chain after receiving $n$ confirmations, the attacker needs to catchup from a deficit of $n-(m+1)$. The extra block $m+\mathbf{1}$ is the block where the amount spent in $\mathit{B}_{L}$ was spent again (or resent to the attacker) thus constituting a $\mathit{doublespend}$ attack. This block is denoted with an asterisk $\mathit{B}}_{L}^{*}$ in \ref{dsfigure}:
 
-\begin{eqnarray}\label{blockwithholdingchain}
- \dots \rightarrow \mathit{B}_{L-1}\rightarrow &\mathit{B}_{L:\; \mathrm{Spend}}\rightarrow\overbrace{\mathit{B}_{L+1}
-\rightarrow\dots\rightarrow\mathit{B}_{L+n}}^{n \; \mathrm{confirmations}} \qquad\qquad\qquad\qquad\qquad \mathrm{Main}\\\nonumber
+\begin{eqnarray}\label{dsfigure}
+ \dots \rightarrow \mathit{B}_{L-1}\rightarrow &\overbrace{\mathit{B}_{L}\rightarrow\mathit{B}_{L+1}
+\rightarrow\dots\rightarrow\mathit{B}_{L+n-1}}^{n \; \mathrm{confirmations}} \qquad\qquad\qquad\qquad\qquad \mathrm{Main}\\\nonumber
 \searrow & \\\nonumber
-\qquad \qquad \qquad & \underbrace{\widetilde{\mathit{B}}_{L:\,\mathrm{Double}\;\mathrm{Spend}}\rightarrow\widetilde{\mathit{B}}_{L+1}
-\longrightarrow \quad \dots \longrightarrow\widetilde{\mathit{B}}_{L+m}}_{(m+1)\; \mathrm{ blocks}}\qquad \mathrm{Double}\;\mathrm{Spend}
+\qquad \qquad \qquad & \underbrace{\widetilde{\mathit{B}}_{L}^{*}\rightarrow\widetilde{\mathit{B}}_{L+1}
+\longrightarrow \quad \dots \longrightarrow\widetilde{\mathit{B}}_{L+m}}_{(m+1)\; \mathrm{ blocks}}\qquad\qquad\qquad\qquad \mathrm{Secret}
 \end{eqnarray}
 
 This attack was first analyzed in \cite{Bitcoin}\footnote{Approximated as a Poisson process.}, treated more accurately in \cite{Doublespend} and was shown to be 
-\begin{equation}
+\begin{equation}\label{eqn:ds}
 D_n(p)=\sum_{m=0}^{\infty}P_{n,p}(m)\mathit{a}_{n-(m+1)}(p)
 \end{equation}
 
 \section{Probability of success}
 
-In this paper, as explained in \ref{subsec:goal}, we are interested in a different quantity.
+As explained in \ref{subsec:goal}, our focus here is a little different. Let $\mathit{Q}(q)$  be the probability that the attackers succeed in mining a secret branch on top of $\mathit{B}_L$ that is longer than the main branch, which allows them to publish it and replace $\mathit{B}_{L+1}$, and all the blocks honestly mined on top of it. Alternatively, $1-\mathit{Q}(q)$ is the probability that $\mathit{B}_{L+1}$ remains in the block-chain despite an attempt of a block-withholding attacker building a secret branch on top of $\mathit{B}_L$.
 
-Let $\mathit{Q}(p)$  be the probability that the attackers succeed in decapitating the blockchain on top of $\mathit{B}_L$. This event occurs if the attackers manage to catch-up on $B_{L+1}$ after starting with $m=0,1,\dots$ blocks\footnote{Note that we do not need to multiply this by the probability $p$ that the honest miners mine the next block. This fact is implicit in the probability distribution \ref{eq:pnm} calculated under the assumption that the $n^{th}$ block is mined by the honest miners.}.
+A successful block-withholding attack on $\mathit{B}_L$ occurs if the attackers manage to catch-up on $B_{L+1}$ after starting with $m=0,1,\dots$ blocks. The starting point for the catch-up process for some $m$ is shown below:
 
-Formally 
+\begin{eqnarray}\label{blockwithholdingboundary}
+ \dots \rightarrow \mathit{B}_L\rightarrow &\mathit{B}_{L+1} \qquad\qquad\qquad\qquad\qquad\qquad\qquad\quad \mathrm{Main}\\\nonumber
+\searrow & \\\nonumber
+\qquad \qquad \qquad & \widetilde{\mathit{B}}_{L+1}\rightarrow\widetilde{\mathit{B}}_{L+2}
+\longrightarrow \quad \dots \longrightarrow\widetilde{\mathit{B}}_{L+m}\qquad \mathrm{Secret}
+\end{eqnarray}
+
+There are two differences from a double-spend attack \ref{eqn:ds}. One is that we are not requiring a particular number of confirmations to occur before the secret branch is published. Secondly, there is no double spend required so we don't have to insist that the attacker started the catch-up (with probability of success captured in equation \ref{eq:az}) after mining at least one block where the double spend occurred. 
+
+For example, the $m=0$ catch-up starting point in the case of double-spend is:
+
+\begin{eqnarray}\label{miszerodoublespendboundary}
+ \dots \rightarrow \mathit{B}_L\rightarrow &\mathit{B}_{L+1} \qquad\qquad\qquad\qquad\qquad\qquad\qquad\quad \mathrm{Main}\\\nonumber
+\searrow & \\\nonumber
+\qquad \qquad \qquad & \widetilde{\mathit{B}}_{L+1}^*\qquad\qquad\qquad\qquad\qquad\qquad\qquad\quad \mathrm{Secret}
+\end{eqnarray}
+
+while in the block-withholding attack it is:
+
+\begin{eqnarray}\label{miszeroblockwithholdingboundary}
+ \dots \rightarrow \mathit{B}_L\rightarrow &\mathit{B}_{L+1} \qquad\qquad\qquad\qquad\qquad\qquad\qquad\quad \mathrm{Main}\\\nonumber
+\searrow & \\\nonumber
+&\mathit{no\; blocks} \qquad\qquad\qquad\qquad\qquad\qquad\qquad \mathrm{Secret}
+\end{eqnarray}
+
+Apart from that, the math is very similar. Formally 
 
 \begin{equation}\label{eq:rnpdef}
-\mathit{Q}(p)=\sum_{m=0}^{\infty}\mathit{P}_{1,p}(m)\mathit{a}_{1-m}(p)
+\mathit{Q}(q)=\sum_{m=0}^{\infty}\mathit{P}_{1,q}(m)\mathit{a}_{1-m}(q)
 \end{equation}
 
 which results to (see details in appendix \ref{app:calcqofp})
 
 \begin{equation}\label{eq:qofp}
-\mathit{Q}(p)=
+\mathit{Q}(q)=
 \begin{cases}
 \dfrac{q^2}{1-q}\left(
 3-2q
@@ -142,7 +169,7 @@ In Figure ~\ref{fig:PlotProbOfSuccess} we plot the probability of a successful a
 
 \begin{figure}[pos]
 \centering
-\includegraphics[width=150mm]{blocksurvival.png}
+\includegraphics[width=150mm]{Blockwithholdingattack.png}
 \caption{The orange curve plots the probability that the attackers manage to uproot the next honest block and replace it with one of their own. The blue curve is the baseline probability for an honest miner with the same hashing power $q$}
 \label{fig:PlotProbOfSuccess}
 \end{figure}
@@ -186,11 +213,8 @@ We note a few things.
 \item In the range $q\in[0,\dfrac{1}{2}]$ $R(p)$ is identical to $Q(p)$.
   \item As expected the reward of the attackers exceeds the honest reward at the same point where the probability of success exceeds the honest benchmark. i.e. when $q>1-\dfrac{1}{\sqrt{2}} \sim 0.293$
   \item As $q\rightarrow 1$ the reward of the attackers diverges, because he basically controls the blockchain and can plant as many blocks as he desires.
-  \item This may be a little hard to see in Figure ~\ref{fig:AttackersReward} but The function $R(p)$ is continuous but not continuously differentiable. At the point $q=\dfrac{1}{2}$ the derivative jumps from $4$ to $5$ (see appendix \ref{app:derivative} for details).
+  \item This may be a little hard to see in Figure ~\ref{fig:AttackersReward} but The function $R(p)$ is continuous but not continuously differentiable. At the point $q=\dfrac{1}{2}$ the derivative jumps from $4$ to $5$.
 \end{itemize}
-
-
-
 
 
 \appendix
