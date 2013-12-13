@@ -211,12 +211,26 @@ resulting in (see details in appendix \ref{app:calctofp})
 \end{cases}
 \end{equation}
 
-Now the attacker, joined by $\gamma$ of the honest are competing with the rest of the honest miners. The probability to win starting from a tie is exactly $a_0(q_{eff})=\dfrac{q_{eff}}{1-q_{eff}}$, where $q_{eff}=q+\gamma p=q+\gamma(1-q)$.
+Now the attacker, joined by $\gamma$ of the honest are competing with the rest of the honest miners. The probability to win starting from a tie is exactly given by \ref{eq:az}
+
+\begin{equation}\label{eq:azeroeff}
+\mathit{a}_0(q_{eff})=\begin{cases} \dfrac{q_{eff}}{1-q_{eff}} & q_{eff}\in [0,\dfrac{1}{2}] \\  
+\quad 1 & q_{eff}\in [\dfrac{1}{2},1] \\ \end{cases}
+\end{equation}
+
+where 
+\begin{equation}\label{qeff}
+q_{eff}=q+\gamma p=q+\gamma(1-q)
+\end{equation}
 
 We conclude that 
 
 \begin{equation}
-S_\gamma(q)=T(q)\cdot a_0(q_{eff})=2q\cdot\dfrac{q+\gamma(1-q)}{1-(q+\gamma(1-q))}=2q\cdot\dfrac{q(1-\gamma)+\gamma}{(1-q)(1-\gamma)}
+S_\gamma(q)=T(q)\cdot a_0(q_{eff})=
+\begin{cases}
+2q\cdot\dfrac{q(1-\gamma)+\gamma}{(1-q)(1-\gamma)} & q_{eff}\in [0,\dfrac{1}{2}] \\ 
+2q & q_{eff}\in [\dfrac{1}{2},1] \\ 
+\end{cases}
 \end{equation}
 
 
