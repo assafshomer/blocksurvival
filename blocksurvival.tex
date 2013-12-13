@@ -100,7 +100,7 @@ The relation can be solved with boundary conditions\footnote{Note that the condi
 \mathit{a}_z(q)=\begin{cases}\left( \dfrac{q}{1-q}\right)^{z+1} & q\in [0,\dfrac{1}{2}] \quad \mathrm{and} \quad z=0,1,2\dots \\ \quad 1 & \mathrm{otherwise} \end{cases}
 \end{equation}
 
-For example, to find the probability of a {\bf double spend attack} on a transaction included in the block $\mathit{B}}_L$ in the main block-chain after receiving $n$ confirmations, the attacker needs to catchup from a deficit of $n-(m+1)$. The extra block $m+\mathbf{1}$ is the block where the amount spent in $\mathit{B}_{L}$ was spent again (or resent to the attacker) thus constituting a $\mathit{doublespend}$ attack. This block is denoted with an asterisk $\mathit{B}}_{L}^{*}$ in \ref{dsfigure}:
+For example, to find the probability of a {\bf double-spend attack} on a transaction included in a block $\mathit{B}}_L$ with $n$ confirmations, the attacker needs to catchup from a deficit of $n-(m+1)$. The extra block $m+\mathbf{1}$ is the block where the amount spent in $\mathit{B}_{L}$ was spent again (or resent to the attacker) thus constituting a double-spend attack. This block is denoted with an asterisk $\mathit{B}}_{L}^{*}$ in \ref{dsfigure}:
 
 \begin{eqnarray}\label{dsfigure}
  \dots \rightarrow \mathit{B}_{L-1}\rightarrow &\overbrace{\mathit{B}_{L}\rightarrow\mathit{B}_{L+1}
@@ -115,7 +115,7 @@ This attack was first analyzed in \cite{Bitcoin}\footnote{Approximated as a Pois
 D_n(p)=\sum_{m=0}^{\infty}P_{n,p}(m)\mathit{a}_{n-(m+1)}(p)
 \end{equation}
 
-\section{Probability of success}
+\section{Probability of success}\label{probabilityofsuccess}
 
 As explained in \ref{subsec:goal}, our focus here is a little different. Let $\mathit{Q}(q)$  be the probability that the attackers succeed in mining a secret branch on top of $\mathit{B}_L$ that is longer than the main branch, which allows them to publish it and replace $\mathit{B}_{L+1}$, and all the blocks honestly mined on top of it. Alternatively, $1-\mathit{Q}(q)$ is the probability that $\mathit{B}_{L+1}$ remains in the block-chain despite an attempt of a block-withholding attacker building a secret branch on top of $\mathit{B}_L$.
 
@@ -128,9 +128,12 @@ A successful block-withholding attack on $\mathit{B}_L$ occurs if the attackers 
 \longrightarrow \quad \dots \longrightarrow\widetilde{\mathit{B}}_{L+m}\qquad \mathrm{Secret}
 \end{eqnarray}
 
-There are two differences from a double-spend attack \ref{eqn:ds}. One is that we are not requiring a particular number of confirmations to occur before the secret branch is published. Secondly, there is no double spend required so we don't have to insist that the attacker started the catch-up (with probability of success captured in equation \ref{eq:az}) after mining at least one block where the double spend occurred. 
+There are two differences from a double-spend attack described above. One is that we are not requiring a particular number of blocks mined on top of $\mathit{B}_L$ before the secret branch is published. Secondly, we don't require the attacker started the catch-up (with probability of success captured in equation \ref{eq:az}) after mining at least one block. 
 
-For example, the $m=0$ catch-up starting point in the case of double-spend is:
+
+\begin{comment}
+-------------------------------------
+For example, the $m=0$ catch-up starting point in the case of double-spend with a single confirmation is:
 
 \begin{eqnarray}\label{miszerodoublespendboundary}
  \dots \rightarrow \mathit{B}_L\rightarrow &\mathit{B}_{L+1} \qquad\qquad\qquad\qquad\qquad\qquad\qquad\quad \mathrm{Main}\\\nonumber
@@ -145,10 +148,14 @@ while in the block-withholding attack it is:
 \searrow & \\\nonumber
 &\mathit{no\; blocks} \qquad\qquad\qquad\qquad\qquad\qquad\qquad \mathrm{Secret}
 \end{eqnarray}
+--------------------------------
+\end{comment}
+
+
 
 Apart from that, the math is very similar. Formally 
 
-\begin{equation}\label{eq:rnpdef}
+\begin{equation}\label{eq:qofpdef}
 \mathit{Q}(q)=\sum_{m=0}^{\infty}\mathit{P}_{1,q}(m)\mathit{a}_{1-m}(q)
 \end{equation}
 
@@ -175,6 +182,44 @@ In Figure ~\ref{fig:PlotProbOfSuccess} we plot the probability of a successful a
 \end{figure}
 
 We see that an attacker improves his chances in the range $q>1-\dfrac{1}{\sqrt{2}} \sim 0.293$
+
+\section{A different strategy}
+In fact, the attackers have another interesting option due to the way bitcoin mining was designed. Instead of publishing the secret branch when it is longer than the main branch, they can choose to publish it one step before when the length of the secret branch is the same as the length of the main branch, i.e. when they reach a tie. The reason this is potentially beneficial is that due to latency effects in the bitcoin network (recently discussed in \cite{zoharetal}) not all miners share the same view of the entire block-tree at all moments. All honest miners shift their efforts to the longest branch they know of, but for some short period of time different parts of the network may be aware of different, and equally valid, longest branches. In such a case, each sub-network continues mining it's branch until the next block is mined by either one of them and a new block-chain is established\footnote{In principle this type of block-chain bifurcation can continue to span multiple blocks, with exponentially decreasing probability.}. 
+
+Assume that a fraction $\gamma \in [0,1]$ of the honest miners accept the attackers branch and start mining on top of it. This means that $q+\gamma p=q(1-\gamma)+\gamma$ of the total hashing power is now dedicated to making the attackers branch the longest. With some probability the attacker's branch ends up as the winner. Let us denote the probability that this type of tie strategy succeeds by $S_{\gamma}(q)$.
+We can calculate $S_{\gamma}(q)$ starting the same way as we did when we derived \ref{eq:qofp} but use a Markov chain with boundary condition reflecting a tie instead of wining, and multiply that by the probability of an attacker with hashing power $q+\gamma p$ wining the race starting from that point.
+
+Formally, we want to solve \ref{eq:markov} with boundary conditions $b_0=1, b_\infty=0$ which is solved by:
+
+\begin{equation}\label{eq:bz}
+\mathit{b}_z(q)=\begin{cases}\left( \dfrac{q}{1-q}\right)^z & q\in [0,\dfrac{1}{2}] \quad \mathrm{and} \quad z=0,1,2\dots \\ \quad 1 & \mathrm{otherwise} \end{cases}
+\end{equation}
+
+Using the same logic used to derive \ref{eq:qofpdef} we get the probability for a tie
+
+\begin{equation}\label{eq:qofpdef}
+\mathit{T}(q)= \sum_{m=0}^{\infty}\mathit{P}_{1,q}(m)\mathit{b}_{1-m}(q)
+\end{equation}
+
+resulting in (see details in appendix \ref{app:calctofp})
+
+\begin{equation}\label{eq:qofp}
+\mathit{T}(q)=
+\begin{cases}
+2q & \quad q \in [0,\dfrac{1}{2}] \\
+1 & \quad q \in [\dfrac{1}{2},1] 
+\end{cases}
+\end{equation}
+
+Now the attacker, joined by $\gamma$ of the honest are competing with the rest of the honest miners. The probability to win starting from a tie is exactly $a_0(q_{eff})=\dfrac{q_{eff}}{1-q_{eff}}$, where $q_{eff}=q+\gamma p=q+\gamma(1-q)$.
+
+We conclude that 
+
+\begin{equation}
+S_\gamma(q)=T(q)\cdot a_0(q_{eff})=2q\cdot\dfrac{q+\gamma(1-q)}{1-(q+\gamma(1-q))}=2q\cdot\dfrac{q(1-\gamma)+\gamma}{(1-q)(1-\gamma)}
+\end{equation}
+
+
 \newpage
 \section{Attacker's reward}
 Next we calculate the expected reward of a block-withholding attacker.
@@ -229,14 +274,14 @@ It is now straightforward to show that \ref{eq:pnm} is indeed a probability dist
 
 \sum_{m=0}^{\infty}\mathit{P}(n,m,p)=p^n\sum_{m=0}^{\infty}{n + m -1\choose m}q^m=p^n\dfrac{1}{(1-q)^n}=1
 
-\section{Calculating $\mathit{Q}(p)$ } \label{app:calcqofp} 
+\section{Calculating $\mathit{Q}(q)$ } \label{app:calcqofp} 
 
-$\mathit{Q}(p)$  can be solved in the two regions for the parameter $q$ given in \ref{eq:az}.
+$\mathit{Q}(q)$  can be solved in the two regions for the parameter $q$ given in \ref{eq:az}.
 
 In the case  that $q\in [0,\dfrac{1}{2}]$
 
 \begin{eqnarray}\label{eq:rpcalc}\nonumber
-&\mathit{Q}(p)=p\sum_{m=0}^{\infty}q^m\mathit{a}_{1-m}(p)=p\left(
+&\mathit{Q}(q)=\sum_{m=0}^{\infty}\mathit{P}_{1,q}(m)\mathit{a}_{1-m}(q)=p\sum_{m=0}^{\infty}q^m\mathit{a}_{1-m}(p)=p\left(
 \mathit{a}_1(p)+q\mathit{a}_0(p)+\sum_{m=2}^{\infty}q^m
  \right)=\\\nonumber
  &p\left(
@@ -265,7 +310,7 @@ q^2(2-q)+1-q-(1-q)^2(1+q)
 In the case  that $q\notin [0,\dfrac{1}{2}]$
 
 \begin{eqnarray}\nonumber
-&\mathit{Q}(p)=p\sum_{m=0}^{\infty}q^m\mathit{a}_{1-m}(p)=p\left(
+&\mathit{Q}(q)=p\sum_{m=0}^{\infty}q^m\mathit{a}_{1-m}(p)=p\left(
 \mathit{a}_1(p)+q\mathit{a}_0(p)+\sum_{m=2}^{\infty}q^m
  \right)=\\\nonumber
  &p
@@ -273,6 +318,26 @@ In the case  that $q\notin [0,\dfrac{1}{2}]$
  \right) 
  =p\dfrac{1}{p}=1
 \end{eqnarray}
+
+\section{Calculating $\mathit{T}(q)$ } \label{app:calctofp} 
+
+$\mathit{T}(q)$  can be solved in the two regions for the parameter $q$ given in \ref{eq:az}.
+
+In the case  that $q\in [0,\dfrac{1}{2}]$
+
+\begin{eqnarray}\label{eq:rpcalc}\nonumber
+&\mathit{Q}(q)=\sum_{m=0}^{\infty}\mathit{P}_{1,q}(m)\mathit{b}_{1-m}(q)=p\sum_{m=0}^{\infty}q^m\mathit{b}_{1-m}(p)=p\left(
+\mathit{b}_1(q)+\sum_{m=1}^{\infty}q^m
+ \right)=\\\nonumber
+ &p\left(
+\dfrac{q}{p}+\left(\sum_{m=0}^{\infty}q^m\right)-1
+ \right) 
+ =p\left(
+\dfrac{q}{p}+\dfrac{1}{1-q}-1
+ \right)=q+1-p=2q\\\nonumber
+\end{eqnarray}
+
+and the case $q\notin [0,\dfrac{1}{2}]$ is identical to $\mathit{Q}(q)$
 
 \section{Calculating $\mathit{R}(p)$ } \label{app:calcrofp}  
 
