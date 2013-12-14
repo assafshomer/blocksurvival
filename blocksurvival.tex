@@ -171,7 +171,6 @@ which results to (see details in appendix \ref{app:calcqofp})
 \end{cases}
 \end{equation}
 
-
 In Figure ~\ref{fig:PlotProbOfSuccess} we plot the probability of a successful attack as a function of the relative hashing power $q$ against the probability of the attacker being honest, in which case his probability of success is just $q$
 
 \begin{figure}[pos]
@@ -181,10 +180,11 @@ In Figure ~\ref{fig:PlotProbOfSuccess} we plot the probability of a successful a
 \label{fig:PlotProbOfSuccess}
 \end{figure}
 
-We see that an attacker improves his chances in the range $q>1-\dfrac{1}{\sqrt{2}} \sim 0.293$
+We see that an attacker improves his chances in the range $q>1-\frac{1}{\sqrt{2}} \sim 0.293$
+\newpage
 
 \section{A different strategy}
-In fact, the attackers have another interesting option due to the way bitcoin mining was designed. Instead of publishing the secret branch when it is longer than the main branch, they can choose to publish it one step before when the length of the secret branch is the same as the length of the main branch, i.e. when they reach a tie. The reason this is potentially beneficial is that due to latency effects in the bitcoin network (recently discussed in \cite{zoharetal}) not all miners share the same view of the entire block-tree at all moments. All honest miners shift their efforts to the longest branch they know of, but for some short period of time different parts of the network may be aware of different, and equally valid, longest branches. In such a case, each sub-network continues mining it's branch until the next block is mined by either one of them and a new block-chain is established\footnote{In principle this type of block-chain bifurcation can continue to span multiple blocks, with exponentially decreasing probability.}. 
+In fact, the attackers have another interesting option. Instead of publishing the secret branch when it is longer than the main branch, they can choose to publish it one step before when the length of the secret branch is the same as the length of the main branch, i.e. when they reach a tie. The reason this is potentially beneficial is that due to latency effects in the bitcoin network (recently discussed in \cite{zoharetal}) not all miners share the same view of the entire block-tree at all moments. All honest miners shift their efforts to the longest branch they know of, but for some short period of time different parts of the network may be aware of different, and equally valid, longest branches. In such a case, each sub-network continues mining it's branch until the next block is mined by either one of them and a new block-chain is established\footnote{In principle this type of block-chain bifurcation can continue to span multiple blocks, with exponentially decreasing probability.}. 
 
 Assume that a fraction $\gamma \in [0,1]$ of the honest miners accept the attackers branch and start mining on top of it. This means that $q+\gamma p=q(1-\gamma)+\gamma$ of the total hashing power is now dedicated to making the attackers branch the longest. With some probability the attacker's branch ends up as the winner. Let us denote the probability that this type of tie strategy succeeds by $S_{\gamma}(q)$.
 We can calculate $S_{\gamma}(q)$ starting the same way as we did when we derived \ref{eq:qofp} but use a Markov chain with boundary condition reflecting a tie instead of wining, and multiply that by the probability of an attacker with hashing power $q+\gamma p$ wining the race starting from that point.
@@ -211,7 +211,7 @@ resulting in (see details in appendix \ref{app:calctofp})
 \end{cases}
 \end{equation}
 
-Now the attacker, joined by $\gamma$ of the honest are competing with the rest of the honest miners. The probability to win starting from a tie is exactly given by \ref{eq:az}
+Now the attacker, joined by $\gamma$ of the honest miners are competing with the rest of the honest miners. The probability to win starting from a tie is thus given by \ref{eq:az}
 
 \begin{equation}\label{eq:azeroeff}
 \mathit{a}_0(q_{eff})=\begin{cases} \dfrac{q_{eff}}{1-q_{eff}} & q_{eff}\in [0,\dfrac{1}{2}] \\  
@@ -223,15 +223,53 @@ where
 q_{eff}=q+\gamma p=q+\gamma(1-q)
 \end{equation}
 
-We conclude that 
+Solving the condition $q_{eff}\in [0,\frac{1}{2}]$ for $q$ we see that $0\leq q\leq q_{c}(\gamma)$ where
 
-\begin{equation}
-S_\gamma(q)=T(q)\cdot a_0(q_{eff})=
+\begin{equation}\label{qcrit}
+q_{c}(\gamma)=\dfrac{1-2\gamma}{2-2\gamma}
+\end{equation}
+
+Looking at the structure of this function (depicted in figure \ref{fig:qcritical}) we see that it takes values in $[0,\frac{1}{2}]$, monotonically decreasing with $\gamma$ and hitting $0$ when $\gamma=\frac{1}{2}$ where $q_{eff}=\frac{1}{2}(1+q)>\frac{1}{2}$. Therefore:
+
+\begin{equation}\label{qcritorder}
+0\leq q \leq   q_{c}(\gamma) \leq\dfrac{1}{2}
+\end{equation}
+
+
+\begin{figure}[qcrit]
+\centering
+\includegraphics[width=100mm]{qcritical.png}
+\caption{The value of $q_c$ as a function of $\gamma$.}
+\label{fig:qcritical}
+\end{figure}
+
+Based on \ref{qeff} and \ref{qcritorder} the solution to $S_\gamma(q)=T(q)\cdot a_0(q_{eff})$ breaks into three regimes for $q$.
+
+\begin{equation}\label{sofq}
+S_\gamma(q)=\underbrace{T(q)}_{reach\; a\; tie}\cdot \underbrace{a_0(q_{eff})}_{win\;given\;a\;tie}=
 \begin{cases}
-2q\cdot\dfrac{q(1-\gamma)+\gamma}{(1-q)(1-\gamma)} & q_{eff}\in [0,\dfrac{1}{2}] \\ 
-2q & q_{eff}\in [\dfrac{1}{2},1] \\ 
+2q\cdot\dfrac{q_{eff}}{1-q_{eff}}=2q\cdot\dfrac{q(1-\gamma)+\gamma}{(1-q)(1-\gamma)} & q\in [0,\dfrac{1-2\gamma}{2-2\gamma}] \\ 
+2q & q\in [\dfrac{1-2\gamma}{2-2\gamma},\dfrac{1}{2}] \\ 
+1 & q\in [\dfrac{1}{2},1] \\ 
 \end{cases}
 \end{equation}
+
+Note that if $\gamma\geq\frac{1}{2}$ the first regime does not exist and the solution degenerates to:
+
+\begin{equation}\label{sofq2}
+S_{\gamma(q)\geq\frac{1}{2}}=T(q)\cdot a_0(q_{eff})=
+\begin{cases}
+2q & q\in [0,\dfrac{1}{2}] \\ 
+1 & q\in [\dfrac{1}{2},1] \\ 
+\end{cases}
+\end{equation}
+
+\begin{figure}[blockwithholdingtype2]
+\centering
+\includegraphics[width=100mm]{blockwithholdingtype2.png}
+\caption{The probability of success of a type II block withholding attack as a function of $\gamma$. The blue curve plots the honest probability of success, and the orange curve plots the type I attack.}
+\label{fig:qcritical}
+\end{figure}
 
 
 \newpage

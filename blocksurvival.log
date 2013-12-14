@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2013.11.18)  14 DEC 2013 01:10
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2013.11.18)  14 DEC 2013 23:20
 entering extended mode
  %&-line parsing enabled.
 **blocksurvival.tex
@@ -621,6 +621,9 @@ LaTeX Warning: Label `eq:qofpdef' multiply defined.
 LaTeX Warning: Label `eq:qofp' multiply defined.
 
 
+LaTeX Warning: Label `fig:qcritical' multiply defined.
+
+
 LaTeX Warning: Label `eq:rpcalc' multiply defined.
 
 
@@ -773,29 +776,37 @@ deleted material, e.g., by typing `I$}'.
 [2] [3] <Images/Blockwithholdingattack.png, id=155, 688.5725pt x 560.0925pt>
 File: Images/Blockwithholdingattack.png Graphic file (type png)
 
-<use Images/Blockwithholdingattack.png>
+<use Images/Blockwithholdingattack.png> [4] [5 <./Images/Blockwithholdingattack
+.png (PNG copy)>]
 
-LaTeX Warning: Citation `zoharetal' on page 4 undefined on input line 187.
+LaTeX Warning: Citation `zoharetal' on page 6 undefined on input line 187.
 
-[4] [5 <./Images/Blockwithholdingattack.png (PNG copy)>] [6]
-<Images/AttackersReward.png, id=186, 658.46pt x 573.14125pt>
+[6] <Images/qcritical.png, id=182, 666.49pt x 560.0925pt>
+File: Images/qcritical.png Graphic file (type png)
+
+<use Images/qcritical.png> [7 <./Images/qcritical.png (PNG copy)>]
+<Images/blockwithholdingtype2.png, id=195, 644.4075pt x 557.08125pt>
+File: Images/blockwithholdingtype2.png Graphic file (type png)
+
+<use Images/blockwithholdingtype2.png> [8 <./Images/blockwithholdingtype2.png (
+PNG copy)>] <Images/AttackersReward.png, id=205, 658.46pt x 573.14125pt>
 File: Images/AttackersReward.png Graphic file (type png)
 
 <use Images/AttackersReward.png>
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 272.
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 310.
 
 
 (/usr/share/texmf-texlive/tex/latex/base/omscmr.fd
 File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 272.
- [7] [8 <./Images/AttackersReward.png (PNG copy)>]
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 310.
+ [9] [10 <./Images/AttackersReward.png (PNG copy)>]
 Appendix A.
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.285 \dfrac{1}{(1-s)^n}
+l.323 \dfrac{1}{(1-s)^n}
                         =\sum_{k=0}^{\infty} {n + k -1\choose k}s^k.
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
@@ -803,7 +814,7 @@ you left one out. Proceed, with fingers crossed.
 ! Extra }, or forgotten $.
 \@genfrac ...egingroup #4\endgroup #2#3\relax #5}}
                                                   
-l.285 \dfrac{1}{(1-s)^n}
+l.323 \dfrac{1}{(1-s)^n}
                         =\sum_{k=0}^{\infty} {n + k -1\choose k}s^k.
 I've deleted a group-closing symbol because it seems to be
 spurious, as in `$x}$'. But perhaps the } is legitimate and
@@ -814,7 +825,7 @@ deleted material, e.g., by typing `I$}'.
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.286 
+l.324 
       
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
@@ -822,7 +833,7 @@ you left one out. Proceed, with fingers crossed.
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.289 \sum
+l.327 \sum
           _{m=0}^{\infty}\mathit{P}(n,m,p)=p^n\sum_{m=0}^{\infty}{n + m -1\c...
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
@@ -830,57 +841,57 @@ you left one out. Proceed, with fingers crossed.
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.290 
+l.328 
       
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 291.
+(hyperref)                removing `math shift' on input line 329.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 291.
+(hyperref)                removing `math shift' on input line 329.
 
-[9
+[11
 
 ]
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 336.
+(hyperref)                removing `math shift' on input line 374.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 336.
+(hyperref)                removing `math shift' on input line 374.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 356.
+(hyperref)                removing `math shift' on input line 394.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 356.
+(hyperref)                removing `math shift' on input line 394.
 
-[10pdfTeX warning (ext4): destination with the same identifier (name{equation.A
+[12pdfTeX warning (ext4): destination with the same identifier (name{equation.A
 .2.1}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.390 \newpage
+l.428 \newpage
               pdfTeX warning (ext4): destination with the same identifier (name
 {equation.A.4.1}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.390 \newpage
+l.428 \newpage
               ] (./blocksurvival.bbl
 Underfull \hbox (badness 10000) in paragraph at lines 13--16
 []\OT1/cmr/m/n/12 Meni Rosen-feld.  Anal-y-sis of hashrate-based double-spendin
 g.
  []
 
-) [11
+) [13
 
 ] (./blocksurvival.aux)
 
@@ -892,16 +903,16 @@ LaTeX Warning: There were multiply-defined labels.
  )
 (\end occurred inside a group at level 1)
 
-### simple group (level 1) entered at line 285 ({)
+### simple group (level 1) entered at line 323 ({)
 ### bottom level 
 Here is how much of TeX's memory you used:
- 15836 strings out of 493848
- 265398 string characters out of 1152822
- 366411 words of memory out of 3000000
- 18707 multiletter control sequences out of 15000+50000
+ 15858 strings out of 493848
+ 265808 string characters out of 1152822
+ 366840 words of memory out of 3000000
+ 18720 multiletter control sequences out of 15000+50000
  20338 words of font info for 78 fonts, out of 3000000 for 9000
  714 hyphenation exceptions out of 8191
- 56i,17n,55p,1081b,357s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 56i,17n,55p,1038b,357s stack positions out of 5000i,500n,10000p,200000b,50000s
 </usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmbx12
 .pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/
 share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texmf
@@ -910,16 +921,17 @@ nts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texmf-texlive/fonts/type1/pu
 blic/amsfonts/cm/cmmi8.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfont
 s/cm/cmr10.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmr12.p
 fb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/sha
-re/texmf-texlive/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texmf-texl
-ive/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texmf-texlive/fonts/typ
-e1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf-texlive/fonts/type1/public/a
-msfonts/cm/cmsy7.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/c
-msy8.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmti10.pfb></
-usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/share/t
-exmf-texlive/fonts/type1/public/amsfonts/cm/cmti8.pfb>
-Output written on blocksurvival.pdf (14 pages, 301513 bytes).
+re/texmf-texlive/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texmf-texl
+ive/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texmf-texlive/fonts/typ
+e1/public/amsfonts/cm/cmr8.pfb></usr/share/texmf-texlive/fonts/type1/public/ams
+fonts/cm/cmsy10.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cm
+sy7.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmsy8.pfb></us
+r/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/tex
+mf-texlive/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/share/texmf-texlive/
+fonts/type1/public/amsfonts/cm/cmti8.pfb>
+Output written on blocksurvival.pdf (16 pages, 407923 bytes).
 PDF statistics:
- 288 PDF objects out of 1000 (max. 8388607)
- 60 named destinations out of 1000 (max. 500000)
- 151 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 312 PDF objects out of 1000 (max. 8388607)
+ 67 named destinations out of 1000 (max. 500000)
+ 161 words of extra memory for PDF output out of 10000 (max. 10000000)
 
