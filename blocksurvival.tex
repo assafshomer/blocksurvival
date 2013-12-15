@@ -115,7 +115,9 @@ This attack was first analyzed in \cite{Bitcoin}\footnote{Approximated as a Pois
 D_n(p)=\sum_{m=0}^{\infty}P_{n,p}(m)\mathit{a}_{n-(m+1)}(p)
 \end{equation}
 
-\section{Probability of success}\label{probabilityofsuccess}
+\section{Block withholding attack - Type 1}
+
+\subsection{Probability of success}\label{probabilityofsuccess}
 
 As explained in \ref{subsec:goal}, our focus here is a little different. Let $\mathit{Q}(q)$  be the probability that the attackers succeed in mining a secret branch on top of $\mathit{B}_L$ that is longer than the main branch, which allows them to publish it and replace $\mathit{B}_{L+1}$, and all the blocks honestly mined on top of it. Alternatively, $1-\mathit{Q}(q)$ is the probability that $\mathit{B}_{L+1}$ remains in the block-chain despite an attempt of a block-withholding attacker building a secret branch on top of $\mathit{B}_L$.
 
@@ -151,8 +153,6 @@ while in the block-withholding attack it is:
 --------------------------------
 \end{comment}
 
-
-
 Apart from that, the math is very similar. Formally 
 
 \begin{equation}\label{eq:qofpdef}
@@ -180,100 +180,16 @@ In Figure ~\ref{fig:PlotProbOfSuccess} we plot the probability of a successful a
 \label{fig:PlotProbOfSuccess}
 \end{figure}
 
-We see that an attacker improves his chances in the range $q>1-\frac{1}{\sqrt{2}} \sim 0.293$
-\newpage
-
-\section{A different strategy}
-In fact, the attackers have another interesting option. Instead of publishing the secret branch when it is longer than the main branch, they can choose to publish it one step before when the length of the secret branch is the same as the length of the main branch, i.e. when they reach a tie. The reason this is potentially beneficial is that due to latency effects in the bitcoin network (recently discussed in \cite{zoharetal}) not all miners share the same view of the entire block-tree at all moments. All honest miners shift their efforts to the longest branch they know of, but for some short period of time different parts of the network may be aware of different, and equally valid, longest branches. In such a case, each sub-network continues mining it's branch until the next block is mined by either one of them and a new block-chain is established\footnote{In principle this type of block-chain bifurcation can continue to span multiple blocks, with exponentially decreasing probability.}. 
-
-Assume that a fraction $\gamma \in [0,1]$ of the honest miners accept the attackers branch and start mining on top of it. This means that $q+\gamma p=q(1-\gamma)+\gamma$ of the total hashing power is now dedicated to making the attackers branch the longest. With some probability the attacker's branch ends up as the winner. Let us denote the probability that this type of tie strategy succeeds by $S_{\gamma}(q)$.
-We can calculate $S_{\gamma}(q)$ starting the same way as we did when we derived \ref{eq:qofp} but use a Markov chain with boundary condition reflecting a tie instead of wining, and multiply that by the probability of an attacker with hashing power $q+\gamma p$ wining the race starting from that point.
-
-Formally, we want to solve \ref{eq:markov} with boundary conditions $b_0=1, b_\infty=0$ which is solved by:
-
-\begin{equation}\label{eq:bz}
-\mathit{b}_z(q)=\begin{cases}\left( \dfrac{q}{1-q}\right)^z & q\in [0,\dfrac{1}{2}] \quad \mathrm{and} \quad z=0,1,2\dots \\ \quad 1 & \mathrm{otherwise} \end{cases}
+We see that an attacker improves his chances in the range $q>q_0$ where
+\begin{equation}\label{qnot}
+q_0=1-\frac{1}{\sqrt{2}} \sim 0.293
 \end{equation}
 
-Using the same logic used to derive \ref{eq:qofpdef} we get the probability for a tie
-
-\begin{equation}\label{eq:qofpdef}
-\mathit{T}(q)= \sum_{m=0}^{\infty}\mathit{P}_{1,q}(m)\mathit{b}_{1-m}(q)
-\end{equation}
-
-resulting in (see details in appendix \ref{app:calctofp})
-
-\begin{equation}\label{eq:qofp}
-\mathit{T}(q)=
-\begin{cases}
-2q & \quad q \in [0,\dfrac{1}{2}] \\
-1 & \quad q \in [\dfrac{1}{2},1] 
-\end{cases}
-\end{equation}
-
-Now the attacker, joined by $\gamma$ of the honest miners are competing with the rest of the honest miners. The probability to win starting from a tie is thus given by \ref{eq:az}
-
-\begin{equation}\label{eq:azeroeff}
-\mathit{a}_0(q_{eff})=\begin{cases} \dfrac{q_{eff}}{1-q_{eff}} & q_{eff}\in [0,\dfrac{1}{2}] \\  
-\quad 1 & q_{eff}\in [\dfrac{1}{2},1] \\ \end{cases}
-\end{equation}
-
-where 
-\begin{equation}\label{qeff}
-q_{eff}=q+\gamma p=q+\gamma(1-q)
-\end{equation}
-
-Solving the condition $q_{eff}\in [0,\frac{1}{2}]$ for $q$ we see that $0\leq q\leq q_{c}(\gamma)$ where
-
-\begin{equation}\label{qcrit}
-q_{c}(\gamma)=\dfrac{1-2\gamma}{2-2\gamma}
-\end{equation}
-
-Looking at the structure of this function (depicted in figure \ref{fig:qcritical}) we see that it takes values in $[0,\frac{1}{2}]$, monotonically decreasing with $\gamma$ and hitting $0$ when $\gamma=\frac{1}{2}$ where $q_{eff}=\frac{1}{2}(1+q)>\frac{1}{2}$. Therefore:
-
-\begin{equation}\label{qcritorder}
-0\leq q \leq   q_{c}(\gamma) \leq\dfrac{1}{2}
-\end{equation}
-
-
-\begin{figure}[qcrit]
-\centering
-\includegraphics[width=100mm]{qcritical.png}
-\caption{The value of $q_c$ as a function of $\gamma$.}
-\label{fig:qcritical}
-\end{figure}
-
-Based on \ref{qeff} and \ref{qcritorder} the solution to $S_\gamma(q)=T(q)\cdot a_0(q_{eff})$ breaks into three regimes for $q$.
-
-\begin{equation}\label{sofq}
-S_\gamma(q)=\underbrace{T(q)}_{reach\; a\; tie}\cdot \underbrace{a_0(q_{eff})}_{win\;given\;a\;tie}=
-\begin{cases}
-2q\cdot\dfrac{q_{eff}}{1-q_{eff}}=2q\cdot\dfrac{q(1-\gamma)+\gamma}{(1-q)(1-\gamma)} & q\in [0,\dfrac{1-2\gamma}{2-2\gamma}] \\ 
-2q & q\in [\dfrac{1-2\gamma}{2-2\gamma},\dfrac{1}{2}] \\ 
-1 & q\in [\dfrac{1}{2},1] \\ 
-\end{cases}
-\end{equation}
-
-Note that if $\gamma\geq\frac{1}{2}$ the first regime does not exist and the solution degenerates to:
-
-\begin{equation}\label{sofq2}
-S_{\gamma(q)\geq\frac{1}{2}}=T(q)\cdot a_0(q_{eff})=
-\begin{cases}
-2q & q\in [0,\dfrac{1}{2}] \\ 
-1 & q\in [\dfrac{1}{2},1] \\ 
-\end{cases}
-\end{equation}
-
-\begin{figure}[blockwithholdingtype2]
-\centering
-\includegraphics[width=100mm]{blockwithholdingtype2.png}
-\caption{The probability of success of a type II block withholding attack as a function of $\gamma$. The blue curve plots the honest probability of success, and the orange curve plots the type I attack.}
-\label{fig:qcritical}
-\end{figure}
 
 
 \newpage
-\section{Attacker's reward}
+
+\subsection{Attacker's reward}
 Next we calculate the expected reward of a block-withholding attacker.
 We assume for simplicity that the reward of each party is simply proportional to the number of blocks mined by that party.
 
@@ -290,8 +206,8 @@ which results to (see details in appendix \ref{app:calcrofp})
 \begin{cases}
 \dfrac{q^2}{1-q}\left(
 3-2q
-\right) & \quad q \in [0,\dfrac{1}{2}] \\
-\dfrac{q}{1-q} & \quad q \in [\dfrac{1}{2},1] 
+\right) & \quad q \in [0,\frac{1}{2}] \\
+\dfrac{q}{1-q} & \quad q \in [\frac{1}{2},1] 
 \end{cases}
 \end{equation}
 
@@ -308,10 +224,132 @@ In Figure ~\ref{fig:AttackersReward} we plot the attackers reward as a function 
 We note a few things.
 \begin{itemize}
 \item In the range $q\in[0,\dfrac{1}{2}]$ $R(p)$ is identical to $Q(p)$.
-  \item As expected the reward of the attackers exceeds the honest reward at the same point where the probability of success exceeds the honest benchmark. i.e. when $q>1-\dfrac{1}{\sqrt{2}} \sim 0.293$
-  \item As $q\rightarrow 1$ the reward of the attackers diverges, because he basically controls the blockchain and can plant as many blocks as he desires.
-  \item This may be a little hard to see in Figure ~\ref{fig:AttackersReward} but The function $R(p)$ is continuous but not continuously differentiable. At the point $q=\dfrac{1}{2}$ the derivative jumps from $4$ to $5$.
+  \item As expected the reward of the attackers exceeds the honest reward at the same point where the probability of success exceeds the honest benchmark. i.e. when $q>1-\frac{1}{\sqrt{2}} \sim 0.293$
+  \item As $q\rightarrow 1$ the reward of the attackers diverge, because they basically control the blockchain and can plant as many blocks as they desire.
+  \item This may be a little hard to see in Figure ~\ref{fig:AttackersReward} but The function $R(p)$ is continuous but not continuously differentiable. At the point $q=\frac{1}{2}$ the derivative jumps from $4$ to $5$.
 \end{itemize}
+
+\section{Block withholding attack - Type 0}
+In fact, the attackers have another interesting option. Instead of publishing the secret branch when it is longer than the main branch, they can choose to publish it one step before when the length of the secret branch is the same as the length of the main branch, i.e. when they reach a tie. The reason this is potentially beneficial is that due to latency effects in the bitcoin network (recently discussed in \cite{zoharetal}) not all miners share the same view of the entire block-tree at all moments. All honest miners shift their efforts to the longest branch they know of, but for some short period of time different parts of the network may be aware of different, and equally valid, longest branches. In such a case, each sub-network continues mining it's branch until the next block is mined by either one of them and a new block-chain is established\footnote{In principle this type of block-chain bifurcation can continue to span multiple blocks, with exponentially decreasing probability.}. 
+
+Assume that a fraction $\gamma \in [0,1]$ of the honest miners accept the attackers branch and start mining on top of it. This means that $q+\gamma p$ of the total hashing power is now dedicated to making the attackers branch the longest. With some probability the attacker's branch ends up as the winner. Let us denote the probability that this type of tie strategy succeeds by $S_{\gamma}(q)$.
+We can calculate $S_{\gamma}(q)$ starting the same way as we did when we derived \ref{eq:qofp} but use a Markov chain with boundary condition reflecting a tie instead of wining, and multiply that by the probability of an attacker with hashing power $q+\gamma p$ wining the race starting from that point.
+
+Formally, we want to solve \ref{eq:markov} with boundary conditions $b_0=1, b_\infty=0$ which is solved by:
+
+\begin{equation}\label{eq:bz}
+\mathit{b}_z(q)=\begin{cases}\left( \dfrac{q}{1-q}\right)^z & q\in [0,\frac{1}{2}] \quad \mathrm{and} \quad z=0,1,2\dots \\ \quad 1 & \mathrm{otherwise} \end{cases}
+\end{equation}
+
+Using the same logic used to derive \ref{eq:qofpdef} we get the probability for a tie
+
+\begin{equation}\label{eq:qofpdef}
+\mathit{T}(q)= \sum_{m=0}^{\infty}\mathit{P}_{1,q}(m)\mathit{b}_{1-m}(q)
+\end{equation}
+
+resulting in (see details in appendix \ref{app:calctofp})
+
+\begin{equation}\label{eq:qofp}
+\mathit{T}(q)=
+\begin{cases}
+2q & \quad q \in [0,\frac{1}{2}] \\
+1 & \quad q \in [\frac{1}{2},1] 
+\end{cases}
+\end{equation}
+
+Now the attacker, joined by $\gamma$ of the honest miners are competing with the rest of the honest miners. The probability to win starting from a tie is thus given by \ref{eq:az}
+
+\begin{equation}\label{eq:azeroeff}
+\mathit{a}_0(q_{eff})=\begin{cases} \dfrac{q_{eff}}{1-q_{eff}} & q_{eff}\in [0,\frac{1}{2}] \\  
+\quad 1 & q_{eff}\in [\frac{1}{2},1] \\ \end{cases}
+\end{equation}
+
+where 
+\begin{equation}\label{qeff}
+q_{eff}=q+\gamma p=q+\gamma(1-q)
+\end{equation}
+
+\begin{figure}[qcrit]
+\centering
+\includegraphics[width=100mm]{qcritical.png}
+\caption{The value of $q_c$ as a function of $\gamma$.}
+\label{fig:qcritical}
+\end{figure}
+
+The condition $q_{eff}\in [0,\frac{1}{2}]$ translates to $0\leq q\leq q_{c}(\gamma)$ where
+
+\begin{equation}\label{qcrit}
+q_{c}(\gamma)=\dfrac{1-2\gamma}{2-2\gamma}
+\end{equation}
+
+$q_c$ (depicted in figure \ref{fig:qcritical}) satisfies $0 \leq   q_{c}(\gamma) \leq\dfrac{1}{2}$, monotonically decreases with $\gamma$ and hits $0$ when\footnote{$q_{eff}(\frac{1}{2})=\frac{1}{2}(1+q)$ which is bigger than $\frac{1}{2}$ for any $q$.} $\gamma=\frac{1}{2}$.
+
+
+
+Based on all that, the solution to $S_\gamma(q)=T(q)\cdot a_0(q_{eff})$ breaks into three regimes:
+
+\begin{equation}\label{sofq}
+S_\gamma(q)=\underbrace{T(q)}_{reach\; a\; tie}\cdot \underbrace{a_0(q_{eff})}_{win\;given\;a\;tie}=
+\begin{cases}
+2q\cdot\frac{q_{eff}}{1-q_{eff}}=2q\cdot\frac{q(1-\gamma)+\gamma}{(1-q)(1-\gamma)} & q\in [0,\frac{1-2\gamma}{2-2\gamma}] \\ 
+2q & q\in [\frac{1-2\gamma}{2-2\gamma},\frac{1}{2}] \\ 
+1 & q\in [\frac{1}{2},1] \\ 
+\end{cases}
+\end{equation}
+
+Note that if $\gamma\geq\frac{1}{2}$ the first regime does not exist and the solution degenerates to:
+
+\begin{equation}\label{sofq2}
+S_{\gamma\geq\frac{1}{2}}(q)=T(q)\cdot a_0(q_{eff})=
+\begin{cases}
+2q & q\in [0,\dfrac{1}{2}] \\ 
+1 & q\in [\dfrac{1}{2},1] \\ 
+\end{cases} \quad = min(2q,1)
+\end{equation}
+
+In figure \ref{fig:type0pos} we plot the probability of a successful type 0 attack for various values of the parameter $\gamma$, against the benchmark honest probability of success and the type 1 attack probability of success.
+
+
+\begin{figure}[blockwithholdingtype2]
+\centering
+\includegraphics[width=150mm]{type2.png}
+\caption{The probability of success of a type II block withholding attack as a function of $\gamma$. The blue curve plots the honest probability of success, and the orange curve plots the type I attack.}
+\label{fig:type0pos}
+\end{figure}
+
+\subsection{When is a Type 0 attack beneficial}
+
+To decide if a block-withholding attack of type 0 is beneficial or not we should compare it first to the honest probability of success. First note that in the second and third regimes in \ref{sofq} (or for any $q$ if $\gamma\geq\frac{1}{2}$) the answer is obviously positive, because $0\leq q \leq min(2q,1)$. In the first regime we want to solve when
+\begin{equation}\label{type0benefitonhonestequation}
+2q\cdot\frac{q(1-\gamma)+\gamma}{(1-q)(1-\gamma)}\geq q
+\end{equation}
+
+which results in the condition $q\geq q_b$ where 
+
+\begin{equation}\label{type0benefitonhonestresult}
+q_b= \dfrac{1-3\gamma}{3-3\gamma}
+\end{equation}
+
+The value of $q_b$ where the attack starts becoming beneficial compared to the honest strategy behaves similarly to \ref{fig:qcritical} except now the scale is $1/3$.
+
+\begin{figure}[qcrit]
+\centering
+\includegraphics[width=100mm]{qbenefit.png}
+\caption{The value of $q_c$ as a function of $\gamma$.}
+\label{fig:qbenefit}
+\end{figure}
+
+We see that if $\gamma=0$ this type of attack is beneficial only when $q>\frac{1}{3}$, while if $\gamma\geq\frac{1}{3}$ then this attack is beneficial for all $q$.
+Note that this since $\frac{1}{3}>1-\frac{1}{\sqrt{2}}$, for very small $\gamma$ an attacker first reaches the regime where a type 1 attack is beneficial.
+
+More generally, we can ask how big $\gamma$ has to be so that type 0 attacks are beneficial before (i.e. lower values of $q$) type 1 attacks are. This is determined by solving:
+
+\begin{equation}\label{type0or1}
+
+\end{equation}
+
+\newpage
+
 
 
 \appendix

@@ -5,12 +5,14 @@
 \contentsline {subsection}{\numberline {1.2.2}Block withholding Miners}{1}{subsection.1.2.2}
 \contentsline {subsection}{\numberline {1.2.3}Goal}{1}{subsection.1.2.3}
 \contentsline {section}{\numberline {1.3}Setup}{2}{section.1.3}
-\contentsline {section}{\numberline {1.4}Probability of success}{3}{section.1.4}
-\contentsline {section}{\numberline {1.5}A different strategy}{6}{section.1.5}
-\contentsline {section}{\numberline {1.6}Attacker's reward}{9}{section.1.6}
-\contentsline {chapter}{\numberline {A}Calculation Details}{11}{appendix.A}
-\contentsline {section}{\numberline {A.1}Probability distribution}{11}{section.A.1}
-\contentsline {section}{\numberline {A.2}Calculating $\mathit {Q}(q)$ }{11}{section.A.2}
-\contentsline {section}{\numberline {A.3}Calculating $\mathit {T}(q)$ }{12}{section.A.3}
-\contentsline {section}{\numberline {A.4}Calculating $\mathit {R}(p)$ }{12}{section.A.4}
-\contentsline {chapter}{Bibliography}{13}{equation.A.4.1}
+\contentsline {section}{\numberline {1.4}Block withholding attack - Type 1}{3}{section.1.4}
+\contentsline {subsection}{\numberline {1.4.1}Probability of success}{3}{subsection.1.4.1}
+\contentsline {subsection}{\numberline {1.4.2}Attacker's reward}{6}{subsection.1.4.2}
+\contentsline {section}{\numberline {1.5}Block withholding attack - Type 0}{6}{section.1.5}
+\contentsline {subsection}{\numberline {1.5.1}When is a Type 0 attack beneficial}{8}{subsection.1.5.1}
+\contentsline {chapter}{\numberline {A}Calculation Details}{13}{appendix.A}
+\contentsline {section}{\numberline {A.1}Probability distribution}{13}{section.A.1}
+\contentsline {section}{\numberline {A.2}Calculating $\mathit {Q}(q)$ }{13}{section.A.2}
+\contentsline {section}{\numberline {A.3}Calculating $\mathit {T}(q)$ }{14}{section.A.3}
+\contentsline {section}{\numberline {A.4}Calculating $\mathit {R}(p)$ }{14}{section.A.4}
+\contentsline {chapter}{Bibliography}{15}{equation.A.4.1}
