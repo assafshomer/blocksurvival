@@ -1,17 +1,3 @@
-\begin{thebibliography}{1}
-
-
-
-\bibitem{Bitcoin}
-Satoshi Nakamoto.
-\newblock Bitcoin p2p virtual currency.
-\newblock http://www.bitcoin.org/.
-
-
-
-\bibitem{Doublespend}
-Meni Rosenfeld.
-\newblock Analysis of hashrate-based double-spending.
-\newblock https://bitcoil.co.il/Doublespend.pdf/.
+\begin{thebibliography}{}
 
 \end{thebibliography}

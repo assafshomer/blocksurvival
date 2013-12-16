@@ -10,9 +10,11 @@
 \contentsline {subsection}{\numberline {1.4.2}Attacker's reward}{6}{subsection.1.4.2}
 \contentsline {section}{\numberline {1.5}Block withholding attack - Type 0}{6}{section.1.5}
 \contentsline {subsection}{\numberline {1.5.1}When is a Type 0 attack beneficial}{8}{subsection.1.5.1}
-\contentsline {chapter}{\numberline {A}Calculation Details}{13}{appendix.A}
-\contentsline {section}{\numberline {A.1}Probability distribution}{13}{section.A.1}
-\contentsline {section}{\numberline {A.2}Calculating $\mathit {Q}(q)$ }{13}{section.A.2}
-\contentsline {section}{\numberline {A.3}Calculating $\mathit {T}(q)$ }{14}{section.A.3}
-\contentsline {section}{\numberline {A.4}Calculating $\mathit {R}(p)$ }{14}{section.A.4}
-\contentsline {chapter}{Bibliography}{15}{equation.A.4.1}
+\contentsline {subsubsection}{Comparing type 0 to Honest}{8}{section*.2}
+\contentsline {subsubsection}{Comparing Type 0 to Type 1}{9}{section*.3}
+\contentsline {chapter}{\numberline {A}Calculation Details}{14}{appendix.A}
+\contentsline {section}{\numberline {A.1}Probability distribution}{14}{section.A.1}
+\contentsline {section}{\numberline {A.2}Calculating $\mathit {Q}(q)$ }{14}{section.A.2}
+\contentsline {section}{\numberline {A.3}Calculating $\mathit {T}(q)$ }{15}{section.A.3}
+\contentsline {section}{\numberline {A.4}Calculating $\mathit {R}(p)$ }{15}{section.A.4}
+\contentsline {chapter}{Bibliography}{16}{equation.A.4.1}
