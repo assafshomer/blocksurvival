@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2013.11.18)  16 DEC 2013 13:38
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2013.11.18)  17 DEC 2013 11:28
 entering extended mode
  %&-line parsing enabled.
 **blocksurvival.tex
@@ -823,13 +823,26 @@ Overfull \hbox (99.3001pt too wide) in paragraph at lines 319--320
 <Images/qcqb.png, id=211, 689.57625pt x 450.68375pt>
 File: Images/qcqb.png Graphic file (type png)
  <use Images/qcqb.png>
-[8] [9] [10 <./Images/AttackersReward.png (PNG copy)>] [11 <./Images/qcritical.
-png (PNG copy)>] [12 <./Images/type0pos.pdf>] [13 <./Images/qcqb.png>]
+[8]
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 411.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\gamma' on input line 411.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 411.
+
+[9] [10] [11 <./Images/AttackersReward.png (PNG copy)>] [12 <./Images/qcritical
+.png (PNG copy)>] [13 <./Images/type0pos.pdf>] [14 <./Images/qcqb.png>]
 Appendix A.
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.421 \dfrac{1}{(1-s)^n}
+l.423 \dfrac{1}{(1-s)^n}
                         =\sum_{k=0}^{\infty} {n + k -1\choose k}s^k.
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
@@ -837,7 +850,7 @@ you left one out. Proceed, with fingers crossed.
 ! Extra }, or forgotten $.
 \@genfrac ...egingroup #4\endgroup #2#3\relax #5}}
                                                   
-l.421 \dfrac{1}{(1-s)^n}
+l.423 \dfrac{1}{(1-s)^n}
                         =\sum_{k=0}^{\infty} {n + k -1\choose k}s^k.
 I've deleted a group-closing symbol because it seems to be
 spurious, as in `$x}$'. But perhaps the } is legitimate and
@@ -848,7 +861,7 @@ deleted material, e.g., by typing `I$}'.
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.422 
+l.424 
       
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
@@ -856,7 +869,7 @@ you left one out. Proceed, with fingers crossed.
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.425 \sum
+l.427 \sum
           _{m=0}^{\infty}\mathit{P}(n,m,p)=p^n\sum_{m=0}^{\infty}{n + m -1\c...
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
@@ -864,55 +877,55 @@ you left one out. Proceed, with fingers crossed.
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.426 
+l.428 
       
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 427.
+(hyperref)                removing `math shift' on input line 429.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 427.
+(hyperref)                removing `math shift' on input line 429.
 
-[14
+[15
 
 ]
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 472.
+(hyperref)                removing `math shift' on input line 474.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 472.
+(hyperref)                removing `math shift' on input line 474.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 492.
+(hyperref)                removing `math shift' on input line 494.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 492.
+(hyperref)                removing `math shift' on input line 494.
 
-[15pdfTeX warning (ext4): destination with the same identifier (name{equation.A
+[16pdfTeX warning (ext4): destination with the same identifier (name{equation.A
 .2.1}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.526 \newpage
+l.528 \newpage
               pdfTeX warning (ext4): destination with the same identifier (name
 {equation.A.4.1}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.526 \newpage
+l.528 \newpage
               ] (./blocksurvival.bbl
 
 LaTeX Warning: Empty `thebibliography' environment on input line 3.
 
-) [16
+) [17
 
 ] (./blocksurvival.aux)
 
@@ -924,14 +937,14 @@ LaTeX Warning: There were multiply-defined labels.
  )
 (\end occurred inside a group at level 1)
 
-### simple group (level 1) entered at line 421 ({)
+### simple group (level 1) entered at line 423 ({)
 ### bottom level 
 Here is how much of TeX's memory you used:
- 15891 strings out of 493848
- 266245 string characters out of 1152822
+ 15895 strings out of 493848
+ 266294 string characters out of 1152822
  367506 words of memory out of 3000000
- 18737 multiletter control sequences out of 15000+50000
- 20338 words of font info for 78 fonts, out of 3000000 for 9000
+ 18739 multiletter control sequences out of 15000+50000
+ 20685 words of font info for 79 fonts, out of 3000000 for 9000
  714 hyphenation exceptions out of 8191
  56i,17n,55p,1038b,357s stack positions out of 5000i,500n,10000p,200000b,50000s
 </usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmbx12
@@ -951,9 +964,9 @@ r/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texm
 f-texlive/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/texmf-texlive/f
 onts/type1/public/amsfonts/cm/cmti12.pfb></usr/share/texmf-texlive/fonts/type1/
 public/amsfonts/cm/cmti8.pfb>
-Output written on blocksurvival.pdf (19 pages, 404931 bytes).
+Output written on blocksurvival.pdf (20 pages, 405663 bytes).
 PDF statistics:
- 393 PDF objects out of 1000 (max. 8388607)
- 82 named destinations out of 1000 (max. 500000)
+ 398 PDF objects out of 1000 (max. 8388607)
+ 84 named destinations out of 1000 (max. 500000)
  182 words of extra memory for PDF output out of 10000 (max. 10000000)
 
