@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2013.11.18)  18 DEC 2013 10:28
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2013.11.18)  18 DEC 2013 12:55
 entering extended mode
  %&-line parsing enabled.
 **blocksurvival.tex
@@ -623,9 +623,6 @@ LaTeX Warning: Label `eq:qofp' multiply defined.
 
 LaTeX Warning: Label `eq:rpcalc' multiply defined.
 
-
-LaTeX Warning: Label `eq:rpcalc' multiply defined.
-
 )
 \openout1 = `blocksurvival.aux'.
 
@@ -770,47 +767,52 @@ you forgot something else, as in `\hbox{$x}'. In such cases
 the way to recover is to insert both the forgotten and the
 deleted material, e.g., by typing `I$}'.
 
-[2] [3] <Images/Blockwithholdingattack.png, id=166, 688.5725pt x 560.0925pt>
+[2] [3] <Images/Blockwithholdingattack.png, id=171, 688.5725pt x 560.0925pt>
 File: Images/Blockwithholdingattack.png Graphic file (type png)
 
 <use Images/Blockwithholdingattack.png> [4] [5 <./Images/Blockwithholdingattack
-.png (PNG copy)>] [6] <Images/qcritical.png, id=197, 666.49pt x 560.0925pt>
+.png (PNG copy)>] [6] <Images/qcritical.png, id=203, 666.49pt x 560.0925pt>
 File: Images/qcritical.png Graphic file (type png)
 
 <use Images/qcritical.png>
 
 pdfTeX warning: pdflatex (file ./Images/type0pos.pdf): PDF inclusion: found PDF
  version <1.5>, but at most version <1.4> allowed
-<Images/type0pos.pdf, id=201, 794.97pt x 614.295pt>
+<Images/type0pos.pdf, id=207, 794.97pt x 614.295pt>
 File: Images/type0pos.pdf Graphic file (type pdf)
  <use Images/type0pos.pdf>
-Overfull \hbox (99.3001pt too wide) in paragraph at lines 328--329
+Overfull \hbox (99.3001pt too wide) in paragraph at lines 333--334
  [][] 
  []
 
-[7 <./Images/qcritical.png (PNG copy)>] [8 <./Images/type0pos.pdf>]
-<Images/qcqb.png, id=258, 689.57625pt x 450.68375pt>
+[7 <./Images/qcritical.png (PNG copy)>]
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 338.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\gamma' on input line 338.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 338.
+
+[8 <./Images/type0pos.pdf>]
+<Images/qcqb.png, id=264, 689.57625pt x 450.68375pt>
 File: Images/qcqb.png Graphic file (type png)
  <use Images/qcqb.png>
-[9 <./Images/qcqb.png>]
+[9 <./Images/qcqb.png>] [10]
+<Images/simpleqgammaphasespace.png, id=291, 540.51938pt x 444.15938pt>
+File: Images/simpleqgammaphasespace.png Graphic file (type png)
 
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 420.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\gamma' on input line 420.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 420.
-
-[10] [11]
+<use Images/simpleqgammaphasespace.png> [11 <./Images/simpleqgammaphasespace.pn
+g (PNG copy)>]
 Appendix A.
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.435 \dfrac{1}{(1-s)^n}
+l.455 \dfrac{1}{(1-s)^n}
                         =\sum_{k=0}^{\infty} {n + k -1\choose k}s^k.
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
@@ -818,7 +820,7 @@ you left one out. Proceed, with fingers crossed.
 ! Extra }, or forgotten $.
 \@genfrac ...egingroup #4\endgroup #2#3\relax #5}}
                                                   
-l.435 \dfrac{1}{(1-s)^n}
+l.455 \dfrac{1}{(1-s)^n}
                         =\sum_{k=0}^{\infty} {n + k -1\choose k}s^k.
 I've deleted a group-closing symbol because it seems to be
 spurious, as in `$x}$'. But perhaps the } is legitimate and
@@ -829,7 +831,7 @@ deleted material, e.g., by typing `I$}'.
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.436 
+l.456 
       
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
@@ -837,7 +839,7 @@ you left one out. Proceed, with fingers crossed.
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.439 \sum
+l.459 \sum
           _{m=0}^{\infty}\mathit{P}(n,m,p)=p^n\sum_{m=0}^{\infty}{n + m -1\c...
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
@@ -845,51 +847,68 @@ you left one out. Proceed, with fingers crossed.
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.440 
+l.460 
       
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 441.
+(hyperref)                removing `math shift' on input line 461.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 441.
+(hyperref)                removing `math shift' on input line 461.
 
 [12
 
 ]
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 486.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 486.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 (hyperref)                removing `math shift' on input line 506.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 (hyperref)                removing `math shift' on input line 506.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 565.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\gamma' on input line 565.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 565.
+
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 568.
+
+(/usr/share/texmf-texlive/tex/latex/base/omscmr.fd
+File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
+)
+LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 568.
+
+! Undefined control sequence.
+<recently read> \q 
+                   
+l.585 ...ma)<q_0$. This, means that as long as $\q
+                                                  _b(\gamma)\leq q \leq q_0$...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
 
 [13pdfTeX warning (ext4): destination with the same identifier (name{equation.A
 .2.1}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.540 \newpage
-              pdfTeX warning (ext4): destination with the same identifier (name
-{equation.A.4.1}) has been already used, duplicate ignored
-
-\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
-                                                  \fi \fi 
-l.540 \newpage
-              ] (./blocksurvival.bbl
+l.586 
+      ] [14] (./blocksurvival.bbl
 Underfull \hbox (badness 10000) in paragraph at lines 11--14
 []\OT1/cmr/m/n/12 Meni Rosen-feld.  Anal-y-sis of hashrate-based double-spendin
 g.
@@ -936,7 +955,7 @@ you forgot something else, as in `\hbox{$x}'. In such cases
 the way to recover is to insert both the forgotten and the
 deleted material, e.g., by typing `I$}'.
 
-) [14
+) [15
 
 ] (./blocksurvival.aux)
 
@@ -945,14 +964,14 @@ LaTeX Warning: There were multiply-defined labels.
  )
 (\end occurred inside a group at level 1)
 
-### simple group (level 1) entered at line 435 ({)
+### simple group (level 1) entered at line 455 ({)
 ### bottom level 
 Here is how much of TeX's memory you used:
- 15867 strings out of 493848
- 265805 string characters out of 1152822
- 367428 words of memory out of 3000000
- 18718 multiletter control sequences out of 15000+50000
- 20685 words of font info for 79 fonts, out of 3000000 for 9000
+ 15897 strings out of 493848
+ 266371 string characters out of 1152822
+ 365623 words of memory out of 3000000
+ 18739 multiletter control sequences out of 15000+50000
+ 20338 words of font info for 78 fonts, out of 3000000 for 9000
  714 hyphenation exceptions out of 8191
  56i,17n,55p,1040b,357s stack positions out of 5000i,500n,10000p,200000b,50000s
 </usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmbx12
@@ -972,9 +991,9 @@ r/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texm
 f-texlive/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/texmf-texlive/f
 onts/type1/public/amsfonts/cm/cmti12.pfb></usr/share/texmf-texlive/fonts/type1/
 public/amsfonts/cm/cmti8.pfb>
-Output written on blocksurvival.pdf (17 pages, 374232 bytes).
+Output written on blocksurvival.pdf (18 pages, 412910 bytes).
 PDF statistics:
- 387 PDF objects out of 1000 (max. 8388607)
- 81 named destinations out of 1000 (max. 500000)
- 177 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 409 PDF objects out of 1000 (max. 8388607)
+ 86 named destinations out of 1000 (max. 500000)
+ 190 words of extra memory for PDF output out of 10000 (max. 10000000)
 
