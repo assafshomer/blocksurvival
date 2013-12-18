@@ -195,8 +195,12 @@ q_0=1-\frac{1}{\sqrt{2}} \sim 0.293
 
 
 \newpage
-
+\begin{comment}
+-------------------------------------
 \subsection{Attacker's reward}
+
+\texttt{In fact I think this calculation wrong. I'm calculating the expected length of the secret branch at the point the catchup begun, but when the attack succeeds the secret branch will usually have more blocks. I guess I'll have to go back to the literature to find out how to calculate the expected distance from the origin in this type of Markov Chain. In any case, this is not the main point of this paper so I'll just comment it out for now.}
+
 Next we calculate the expected reward of a block-withholding attacker.
 We assume for simplicity that the reward of each party is simply proportional to the number of blocks mined by that party.
 
@@ -235,9 +239,11 @@ We note a few things.
   \item As $q\rightarrow 1$ the reward of the attackers diverge, because they basically control the blockchain and can plant as many blocks as they desire.
   \item This may be a little hard to see in Figure ~\ref{fig:AttackersReward} but The function $R(p)$ is continuous but not continuously differentiable. At the point $q=\frac{1}{2}$ the derivative jumps from $4$ to $5$.
 \end{itemize}
+-------------------------------------
+\end{comment}
 
 \section{Block withholding attack - Type 0}
-In fact, the attackers have another interesting option. Instead of publishing the secret branch when it is longer than the main branch, they can choose to publish it one step before when the length of the secret branch is the same as the length of the main branch, i.e. when they reach a tie. The reason this is potentially beneficial is that due to latency effects in the bitcoin network (recently discussed in \cite{zoharetal}) not all miners share the same view of the entire block-tree at all moments. All honest miners shift their efforts to the longest branch they know of, but for some short period of time different parts of the network may be aware of different, and equally valid, longest branches. In such a case, each sub-network continues mining it's branch until the next block is mined by either one of them and a new block-chain is established\footnote{In principle this type of block-chain bifurcation can continue to span multiple blocks, with exponentially decreasing probability.}. 
+In fact, the attackers have another interesting option. Instead of publishing the secret branch when it is longer than the main branch, they can choose to publish it one step before when the length of the secret branch is the same as the length of the main branch, i.e. when they reach a tie. The reason this is potentially beneficial is that due to latency effects in the bitcoin network (recently discussed in \cite{Zoharetal}) not all miners share the same view of the entire block-tree at all moments. All honest miners shift their efforts to the longest branch they know of, but for some short period of time different parts of the network may be aware of different, and equally valid, longest branches. In such a case, each sub-network continues mining it's branch until the next block is mined by either one of them and a new block-chain is established\footnote{In principle this type of block-chain bifurcation can continue to span multiple blocks, with exponentially decreasing probability.}. 
 
 Assume that a fraction $\gamma \in [0,1]$ of the honest miners accept the attackers branch and start mining on top of it. This means that $q+\gamma p$ of the total hashing power is now dedicated to making the attackers branch the longest. With some probability the attacker's branch ends up as the winner. Let us denote the probability that this type of tie strategy succeeds by $S_{\gamma}(q)$.
 We can calculate $S_{\gamma}(q)$ starting the same way as we did when we derived \ref{eq:qofp} but use a Markov chain with boundary condition reflecting a tie instead of wining, and multiply that by the probability of an attacker with hashing power $q+\gamma p$ wining the race starting from that point.
@@ -412,6 +418,9 @@ q<\frac{1}{4}\left(1-\sqrt{\frac{1-17\gamma}{1-\gamma}}\right)\quad \mathit{or}\
 
 
 \subsection{The $\gamma,q$ phase space}\label{gqphase}
+
+Now we can chart 
+
 
 \newpage
 
