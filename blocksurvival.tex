@@ -29,7 +29,7 @@
                     \end{comment}
 \makeatother
 
-\title{\textbf{Note on block withholding attacks}}
+\title{\textbf{Block withholding mining strategies}}
 
 \author{Assaf Shomer\\
 }
@@ -41,8 +41,11 @@
 \maketitle
 %\pagestyle{fancy}
 \begin{abstract}
-We calculate the probability of success of block-withholding attacks on the bitcoin blockchain.  
-These types of attacks employ a non-traditional mining strategy where the attacker is building a secret branch of the blockchain with the hope of overtaking the main branch. When the attackers succeeds in replacing the top of the blockchain with their secret branch they rip the reward associated with the blocks in the secret branch. We demonstrate that such an attack becomes beneficial only if the attackers possess a big enough portion of the total hashing power.
+We calculate the probability of success of block-withholding mining strategies in bitcoin-like networks.  
+These strategies involve building a secret branch of the blockchain and publishing it when longer than the main branch, thus replacing it and ripping the reward associated with the published blocks. We identify two types of block-withholding strategies and chart the parameter space where those are more beneficial than the standard mining strategy suggested in Nakamoto's paper.
+Heuristically, those strategies are beneficial only when the miner is "powerful" enough in a precise sense defined below.
+
+
 \end{abstract}
 \pagenumbering{roman}
 \tableofcontents
@@ -111,7 +114,7 @@ For example, to find the probability of a {\bf double-spend attack} on a transac
 \longrightarrow \quad \dots \longrightarrow\widetilde{\mathit{B}}_{L+m}}_{(m+1)\; \mathrm{ blocks}}\qquad\qquad\qquad\qquad \mathrm{Secret}
 \end{eqnarray}
 
-This attack was first analyzed in \cite{Bitcoin}\footnote{Approximated by a Poisson process.}, treated more accurately in \cite{Doublespend} and was shown to be 
+This attack was first analyzed in \cite{Bitcoin} \footnote{Approximated by a Poisson process.}, treated more accurately in \cite{Doublespend} and was shown to be 
 \begin{equation}\label{eqn:ds}
 D_n(p)=\sum_{m=0}^{\infty}P_{n,p}(m)\mathit{a}_{n-(m+1)}(p)
 \end{equation}
