@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2013.11.18)  18 DEC 2013 12:55
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2013.11.18)  19 DEC 2013 12:58
 entering extended mode
  %&-line parsing enabled.
 **blocksurvival.tex
@@ -701,26 +701,27 @@ pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.73 
-      [1
+l.74 \subsubsection
+                   {Type 0 (reach a tie and get some help)} [1
 
 ]
 
 Package amsmath Warning: Foreign command \atopwithdelims;
 (amsmath)                \frac or \genfrac should be used instead
-(amsmath)                 on input line 92.
+(amsmath)                 on input line 99.
 
 
-Overfull \hbox (1.37204pt too wide) in paragraph at lines 95--96
+Overfull \hbox (1.37204pt too wide) in paragraph at lines 102--103
 []\OT1/cmr/m/n/12 The prob-a-bil-ity $\OT1/cmr/m/it/12 a[]\OT1/cmr/m/n/12 (\OML
 /cmm/m/it/12 q\OT1/cmr/m/n/12 )$ that the at-tack-ers man-age to catch-up and o
 ver-take the blockchain
  []
 
+[2]
 ! Misplaced alignment tab character &.
 <argument> ...at the condition $\mathit {a}_{-1}=&
                                                   1$ encodes the fact that t...
-l.101 ...chain is \b{longer} than the main chain.}
+l.108 ...chain is \b{longer} than the main chain.}
                                                    $\mathit{a}_{-1}=&1, \mat...
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
@@ -730,7 +731,7 @@ you're probably due for more error messages, and you
 might try typing `S' now just to see what is salvageable.
 
 ! Misplaced alignment tab character &.
-l.101 ... than the main chain.} $\mathit{a}_{-1}=&
+l.108 ... than the main chain.} $\mathit{a}_{-1}=&
                                                   1, \mathit{a}_{\infty}=&0$ by
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
@@ -740,7 +741,7 @@ you're probably due for more error messages, and you
 might try typing `S' now just to see what is salvageable.
 
 ! Misplaced alignment tab character &.
-l.101 ...\mathit{a}_{-1}=&1, \mathit{a}_{\infty}=&
+l.108 ...\mathit{a}_{-1}=&1, \mathit{a}_{\infty}=&
                                                   0$ by
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
@@ -750,7 +751,7 @@ you're probably due for more error messages, and you
 might try typing `S' now just to see what is salvageable.
 
 ! Extra }, or forgotten $.
-l.107 ...nsaction included in a block $\mathit{B}}
+l.114 ...nsaction included in a block $\mathit{B}}
                                                   _L$ with $n$ confirmations...
 I've deleted a group-closing symbol because it seems to be
 spurious, as in `$x}$'. But perhaps the } is legitimate and
@@ -759,7 +760,7 @@ the way to recover is to insert both the forgotten and the
 deleted material, e.g., by typing `I$}'.
 
 ! Extra }, or forgotten $.
-l.107 ... is denoted with an asterisk $\mathit{B}}
+l.114 ... is denoted with an asterisk $\mathit{B}}
                                                   _{L}^{*}$ in \ref{dsfigure}:
 I've deleted a group-closing symbol because it seems to be
 spurious, as in `$x}$'. But perhaps the } is legitimate and
@@ -767,52 +768,52 @@ you forgot something else, as in `\hbox{$x}'. In such cases
 the way to recover is to insert both the forgotten and the
 deleted material, e.g., by typing `I$}'.
 
-[2] [3] <Images/Blockwithholdingattack.png, id=171, 688.5725pt x 560.0925pt>
+[3] <Images/Blockwithholdingattack.png, id=171, 688.5725pt x 560.0925pt>
 File: Images/Blockwithholdingattack.png Graphic file (type png)
 
 <use Images/Blockwithholdingattack.png> [4] [5 <./Images/Blockwithholdingattack
-.png (PNG copy)>] [6] <Images/qcritical.png, id=203, 666.49pt x 560.0925pt>
+.png (PNG copy)>] [6] <Images/qcritical.png, id=205, 666.49pt x 560.0925pt>
 File: Images/qcritical.png Graphic file (type png)
 
 <use Images/qcritical.png>
 
 pdfTeX warning: pdflatex (file ./Images/type0pos.pdf): PDF inclusion: found PDF
  version <1.5>, but at most version <1.4> allowed
-<Images/type0pos.pdf, id=207, 794.97pt x 614.295pt>
+<Images/type0pos.pdf, id=209, 794.97pt x 614.295pt>
 File: Images/type0pos.pdf Graphic file (type pdf)
  <use Images/type0pos.pdf>
-Overfull \hbox (99.3001pt too wide) in paragraph at lines 333--334
+Overfull \hbox (99.3001pt too wide) in paragraph at lines 337--338
  [][] 
  []
 
 [7 <./Images/qcritical.png (PNG copy)>]
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 338.
+(hyperref)                removing `math shift' on input line 342.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\gamma' on input line 338.
+(hyperref)                removing `\gamma' on input line 342.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 338.
+(hyperref)                removing `math shift' on input line 342.
 
 [8 <./Images/type0pos.pdf>]
-<Images/qcqb.png, id=264, 689.57625pt x 450.68375pt>
+<Images/qcqb.png, id=266, 689.57625pt x 450.68375pt>
 File: Images/qcqb.png Graphic file (type png)
  <use Images/qcqb.png>
 [9 <./Images/qcqb.png>] [10]
 <Images/simpleqgammaphasespace.png, id=291, 540.51938pt x 444.15938pt>
 File: Images/simpleqgammaphasespace.png Graphic file (type png)
 
-<use Images/simpleqgammaphasespace.png> [11 <./Images/simpleqgammaphasespace.pn
-g (PNG copy)>]
+<use Images/simpleqgammaphasespace.png> [11] [12 <./Images/simpleqgammaphasespa
+ce.png (PNG copy)>]
 Appendix A.
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.455 \dfrac{1}{(1-s)^n}
+l.466 \dfrac{1}{(1-s)^n}
                         =\sum_{k=0}^{\infty} {n + k -1\choose k}s^k.
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
@@ -820,7 +821,7 @@ you left one out. Proceed, with fingers crossed.
 ! Extra }, or forgotten $.
 \@genfrac ...egingroup #4\endgroup #2#3\relax #5}}
                                                   
-l.455 \dfrac{1}{(1-s)^n}
+l.466 \dfrac{1}{(1-s)^n}
                         =\sum_{k=0}^{\infty} {n + k -1\choose k}s^k.
 I've deleted a group-closing symbol because it seems to be
 spurious, as in `$x}$'. But perhaps the } is legitimate and
@@ -831,7 +832,7 @@ deleted material, e.g., by typing `I$}'.
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.456 
+l.467 
       
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
@@ -839,7 +840,7 @@ you left one out. Proceed, with fingers crossed.
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.459 \sum
+l.470 \sum
           _{m=0}^{\infty}\mathit{P}(n,m,p)=p^n\sum_{m=0}^{\infty}{n + m -1\c...
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
@@ -847,68 +848,65 @@ you left one out. Proceed, with fingers crossed.
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.460 
+l.471 
       
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 461.
+(hyperref)                removing `math shift' on input line 472.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 461.
+(hyperref)                removing `math shift' on input line 472.
 
-[12
+[13
 
 ]
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 506.
+(hyperref)                removing `math shift' on input line 517.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 506.
+(hyperref)                removing `math shift' on input line 517.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 565.
+(hyperref)                removing `math shift' on input line 576.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\gamma' on input line 565.
+(hyperref)                removing `\gamma' on input line 576.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 565.
+(hyperref)                removing `math shift' on input line 576.
 
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 568.
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 581.
 
 (/usr/share/texmf-texlive/tex/latex/base/omscmr.fd
 File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 568.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 581.
 
-! Undefined control sequence.
-<recently read> \q 
-                   
-l.585 ...ma)<q_0$. This, means that as long as $\q
-                                                  _b(\gamma)\leq q \leq q_0$...
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
+<Images/intersection4.pdf, id=313, 521.95pt x 321.2pt>
+File: Images/intersection4.pdf Graphic file (type pdf)
 
-[13pdfTeX warning (ext4): destination with the same identifier (name{equation.A
-.2.1}) has been already used, duplicate ignored
+<use Images/intersection4.pdf> [14pdfTeX warning (ext4): destination with the s
+ame identifier (name{equation.A.2.1}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.586 
-      ] [14] (./blocksurvival.bbl
+l.603 \end{itemize}
+                   ] [15 <./Images/intersection4.pdf>]
+<Images/sectioning.png, id=335, 687.56876pt x 438.63875pt>
+File: Images/sectioning.png Graphic file (type png)
+
+<use Images/sectioning.png> [16] (./blocksurvival.bbl [17 <./Images/sectioning.
+png>]
 Underfull \hbox (badness 10000) in paragraph at lines 11--14
 []\OT1/cmr/m/n/12 Meni Rosen-feld.  Anal-y-sis of hashrate-based double-spendin
 g.
@@ -955,7 +953,7 @@ you forgot something else, as in `\hbox{$x}'. In such cases
 the way to recover is to insert both the forgotten and the
 deleted material, e.g., by typing `I$}'.
 
-) [15
+) [18
 
 ] (./blocksurvival.aux)
 
@@ -964,16 +962,16 @@ LaTeX Warning: There were multiply-defined labels.
  )
 (\end occurred inside a group at level 1)
 
-### simple group (level 1) entered at line 455 ({)
+### simple group (level 1) entered at line 466 ({)
 ### bottom level 
 Here is how much of TeX's memory you used:
- 15897 strings out of 493848
- 266371 string characters out of 1152822
- 365623 words of memory out of 3000000
- 18739 multiletter control sequences out of 15000+50000
+ 15920 strings out of 493848
+ 266773 string characters out of 1152822
+ 366832 words of memory out of 3000000
+ 18749 multiletter control sequences out of 15000+50000
  20338 words of font info for 78 fonts, out of 3000000 for 9000
  714 hyphenation exceptions out of 8191
- 56i,17n,55p,1040b,357s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 56i,17n,55p,1002b,423s stack positions out of 5000i,500n,10000p,200000b,50000s
 </usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmbx12
 .pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/
 share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texmf
@@ -991,9 +989,9 @@ r/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texm
 f-texlive/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/texmf-texlive/f
 onts/type1/public/amsfonts/cm/cmti12.pfb></usr/share/texmf-texlive/fonts/type1/
 public/amsfonts/cm/cmti8.pfb>
-Output written on blocksurvival.pdf (18 pages, 412910 bytes).
+Output written on blocksurvival.pdf (21 pages, 460382 bytes).
 PDF statistics:
- 409 PDF objects out of 1000 (max. 8388607)
- 86 named destinations out of 1000 (max. 500000)
- 190 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 438 PDF objects out of 1000 (max. 8388607)
+ 97 named destinations out of 1000 (max. 500000)
+ 200 words of extra memory for PDF output out of 10000 (max. 10000000)
 
