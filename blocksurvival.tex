@@ -43,7 +43,7 @@
 \begin{abstract}
 We calculate the probability of success of block-withholding mining strategies in bitcoin-like networks.  
 These strategies involve building a secret branch of the blockchain and publishing it when longer than the main branch, thus replacing it and ripping the reward associated with the published blocks. We identify two types of block-withholding strategies and chart the parameter space where those are more beneficial than the standard mining strategy suggested in Nakamoto's paper.
-Heuristically, those strategies are beneficial only when the miner is "powerful" enough in a precise sense defined below.
+Heuristically, those strategies are beneficial only when the miner is ``powerful" enough in a precise sense defined below.
 
 
 \end{abstract}
@@ -313,8 +313,8 @@ Based on all that, the solution to $S_\gamma(q)=T(q)\cdot a_0(q_{eff})$ breaks i
 \begin{equation}\label{sofq}
 S_\gamma(q)=\underbrace{T(q)}_{reach\; a\; tie}\cdot \underbrace{a_0(q_{eff})}_{win\;given\;a\;tie}=
 \begin{cases}
-2q\cdot\frac{q_{eff}}{1-q_{eff}}=2q\cdot\frac{q(1-\gamma)+\gamma}{(1-q)(1-\gamma)} & q\in [0,\frac{1-2\gamma}{2-2\gamma}] \\ 
-2q & q\in [\frac{1-2\gamma}{2-2\gamma},\frac{1}{2}] \\ 
+2q\cdot\frac{q_{eff}}{1-q_{eff}}=2q\cdot\frac{q(1-\gamma)+\gamma}{(1-q)(1-\gamma)} & q\in [0,q_c] \\ 
+2q & q\in [q_c,\frac{1}{2}] \\ 
 1 & q\in [\frac{1}{2},1] \\ 
 \end{cases}
 \end{equation}
@@ -345,7 +345,7 @@ In figure \ref{fig:type0pos} we plot the probability of a successful type 0 atta
 
 To decide if a block-withholding attack of type 0 is beneficial or not we should compare it to the honest probability of success and to a Type I attack. 
 
-\subsubsection{Comparing type 0 to Honest}
+\subsubsection{Comparing type 0 to the standard strategy}
 First note that in the second and third regimes in equation \ref{sofq} (or for any $q$ if $\gamma\geq\frac{1}{2}$) the type 0 attacks is beneficial over the honest strategy for any $q$, because for any $q$ it holds that $0\leq q \leq min(2q,1)$. 
 
 In the first regime (i.e. when $q<q_c(\gamma)$) we can find at what value of $q$ the type 0 attacks starts being beneficial over the honest strategy by solving
@@ -359,7 +359,7 @@ which gives the condition $q_b(\gamma)\leq q \leq q_c(\gamma)$, where
 q_b= \dfrac{1-3\gamma}{3-3\gamma}
 \end{equation}
 
-The value of $q_b$ where the attack starts becoming beneficial compared to the honest strategy is plotted in Figure \ref{fig:qbenefit} and behaves similarly to $q_c$ as given in equation \ref{qcrit} except now the scale is $1/3$.
+The curve $q_b)\gamma)$ designating the boundary where the Type 0 strategy starts becoming more beneficial than the standard strategy is plotted in Figure \ref{fig:qbenefit}.
 
 \begin{figure}[qcrit]
 \centering
@@ -368,7 +368,9 @@ The value of $q_b$ where the attack starts becoming beneficial compared to the h
 \label{fig:qbenefit}
 \end{figure}
 
-Note that if $\gamma=0$ this type of attack is beneficial only when $q>\frac{1}{3}$ and if $\gamma\geq\frac{1}{3}$ this attack is beneficial for all $q$.
+Note that if $\gamma=0$ this strategy is beneficial only when $q>\frac{1}{3}$ and if $\gamma\geq\frac{1}{3}$ it is beneficial for all $q$.
+
+\newpage
 
 Taking all three regimes into account we conclude that the type 0 attack is beneficial over the honest strategy when
 
@@ -380,9 +382,9 @@ q>\dfrac{1-3\gamma}{3-3\gamma} & \gamma\in [0,\frac{1}{3}] \\
 \end{cases}
 \end{equation}
 
-we can even summarize further by writing
+we can summarize further by writing
 
-\begin{equation}\label{eqn:0overhonest2}
+\begin{equation}\label{eqn:0overhonestsummary}
 S_{\gamma}(q)\geq q \Longrightarrow
 q>max\left\lbrace\dfrac{1-3\gamma}{3-3\gamma},0\right\rbrace
 \end{equation}
@@ -393,7 +395,7 @@ Next we compare this attack to a Type I attack.
 
 There are two interesting comparisons one can make between Type 0 and Type I attacks.
 
-One is to compare how they match against the honest strategy. Namely, for a given $\gamma$ do we first hit the regime where a type 0 or a Type I is beneficial over the honest strategy.
+One is to compare how they match against the honest strategy. Namely, for a given $\gamma$ do we first hit the regime where a Type 0 or a Type I strategy is more beneficial than the standard strategy.
 
 This type 0 strategy wins earlier (in fact already at $q=0$) when $\gamma\geq\frac{1}{3}$. When $\gamma < \frac{1}{3}$ we can compare $q_b(\gamma)$ (given in equation \ref{eqn:qb}) with $q_0$ (given in equation \ref{eqn:qnot}).
 
@@ -441,19 +443,65 @@ q_{\pm}(\gamma)=\frac{1}{4}\left(1\pm\sqrt{\frac{1-17\gamma}{1-\gamma}}\right)
 \end{equation}
 
 
-\section{The Strategy Phase Space}
+\section{The Strategy Phase Space}\label{sec:phasespace}
 
-Now we can chart the strategy phase space parametrized by $\gamma,q$. The calculations are left for appendix \ref{app:phasespace}, and result in the following chart:
+Now we can chart the strategy phase space parametrized by $\gamma,q$. 
+
+Let us explore the $\gamma\in[0,1] \times q\in [0,1]$ phase space and divide it into regions characterized by the most beneficial mining strategy: \textbf{Standard}, \textbf{Type 0} or \textbf{Type I}.
+
+The $\gamma, q$ phase space is governed by four functions (really three intersecting curves):
+\begin{itemize}
+\item $q_0= 1-\frac{1}{\sqrt{2}}$ determining for what $q$ type I is better than standard.
+\item $max\lbrace q_b(\gamma)=\frac{1-3\gamma}{3-3\gamma},0\rbrace$ determining for what $q$ Type 0 is better than standard.
+\item $q_+(\gamma)=\frac{1}{4}\left(1+\sqrt{\frac{1-17\gamma}{1-\gamma}}\right)$ 
+\item $q_-(\gamma)=\frac{1}{4}\left(1-\sqrt{\frac{1-17\gamma}{1-\gamma}}\right)$
+\end{itemize}
+where the last two determine which strategy is better, Type 0 or I when $\gamma<\frac{1}{17}$.
+
+\begin{figure}[fourfunctions]
+\centering
+\includegraphics[width=150mm]{intersection4.pdf}
+\caption{The 4 functions sectioning the $\gamma, q$ phase space.}
+\label{fig:fourfunctions}
+\end{figure}
+
+In figure \ref{fig:fourfunctions} we those three curves are plotted.
+Note the interesting fact that all three curves intersect in the single point $\gamma=\gamma_c, q=q_0$.
+This fact makes the phase space much simpler to analyse.
+
+\newpage
+
+\begin{itemize}
+\item The circular curve created by the two branches $q_{\pm}$ determines, for a given $\gamma$, which of the two block-withholding strategies, Type 0 or Type I is more beneficial. Inside the circular region (and all the way to the $q$ axis) is the region where Type I is better than type 0. Outside this region Type 0 is better than Type 1. This is determined by equation \ref{eqn:type0over1condition}. Note that region doesn't specify whether any of the strategies is better than the standard one.
+\item The Type I strategy is more beneficial than the standard strategy only in the region above the horizontal line $q=q_0$. .
+\item The Type 0 strategy is more beneficial than the Standard strategy in the region above the the monotonically decreasing curve $q_b(\gamma)$ (extending from $\frac{1}{3}$ on the $q$ axis to $\frac{1}{3}$ on the $\gamma$ axis).
+\end{itemize}
+
+The resulting phase space division is thus given by figure \ref{fig:qgammaphasespace}.
 
 \begin{figure}[qgammaphasespace]
 \centering
-\includegraphics[width=150mm]{simpleqgammaphasespace.png}
-\caption{The value of $q_c$ and $q_b$ as a function of $\gamma$.}
+\includegraphics[width=130mm]{simpleqgammaphasespace.png}
+\caption{The 3 regions of the $q,\gamma$ phase space. The standard strategy is best in the region near the origin. Type I is best in the little are above existing only for $\gamma\leq\gamma_c$ and $q\geq q_0$. In the rest of phase space the Type 0 strategy is most beneficial.}
 \label{fig:qgammaphasespace}
 \end{figure}
 
 
 \newpage
+
+Note that the regime where either block-withholding strategies are more beneficial than the standard strategy is bounded away from the origin. Arguably, we can use the radial distance from the origin of phase space to define a ``miner's \textit{strength}".
+
+\begin{equation}\label{defstrength}
+\mathtt{S}(q,\gamma)\equiv \sqrt{q^2+\gamma^2}
+\end{equation}
+
+This definition is partly motivated by the intuitive notion that having a large $\gamma$ is (in some vague sense) ``similarly difficult" to having a large $q$ and a typical miner will have both parameters in similar scales. In a sense, the above phase space diagram lends credibility to this intuitive notion because it suggest a rough symmetry\footnote{All we mean by that is that figure \ref{fig:qgammaphasespace} is almost symmetric under a rotation along the $45^\deg$ angle that rotates $\gamma \leftrightarrow q$.} between the parameters $\gamma$ and $q$ as well as the.
+
+There are a few remarks in order:
+\begin{itemize}
+\item Figure \ref{fig:qgammaphasespace} marks the regions where a block-withholding strategy in beneficial, but does not guarantee success. Success of either strategies is still guaranteed (i.e. the probability of success is strictly $1$) only in the top half of phase space, i.e. the region where $q\geq \frac{1}{2}$, a.k.a the $51\%$ attack.
+\item The authors of \cite{Selfish} identified a region delimited by the curve $\frac{1-\gamma}{3-2\gamma}\leq q \leq \frac{1}{3}$ where the ``selfish" mining strategy is more beneficial than the standard one. As one would expect based on the fact that the ``selfish'' strategy utilizes a combination of the two strategies discussed here, this curve intersects both Type I and Type 0 regions as depicted in \ref{fig:selfish}.
+\end{itemize}
 
 
 
@@ -569,36 +617,12 @@ q\mathit{a}_0(p)+\sum_{m=2}^{\infty}m\cdot q^m
  \right)=\\\nonumber
  & p\left(q+\left(\sum_{m=0}^{\infty}m\cdot q^m\right)-q \right) =pq\partial_q\left(\dfrac{1}{1-q}\right)=\dfrac{q}{1-q}
 \end{eqnarray}
-----------------------
-\end{comment}
 
-
-\section{The $\gamma, q$ phase space calculation}\label{app:phasespace}
-Let us explore the $\gamma\in[0,1] \times q\in [0,1]$ phase space and divide it into regions characterized by the most beneficial mining strategy: \textbf{Standard} (a.k.a Honest), \textbf{Type 0} or \textbf{Type I}.
-
-the phase $\gamma, q$ phase space is governed by four functions (really three intersecting curves):
-\begin{itemize}
-\item $q_0= 1-\frac{1}{\sqrt{2}}$ determining for what $q$ type I is better than standard.
-\item $max\lbrace q_b(\gamma)=\frac{1-3\gamma}{3-3\gamma},0\rbrace$ determining for what $q$ type 0 is better than standard.
-\item $q_+(\gamma)=\frac{1}{4}\left(1+\sqrt{\frac{1-17\gamma}{1-\gamma}}\right)$ 
-\item $q_-(\gamma)=\frac{1}{4}\left(1-\sqrt{\frac{1-17\gamma}{1-\gamma}}\right)$
-\end{itemize}
-where the last two determine which strategy is better, type 0 or I when $\gamma<\frac{1}{17}$
-
-\begin{figure}[fourfunctions]
-\centering
-\includegraphics[width=150mm]{intersection4.pdf}
-\caption{The 4 functions sectioning the $\gamma, q$ phase space.}
-\label{fig:fourfunctions}
-\end{figure}
-
-In figure \ref{fig:fourfunctions} we plot all 4.
-Note the interesting fact that all three curves intersect in the single point $\gamma=\gamma_c, q=q_0$.
-
+------------------------------
 We start by noting some simple facts.
 \begin{itemize}
 \item Equation \ref{eqn:qnot} tells us that in the regime $q>q_0=1-\frac{1}{\sqrt{2}}$ the Type I strategy is more beneficial than the standard strategy.
-\item Equation \ref{eqn:0overhonest} tells us that in the regime $\gamma\geq\frac{1}{3}$ The type 0 strategy is more beneficial than the standard strategy.
+\item Equation \ref{eqn:0overhonest} tells us that in the regime $\gamma\geq\frac{1}{3}$ The Type 0 strategy is more beneficial than the standard strategy.
 \item Equation \ref{eqn:type0over1gammaregimes} tells us that when $\frac{1}{17}\leq \gamma \leq \frac{1}{3}$ Type 0 is more beneficial than Type I for any $q$, so we only need to ask when is Type 0 better than the standard strategy, and we get the answer from equations \ref{eqn:type0benefitonhonestequation} and \ref{eqn:qb} to be $q>q_b(\gamma)=\frac{1-3\gamma}{3-3\gamma}$.
 \end{itemize}
 
@@ -611,8 +635,8 @@ Thus, this region in $\gamma$ breaks up into three regions in $q$. Namely:
 
 \begin{itemize}
 \item $q\leq q_b(\gamma)$ In this region neither block withholding strategies are better than the standard strategy, and so a miner will follow the standard strategy.
-\item $q_b(\gamma)\leq q\leq q_0$ In this region Type 0 is better than the standard strategy and type I is not and so a miner will choose the type 0 strategy.
-\item $q_0\leq q$ In this region both type 0 and type I are better than the standard strategy and so we need to measure them up against each other to find out which one wins.
+\item $q_b(\gamma)\leq q\leq q_0$ In this region Type 0 is better than the standard strategy and type I is not and so a miner will choose the Type 0 strategy.
+\item $q_0\leq q$ In this region both Type 0 and type I are better than the standard strategy and so we need to measure them up against each other to find out which one wins.
 
 \end{itemize}
 
@@ -631,7 +655,7 @@ which gives
 
 having no solutions.
 
-However, there is still the option that type 1 wins in this region if we can find a solution where $q_0<q\leq q_+(\gamma)$.
+However, there is still the option that Type I wins in this region if we can find a solution where $q_0<q\leq q_+(\gamma)$.
 For this to be possible we need $q_+(\gamma)>q_0$:
 \begin{equation}
 \frac{1}{4}\left(1+\sqrt{\frac{1-17\gamma}{1-\gamma}}\right)\geq 1-\frac{1}{\sqrt{2}}
@@ -643,7 +667,7 @@ which gives
 \end{equation}
 
 In this case a solution exists, giving the condition $\gamma<\gamma_c$:
-Since we are analysing the region $\gamma_c\leq \gamma$ we see that in this region the type I strategy is never more beneficial than the type 0 strategy and thus we conclude that in the region $\gamma_c\leq \gamma \leq \frac{1}{17}$ 
+Since we are analysing the region $\gamma_c\leq \gamma$ we see that in this region the type I strategy is never more beneficial than the Type 0 strategy and thus we conclude that in the region $\gamma_c\leq \gamma \leq \frac{1}{17}$ 
 \begin{itemize}
 \item $q\leq q_b(\gamma)$ - Standard strategy wins
 \item $q_b(\gamma)\leq q$ - Type 0 strategy wins
@@ -664,6 +688,9 @@ All this results in the following division of phase space:
 \end{figure}
 
 Leading to figure \ref{fig:qgammaphasespace}.
+---------------------------------------------------
+\end{comment}
+
 
 
 \newpage
