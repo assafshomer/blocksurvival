@@ -42,8 +42,8 @@
 %\pagestyle{fancy}
 \begin{abstract}
 We calculate the probability of success of block-withholding mining strategies in bitcoin-like networks.  
-These strategies involve building a secret branch of the blockchain and publishing it when longer than the main branch, thus replacing it and ripping the reward associated with the published blocks. We identify two types of block-withholding strategies and chart the parameter space where those are more beneficial than the standard mining strategy suggested in Nakamoto's paper.
-Heuristically, those strategies are beneficial only when the miner is ``powerful" enough in a precise sense defined below.
+These strategies involve building a secret branch of the block-tree and publishing it opportunistically, aiming to replace the main-branch and rip the rewards associated with the published blocks. We identify two types of block-withholding strategies and chart the parameter space where those are more beneficial than the standard mining strategy described in Nakamoto's paper.
+Such strategies turn out to be beneficial only when the miner is ``powerful" enough in a precise sense defined below.
 
 
 \end{abstract}
@@ -472,9 +472,9 @@ This fact makes the phase space much simpler to analyse.
 \newpage
 
 \begin{itemize}
-\item The circular curve created by the two branches $q_{\pm}$ determines, for a given $\gamma$, which of the two block-withholding strategies, Type 0 or Type I is more beneficial. Inside the circular region (and all the way to the $q$ axis) is the region where Type I is better than type 0. Outside this region Type 0 is better than Type 1. This is determined by equation \ref{eqn:type0over1condition}. Note that region doesn't specify whether any of the strategies is better than the standard one.
-\item The Type I strategy is more beneficial than the standard strategy only in the region above the horizontal line $q=q_0$. .
-\item The Type 0 strategy is more beneficial than the Standard strategy in the region above the the monotonically decreasing curve $q_b(\gamma)$ (extending from $\frac{1}{3}$ on the $q$ axis to $\frac{1}{3}$ on the $\gamma$ axis).
+\item The circular curve created by the two branches $q_{\pm}$ determines, for a given $\gamma$, which of the two block-withholding strategies, Type 0 or Type I is more beneficial. Inside the circular region (and all the way to the $q$ axis) is the region where Type I is better than type 0. Outside this region Type 0 is better than Type 1. This is determined by equation \ref{eqn:type0over1condition}. Note that this division doesn't specify whether any of the strategies is better than the standard one.
+\item The Type I strategy is more beneficial than the standard strategy in the region above the horizontal line $q=q_0$. .
+\item The Type 0 strategy is more beneficial than the Standard strategy in the region above the monotonically decreasing curve $q_b(\gamma)$ (extending from $\frac{1}{3}$ on the $q$ axis to $\frac{1}{3}$ on the $\gamma$ axis and the continuing on the $\gamma$ axis all the way to $\gamma=1$).
 \end{itemize}
 
 The resulting phase space division is thus given by figure \ref{fig:qgammaphasespace}.
@@ -482,24 +482,20 @@ The resulting phase space division is thus given by figure \ref{fig:qgammaphases
 \begin{figure}[qgammaphasespace]
 \centering
 \includegraphics[width=130mm]{simpleqgammaphasespace.png}
-\caption{The 3 regions of the $q,\gamma$ phase space. The standard strategy is best in the region near the origin. Type I is best in the little are above existing only for $\gamma\leq\gamma_c$ and $q\geq q_0$. In the rest of phase space the Type 0 strategy is most beneficial.}
+\caption{The 3 regions of the $q,\gamma$ phase space. The standard strategy is best in the region near the origin. Type I is best in the little area on top of the standard region. In the rest of phase space the Type 0 strategy is most beneficial.}
 \label{fig:qgammaphasespace}
 \end{figure}
 
 
 \newpage
 
-Note that the regime where either block-withholding strategies are more beneficial than the standard strategy is bounded away from the origin. Arguably, we can use the radial distance from the origin of phase space to define a ``miner's \textit{strength}".
+Note that the regime where either block-withholding strategies are more beneficial than the standard strategy is bounded away from the origin. It is tempting to look at the radial distance from the origin of phase space as a measure of a ``miner's \textit{strength}" $\mathtt{S}(q,\gamma)\equiv \sqrt{q^2+\gamma^2}$.
 
-\begin{equation}\label{defstrength}
-\mathtt{S}(q,\gamma)\equiv \sqrt{q^2+\gamma^2}
-\end{equation}
-
-This definition is partly motivated by the intuitive notion that having a large $\gamma$ is (in some vague sense) ``similarly difficult" to having a large $q$ and a typical miner will have both parameters in similar scales. In a sense, the above phase space diagram lends credibility to this intuitive notion because it suggest a rough symmetry\footnote{All we mean by that is that figure \ref{fig:qgammaphasespace} is almost symmetric under a rotation along the $45^\deg$ angle that rotates $\gamma \leftrightarrow q$.} between the parameters $\gamma$ and $q$ as well as the.
+This definition is partly motivated by the intuitive notion that having a large $\gamma$ is (in some vague sense) ``similarly difficult" to having a large $q$ and a typical miner will have both parameters in similar scales. In a sense, the above phase space diagram lends credibility to this intuitive notion because it suggest a rough symmetry\footnote{All we mean by that is that figure \ref{fig:qgammaphasespace} is almost symmetric under a rotation along the $45^\deg$ angle that rotates $\gamma \leftrightarrow q$.} between the parameters $\gamma$ and $q$.
 
 There are a few remarks in order:
 \begin{itemize}
-\item Figure \ref{fig:qgammaphasespace} marks the regions where a block-withholding strategy in beneficial, but does not guarantee success. Success of either strategies is still guaranteed (i.e. the probability of success is strictly $1$) only in the top half of phase space, i.e. the region where $q\geq \frac{1}{2}$, a.k.a the $51\%$ attack.
+\item Figure \ref{fig:qgammaphasespace} marks the regions where a block-withholding strategy in beneficial, but does not guarantee success. Success of either strategies is still guaranteed (i.e. the probability of success is strictly $1$) only in the top half of phase space, in the region where $q\geq \frac{1}{2}$, a.k.a the $51\%$ attack.
 \item The authors of \cite{Selfish} identified a region delimited by the curve $\frac{1-\gamma}{3-2\gamma}\leq q \leq \frac{1}{3}$ where the ``selfish" mining strategy is more beneficial than the standard one. As one would expect based on the fact that the ``selfish'' strategy utilizes a combination of the two strategies discussed here, this curve intersects both Type I and Type 0 regions as depicted in \ref{fig:selfish}.
 \end{itemize}
 
@@ -521,7 +517,7 @@ It is now straightforward to show that \ref{eq:pnm} is indeed a probability dist
 
 $\mathit{Q}(q)$  can be solved in the two regions for the parameter $q$ given in \ref{eq:az}.
 
-In the case  that $q\in [0,\dfrac{1}{2}]$
+In the case  that $q\in [0,\frac{1}{2}]$
 
 \begin{eqnarray}\label{eq:rpcalc}\nonumber
 &\mathit{Q}(q)=\sum_{m=0}^{\infty}\mathit{P}_{1,q}(m)\mathit{a}_{1-m}(q)=p\sum_{m=0}^{\infty}q^m\mathit{a}_{1-m}(p)=p\left(
@@ -550,7 +546,7 @@ q^2(2-q)+1-q-(1-q)^2(1+q)
 \right)
 \end{eqnarray}
 
-In the case  that $q\notin [0,\dfrac{1}{2}]$
+In the case  that $q\in [\frac{1}{2},1]$
 
 \begin{eqnarray}\nonumber
 &\mathit{Q}(q)=p\sum_{m=0}^{\infty}q^m\mathit{a}_{1-m}(p)=p\left(
@@ -566,7 +562,7 @@ In the case  that $q\notin [0,\dfrac{1}{2}]$
 
 $\mathit{T}(q)$  can be solved in the two regions for the parameter $q$ given in \ref{eq:az}.
 
-In the case  that $q\in [0,\dfrac{1}{2}]$
+In the case  that $q\in [0,\frac{1}{2}]$
 
 \begin{eqnarray}\label{eq:rpcalc}\nonumber
 &\mathit{Q}(q)=\sum_{m=0}^{\infty}\mathit{P}_{1,q}(m)\mathit{b}_{1-m}(q)=p\sum_{m=0}^{\infty}q^m\mathit{b}_{1-m}(p)=p\left(
@@ -577,10 +573,10 @@ In the case  that $q\in [0,\dfrac{1}{2}]$
  \right) 
  =p\left(
 \dfrac{q}{p}+\dfrac{1}{1-q}-1
- \right)=q+1-p=2q\\\nonumber
+ \right)=q+1-p=2q.\\\nonumber
 \end{eqnarray}
 
-and the case $q\notin [0,\dfrac{1}{2}]$ is identical to $\mathit{Q}(q)$
+The case $q\in [\frac{1}{2},1]$ is identical to the one carried above for $\mathit{Q}(q)$.
 
 
 \begin{comment}

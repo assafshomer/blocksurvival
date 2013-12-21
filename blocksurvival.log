@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2013.11.18)  20 DEC 2013 11:19
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2013.11.18)  21 DEC 2013 02:07
 entering extended mode
  %&-line parsing enabled.
 **blocksurvival.tex
@@ -823,7 +823,7 @@ File: Images/simpleqgammaphasespace.png Graphic file (type png)
 ! Missing { inserted.
 <to be read again> 
                    \mathop 
-l.498 ...that rotates $\gamma \leftrightarrow q$.}
+l.494 ...that rotates $\gamma \leftrightarrow q$.}
                                                    between the parameters $\...
 A left brace was mandatory here, so I've put one in.
 You might want to delete and/or insert some corrections
@@ -833,7 +833,7 @@ so that I will find a matching right brace soon.
 ! Missing } inserted.
 <inserted text> 
                 }
-l.498 ...that rotates $\gamma \leftrightarrow q$.}
+l.494 ...that rotates $\gamma \leftrightarrow q$.}
                                                    between the parameters $\...
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
@@ -842,14 +842,14 @@ really didn't forget anything, try typing `2' now; then
 my insertion and my current dilemma will both disappear.
 
 
-LaTeX Warning: Reference `fig:selfish' on page 14 undefined on input line 503.
+LaTeX Warning: Reference `fig:selfish' on page 14 undefined on input line 499.
 
 [14]
 Appendix A.
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.514 \dfrac{1}{(1-s)^n}
+l.510 \dfrac{1}{(1-s)^n}
                         =\sum_{k=0}^{\infty} {n + k -1\choose k}s^k.
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
@@ -857,7 +857,7 @@ you left one out. Proceed, with fingers crossed.
 ! Extra }, or forgotten $.
 \@genfrac ...egingroup #4\endgroup #2#3\relax #5}}
                                                   
-l.514 \dfrac{1}{(1-s)^n}
+l.510 \dfrac{1}{(1-s)^n}
                         =\sum_{k=0}^{\infty} {n + k -1\choose k}s^k.
 I've deleted a group-closing symbol because it seems to be
 spurious, as in `$x}$'. But perhaps the } is legitimate and
@@ -868,7 +868,7 @@ deleted material, e.g., by typing `I$}'.
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.515 
+l.511 
       
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
@@ -876,7 +876,7 @@ you left one out. Proceed, with fingers crossed.
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.518 \sum
+l.514 \sum
           _{m=0}^{\infty}\mathit{P}(n,m,p)=p^n\sum_{m=0}^{\infty}{n + m -1\c...
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
@@ -884,36 +884,36 @@ you left one out. Proceed, with fingers crossed.
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.519 
+l.515 
       
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 520.
+(hyperref)                removing `math shift' on input line 516.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 520.
+(hyperref)                removing `math shift' on input line 516.
 
 [15
 
 ]
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 565.
+(hyperref)                removing `math shift' on input line 561.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 565.
+(hyperref)                removing `math shift' on input line 561.
 
 [16pdfTeX warning (ext4): destination with the same identifier (name{equation.A
 .2.1}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.696 \newpage
+l.692 \newpage
               ] (./blocksurvival.bbl
 Underfull \hbox (badness 10000) in paragraph at lines 11--14
 []\OT1/cmr/m/n/12 Meni Rosen-feld.  Anal-y-sis of hashrate-based double-spendin
@@ -973,13 +973,13 @@ LaTeX Warning: There were multiply-defined labels.
  )
 (\end occurred inside a group at level 1)
 
-### simple group (level 1) entered at line 514 ({)
+### simple group (level 1) entered at line 510 ({)
 ### bottom level 
 Here is how much of TeX's memory you used:
- 15919 strings out of 493848
- 266716 string characters out of 1152822
- 366864 words of memory out of 3000000
- 18752 multiletter control sequences out of 15000+50000
+ 15917 strings out of 493848
+ 266688 string characters out of 1152822
+ 366987 words of memory out of 3000000
+ 18751 multiletter control sequences out of 15000+50000
  21516 words of font info for 85 fonts, out of 3000000 for 9000
  714 hyphenation exceptions out of 8191
  56i,17n,55p,1002b,357s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -1001,9 +1001,9 @@ f-texlive/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/texmf-texlive/f
 onts/type1/public/amsfonts/cm/cmti12.pfb></usr/share/texmf-texlive/fonts/type1/
 public/amsfonts/cm/cmti8.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfo
 nts/cm/cmtt12.pfb>
-Output written on blocksurvival.pdf (20 pages, 441438 bytes).
+Output written on blocksurvival.pdf (20 pages, 440690 bytes).
 PDF statistics:
- 422 PDF objects out of 1000 (max. 8388607)
- 91 named destinations out of 1000 (max. 500000)
+ 420 PDF objects out of 1000 (max. 8388607)
+ 90 named destinations out of 1000 (max. 500000)
  187 words of extra memory for PDF output out of 10000 (max. 10000000)
 
