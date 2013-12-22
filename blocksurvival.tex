@@ -7,6 +7,7 @@
 \usepackage[colorlinks=true,linkcolor=blue]{hyperref}
 \usepackage[all]{xy}
 \usepackage{tikz}
+\usepackage{caption}
 
 \newtheorem{definition}{Definition}[chapter]
 \newtheorem{theorem}{Theorem}[chapter]
@@ -41,9 +42,9 @@
 \maketitle
 %\pagestyle{fancy}
 \begin{abstract}
-We calculate the probability of success of block-withholding mining strategies in bitcoin-like networks.  
-These strategies involve building a secret branch of the block-tree and publishing it opportunistically, aiming to replace the main-branch and rip the rewards associated with the published blocks. We identify two types of block-withholding strategies and chart the parameter space where those are more beneficial than the standard mining strategy described in Nakamoto's paper.
-Such strategies turn out to be beneficial only when the miner is ``powerful" enough in a precise sense defined below.
+We calculate the probability of success of block-withholding mining strategies in bitcoin-like networks.
+These strategies involve building a secret branch of the block-tree and publishing it opportunistically, aiming to replace the top of the main-branch and rip the reward associated with the secretly mined blocks. We identify two types of block-withholding strategies and chart the parameter space where those are more beneficial than the standard mining strategy described in Nakamoto's paper.
+Our analysis suggests a generalization of the notion of the relative hashing power as a measure for a miner's influence on the network. Block withholding attacks start becoming beneficial only when this measure of influence exceeds a certain threshold.
 
 
 \end{abstract}
@@ -56,35 +57,19 @@ Bitcoin is the world's first decentralized digital currency (\cite{Bitcoin}). bl
 
 Motivated by the work done in \cite{Selfish} we are interested in finding out if and when the block-withholding strategy gives the miner a higher probability of success in mining blocks, compared to the standard strategy outlined in the bitcoin protocol. 
 
-\section{Three mining strategies}
+\chapter{Three mining strategies}\label{chap:strategies}
 
-\subsection{Standard miners}
+\section{The Standard Mining Strategy}
 The standard mining strategy follow the bitcoin protocol described in \cite{Bitcoin}. Such miners publish each block as soon as it is discovered and switch their mining efforts to the head of the blockchain\footnote{In practice different miners may be aware of different branches of the block-tree at a given moment. Such differences are resolved with very high probability once a new block is found because the protocol names the branch with the maximal difficulty to be the blockchain.} as soon as they become aware of a new valid block.
 
 \begin{equation}\label{theblockchain}\nonumber
 \dots\rightarrow\mathit{B}_L\rightarrow\mathit{B}_{L+1}\rightarrow\mathit{B}_{L+2}\rightarrow\dots
 \end{equation}
 
-\subsection{Block withholding strategies}
-Miners following this type of mining strategies do not share their newly found blocks and instead work on a $\bf{secret}$ branch of the block-tree. The miners publish their secret branch when it is most beneficial to them. 
+\section{Block Withholding Strategies}
+Miners following this type of mining strategies do not share newly found blocks and instead work on extending a $\bf{secret}$ branch of the block-tree. The miners publish their secret branch when it is most beneficial to them. 
 
-\subsubsection{Type I (try to win)}
-The miners mine their secret branch until it is \textit{longer than the main branch}. At this time they can publish it and uproot the last $n$ (honestly mined) blocks in favour of their $m>n$ secretly mined ones.
-
-\subsubsection{Type 0 (reach a tie and get some help)}
-The miners mine their secret branch until it is of the  \textit{same length as the main branch}. At this time they publish it. Now the network is bifurcated. The type 0 miners joined by some of the standard miners will mine on top of the newly published Type 0 branch. The rest of the standard miners continue working on the standard branch. If the former manage to find a new block first then the type 0 strategy was successful. 
-
-\subsection{Goal}\label{subsec:goal}
-
-Our goal is to analyse which mining strategy is the most beneficial as a function of the miner's relative hashing power and the portion of standard miners that join them in case of a type 0 strategy.
-To that effect we calculate the probability that a block-withholding miner succeeds in replacing a block (and possibly some number of confirmation blocks on top of it) by publishing a secretly mined branch of the block-tree following either one of the block-withholding strategies described above.
-
-\section{Setup}\label{calcsetup}
-Let us denote by $\mathcal{H}$ the total hashing power of the network and divide it abstractly into an \emph{Honest} part which holds a portion $p\mathcal{H}$ of the total hashing power (where $p \in [0,1]$) and an \emph{Attacker} which holds the rest $q\mathcal{H}=(1-p)\mathcal{H}$. 
-
-We start our analysis at a given point in time where the blockchain is of length $L$ and denote the last block mined as $\mathit{B}_L$. As time marches on the honest miners continue to mine on top of it ( $\mathit{B}_{L+1}, \mathit{B}_{L+2}, \dots$) while the attackers are building a separate branch on top of $\mathit{B}_L$ ( $\mathit{\tilde{B}}_{L+1}, \mathit{\tilde{B}}_{L+2}, \dots$) with the aim of overtaking it:
-
-\begin{eqnarray}\label{blockwithholdingchain}
+\begin{eqnarray}\label{fig:blockwithholdingchain}
  \dots \rightarrow \mathit{B}_L\rightarrow &\mathit{B}_{L+1}\rightarrow\mathit{B}_{L+2}
 \rightarrow\dots\rightarrow\mathit{B}_{L+n} \qquad\qquad \mathrm{Main}\\\nonumber
 \searrow & \\\nonumber
@@ -92,46 +77,66 @@ We start our analysis at a given point in time where the blockchain is of length
 \longrightarrow \quad \dots \longrightarrow\widetilde{\mathit{B}}_{L+m}\qquad \mathrm{Secret}
 \end{eqnarray}
 
-Treating block mining as a negative binomial random variable, the probability $\mathit{P_{n,p}(m)}$ that $m$ blocks are mined by the attackers {\bf before} $n$ blocks were honestly mined is proportional to $p^nq^m$ and can be shown
+\subsection{Type I (try to win)}
+The miners mine their secret branch until it is \textit{longer than the main branch}. At this time they can publish it and uproot the last $n$ blocks mined by the Standard miners in favour of their $m>n$ secretly mined ones.
+
+\subsection{Type 0 (reach a tie and get some help)}
+The miners mine their secret branch until it is of the  \textit{same length as the main branch}. At this time they publish it. Now the network is bifurcated. The type 0 miners joined by some of the standard miners will mine on top of the newly published Type 0 branch. The rest of the standard miners continue working on the standard branch. If the former manage to find a new block first then the Type 0 strategy was successful. 
+
+\section{Our Goal}\label{subsec:goal}
+
+Our goal is to analyse which mining strategy is the most beneficial as a function of the miner's relative hashing power and the portion of standard miners that join them, in case of a Type 0 strategy.
+To that effect we calculate the probability that a block-withholding miner succeeds in replacing a block (and possibly some number of confirmation blocks on top of it) by publishing a secretly mined branch of the block-tree.
+
+\chapter{Calculation}\label{chap:calc}
+
+\section{Setup}\label{calcsetup}
+Let us denote by $\mathcal{H}$ the total hashing power of the network and divide it abstractly into a \emph{Standard} part which holds a portion $p\mathcal{H}$ of the total hashing power (where $p \in [0,1]$) and a \emph{Block Withholding} part, which holds the rest $q\mathcal{H}=(1-p)\mathcal{H}$. 
+
+We start our analysis at a given point in time where the blockchain is of length $L$ and denote the last block mined as $\mathit{B}_L$. As time marches on the Standard miners continue to mine on top of it ($\mathit{B}_{L+1}, \mathit{B}_{L+2}, \dots$) while the block withholding miners are building a separate branch on top of $\mathit{B}_L$ ($\mathit{\tilde{B}}_{L+1}, \mathit{\tilde{B}}_{L+2}, \dots$). This is depicted in figure \ref{fig:blockwithholdingchain}. The block withholding miners aim to replace the top of the chain mined on top of $\mathit{B}_L$ by using one of the two block withholding strategies.
+
+
+\section{Calculating the probability of success}
+
+Calculating the probability of success for a block withholding strategy involves two parts. We first calculate the probability that the block tree reaches a situation like the one depicted in figure \ref{fig:blockwithholdingchain}. Then we multiply this probability with the probability that the block withholders manage to catchup with the main chain. Our analysis follows the one presented in \cite{Doublespend}.
+
+\subsection{Getting to the starting point}
+Treating block mining as a negative binomial random variable, the probability $\mathit{P_{n,p}(m)}$ that $m$ blocks are mined in the secret branch {\bf before} $n$ blocks are mined in the main branchis proportional to $p^nq^m$ and can be shown
 (appendix \ref{app:probmath}) to be given by
 
 \begin{equation}\label{eq:pnm}
 \mathit{P}_{n,q}(m)={n + m -1\choose m}(1-q)^nq^m \quad n=1,2,\dots
 \end{equation}
 
-The probability $\mathit{a}_{n,m}(q)$ that the attackers manage to catch-up and overtake the blockchain given the situation above\footnote{Namely, that from the beginning of the experiment until the moment the honest network mines it's $n$th block on top of $\mathit{B}_L$, the attackers managed to mine $m$ blocks on top of $\mathit{B}_L$ constituting their secret branch.} is given by a Markov chain that depends only on the advantage $z$ of the honest network over the attackers $z=n-m$ defined by the recurrence relation
-
+\subsection{Catching up from the starting point}
+The probability $\mathit{a}_{n,m}^{(r)}(q)$ that the attackers manage to catch-up and overtake the blockchain by at least $r$ blocks, given the situation above\footnote{Namely, that until the moment the main network mines it's $n$th block on top of $\mathit{B}_L$, the block withholders manage to mine $m$ blocks on top of $\mathit{B}_L$ constituting their secret branch.} is given by a Markov chain that depends only on the advantage $z$ of the honest network over the attackers $z=n-m$, and the parameter $r$. Formally, the chain satisfies the recurrence relation
 \begin{equation}\label{eq:markov}
-\mathit{a}_z(q)=(1-q)\mathit{a}_{z+1}(q)+q\mathit{a}_{z-1}(q)
+\mathit{a}^{(r)}_z(q)=(1-q)\mathit{a}_{z+1}(q)+q\mathit{a}_{z-1}(q)
 \end{equation}
 
-The relation can be solved with boundary conditions\footnote{Note that the condition $\mathit{a}_{-1}=&1$ encodes the fact that the attack is successful once the secret chain is \b{longer} than the main chain.} $\mathit{a}_{-1}=&1, \mathit{a}_{\infty}=&0$ by
+with boundary conditions encoding the fact that a success is defined by the secret branch being longer than the main branch by at least $r$ blocks
+
+\begin{equation}\label{eq:markovbc}
+\texttt{Boundary Conditions:}
+\begin{cases}
+\mathit{a}^{(r)}_{-r}=1 & \\ 
+\mathit{a}^{(r)}_{\infty}=0 & \\
+\end{cases}
+\end{equation}
+
+
+
+The relation \ref{eq:markov} can be solved with boundary conditions \ref{eq:markovbc} by 
 
 \begin{equation}\label{eq:az}
-\mathit{a}_z(q)=\begin{cases}\left( \dfrac{q}{1-q}\right)^{z+1} & q\in [0,\dfrac{1}{2}] \quad \mathrm{and} \quad z=0,1,2\dots \\ \quad 1 & \mathrm{otherwise} \end{cases}
-\end{equation}
-
-For example, to find the probability of a {\bf double-spend attack} on a transaction included in a block $\mathit{B}}_L$ with $n$ confirmations, the attacker needs to catchup from a deficit of $n-(m+1)$. The extra block $m+\mathbf{1}$ is the block where the amount spent in $\mathit{B}_{L}$ was spent again (or resent to the attacker) thus constituting a double-spend attack. This block is denoted with an asterisk $\mathit{B}}_{L}^{*}$ in \ref{dsfigure}:
-
-\begin{eqnarray}\label{dsfigure}
- \dots \rightarrow \mathit{B}_{L-1}\rightarrow &\overbrace{\mathit{B}_{L}\rightarrow\mathit{B}_{L+1}
-\rightarrow\dots\rightarrow\mathit{B}_{L+n-1}}^{n \; \mathrm{confirmations}} \qquad\qquad\qquad\qquad\qquad \mathrm{Main}\\\nonumber
-\searrow & \\\nonumber
-\qquad \qquad \qquad & \underbrace{\widetilde{\mathit{B}}_{L}^{*}\rightarrow\widetilde{\mathit{B}}_{L+1}
-\longrightarrow \quad \dots \longrightarrow\widetilde{\mathit{B}}_{L+m}}_{(m+1)\; \mathrm{ blocks}}\qquad\qquad\qquad\qquad \mathrm{Secret}
-\end{eqnarray}
-
-This attack was first analyzed in \cite{Bitcoin} \footnote{Approximated by a Poisson process.}, treated more accurately in \cite{Doublespend} and was shown to be 
-\begin{equation}\label{eqn:ds}
-D_n(p)=\sum_{m=0}^{\infty}P_{n,p}(m)\mathit{a}_{n-(m+1)}(p)
+\mathit{a}^{(r)}_z(q)=\begin{cases}\left( \dfrac{q}{1-q}\right)^{z+r} & q\in [0,\frac{1}{2}] \quad \mathrm{and} \quad z=0,1,2\dots \\ \quad 1 & \mathrm{otherwise} \end{cases}
 \end{equation}
 
 \section{Block withholding attack - Type I}
 
-In this section we calculate the probability of success of a miner with relative power $q$ following the type I strategy in replacing the top of the block-chain with her secret branch.
-Let $\mathit{Q}(q)$  be the probability that the type I miners succeed in mining a secret branch on top of $\mathit{B}_L$ that is longer than the main branch, which allows them to publish it and replace $\mathit{B}_{L+1}$, and all the blocks honestly mined on top of it. 
+Let $\mathit{Q}(q)$  be the probability that a type I miner succeed in mining a secret branch on top of $\mathit{B}_L$ that is longer than the main branch, which allows her to publish it and replace $\mathit{B}_{L+1}$, and any blocks mined by the network on top of it. 
 
-The type 0 strategy is successful when applied on top of the block $\mathit{B}_L$ if the type 0 miners manage to catch-up on $B_{L+1}$ after starting with $m=0,1,\dots$ blocks. The starting point for the catch-up process for some $m$ is shown below:
+The type I strategy is successful when applied on top of the block $\mathit{B}_L$ if the type I miner manage to catch-up on $B_{L+1}$ and win by at least one block, after starting with $m=0,1,\dots$ secret blocks. The starting point for the catch-up process for some $m$ is shown below:
 
 \begin{eqnarray}\label{blockwithholdingboundary}
  \dots \rightarrow \mathit{B}_L\rightarrow &\mathit{B}_{L+1} \qquad\qquad\qquad\qquad\qquad\qquad\qquad\quad \mathrm{Main}\\\nonumber
@@ -140,36 +145,13 @@ The type 0 strategy is successful when applied on top of the block $\mathit{B}_L
 \longrightarrow \quad \dots \longrightarrow\widetilde{\mathit{B}}_{L+m}\qquad \mathrm{Secret}
 \end{eqnarray}
 
-There are two differences from a double-spend attack described above. One is that we are not requiring a particular number of blocks mined on top of $\mathit{B}_L$ before the secret branch is published. Secondly, we don't require the attacker started the catch-up (with probability of success captured in equation \ref{eq:az}) after mining at least one block. 
-
-
-\begin{comment}
--------------------------------------
-For example, the $m=0$ catch-up starting point in the case of double-spend with a single confirmation is:
-
-\begin{eqnarray}\label{miszerodoublespendboundary}
- \dots \rightarrow \mathit{B}_L\rightarrow &\mathit{B}_{L+1} \qquad\qquad\qquad\qquad\qquad\qquad\qquad\quad \mathrm{Main}\\\nonumber
-\searrow & \\\nonumber
-\qquad \qquad \qquad & \widetilde{\mathit{B}}_{L+1}^*\qquad\qquad\qquad\qquad\qquad\qquad\qquad\quad \mathrm{Secret}
-\end{eqnarray}
-
-while in the block-withholding attack it is:
-
-\begin{eqnarray}\label{miszeroblockwithholdingboundary}
- \dots \rightarrow \mathit{B}_L\rightarrow &\mathit{B}_{L+1} \qquad\qquad\qquad\qquad\qquad\qquad\qquad\quad \mathrm{Main}\\\nonumber
-\searrow & \\\nonumber
-&\mathit{no\; blocks} \qquad\qquad\qquad\qquad\qquad\qquad\qquad \mathrm{Secret}
-\end{eqnarray}
---------------------------------
-\end{comment}
-
-Apart from that, the math is very similar. Formally 
+By definition of the Type I strategy, the secret branch needs to be longer by at least one block\footnote{Hence the name: ``Type \textbf{I}".}, so we need to set the boundary condition in \ref{eq:markovbc} to $r=1$, giving: 
 
 \begin{equation}\label{eq:qofpdef}
-\mathit{Q}(q)=\sum_{m=0}^{\infty}\mathit{P}_{1,q}(m)\mathit{a}_{1-m}(q)
+\mathit{Q}(q)=\sum_{m=0}^{\infty}\mathit{P}_{1,q}(m)\mathit{a}^{(1)}_{1-m}(q)
 \end{equation}
 
-which results to (see details in appendix \ref{app:calcqofp})
+which gives (see details in appendix \ref{app:calcqofp})
 
 \begin{equation}\label{eq:qofp}
 \mathit{Q}(q)=
@@ -179,76 +161,32 @@ which results to (see details in appendix \ref{app:calcqofp})
 \end{cases}
 \end{equation}
 
-In Figure ~\ref{fig:PlotProbOfSuccess} we plot the probability of a successful attack as a function of the relative hashing power $q$ against the probability of the attacker being honest, in which case his probability of success is just $q$
+In Figure \ref{fig:PlotProbOfSuccess} we plot the probability of a successful Type I strategy as a function of the relative hashing power $q$. As a reference we also plot the probability of success in mining a block for a standard miner with the same hashing power $q$.
 
-\begin{figure}[pos]
-\centering
-\includegraphics[width=150mm]{Blockwithholdingattack.png}
-\caption{The orange curve plots the probability that the attackers manage to uproot the next honest block and replace it with one of their own. The blue curve is the baseline probability for an honest miner with the same hashing power $q$}
+\noindent%
+\begin{minipage}{\linewidth}
+\makebox[\linewidth]{%
+  \includegraphics[keepaspectratio=true,scale=0.7]{TypeIPOS.pdf}}
+\captionof{figure}{
+The orange curve plots the probability that the attackers manage to uproot the next honest block and replace it with one of their own. The blue curve is the baseline probability for an honest miner with the same hashing power $q$
+}
 \label{fig:PlotProbOfSuccess}
-\end{figure}
+\end{minipage}
 
+\subsubsection{When is Type I better than Standard?}
 To find out how big $q$ needs to be for this type of strategy to become more beneficial than the standard strategy we need to calculate:
 
-\begin{equation}\label{eqn:type1overstandard}
+\begin{equation}\label{eq:type1overstandard}
 \dfrac{q^2}{1-q}\left(3-2q\right) \geq q
 \end{equation}
 
 which since $0\leq q \leq 1$ gives the condition $q \geq q_0$ where 
 
-\begin{equation}\label{eqn:qnot}
+\begin{equation}\label{eq:qnot}
 q_0=1-\frac{1}{\sqrt{2}} \sim 0.293
 \end{equation}
+We conclude that type I strategy is better than the standard strategy for $q>q_0$. Once $q\geq \frac{1}{2}$ we get to the famous ``$51\%$ attack" where the type I strategy is actually guaranteed to succeed.
 
-Thus, type I strategy is better than the standard strategy for $q>q_0$.
-
-\newpage
-\begin{comment}
--------------------------------------
-\subsection{Attacker's reward}
-
-\texttt{In fact I think this calculation wrong. I'm calculating the expected length of the secret branch at the point the catchup begun, but when the attack succeeds the secret branch will usually have more blocks. I guess I'll have to go back to the literature to find out how to calculate the expected distance from the origin in this type of Markov Chain. In any case, this is not the main point of this paper so I'll just comment it out for now.}
-
-Next we calculate the expected reward of a block-withholding attacker.
-We assume for simplicity that the reward of each party is simply proportional to the number of blocks mined by that party.
-
-Formally
-
-\begin{equation}\label{eq:rofpdef}
-\mathit{R}(p)=\sum_{m=0}^{\infty}m\cdot\mathit{P}_{1,p}(m)\mathit{a}_{1-m}(p)
-\end{equation}
-
-which results to (see details in appendix \ref{app:calcrofp})
-
-\begin{equation}\label{eq:rofp}
-\mathit{R}(p)=
-\begin{cases}
-\dfrac{q^2}{1-q}\left(
-3-2q
-\right) & \quad q \in [0,\frac{1}{2}] \\
-\dfrac{q}{1-q} & \quad q \in [\frac{1}{2},1] 
-\end{cases}
-\end{equation}
-
-
-In Figure ~\ref{fig:AttackersReward} we plot the attackers reward as a function of the relative hashing power $q$ against the probability of the reward for an honest miner with the same hashing power, which is just $q$.
-
-\begin{figure}[reward]
-\centering
-\includegraphics[width=150mm]{AttackersReward.png}
-\caption{The orange curve plots the attacker's reward. The blue curve is the baseline reward for an honest miner with the same hashing power $q$.}
-\label{fig:AttackersReward}
-\end{figure}
-
-We note a few things.
-\begin{itemize}
-\item In the range $q\in[0,\dfrac{1}{2}]$ $R(p)$ is identical to $Q(p)$.
-  \item As expected the reward of the attackers exceeds the honest reward at the same point where the probability of success exceeds the honest benchmark. i.e. when $q>1-\frac{1}{\sqrt{2}} \sim 0.293$
-  \item As $q\rightarrow 1$ the reward of the attackers diverge, because they basically control the blockchain and can plant as many blocks as they desire.
-  \item This may be a little hard to see in Figure ~\ref{fig:AttackersReward} but The function $R(p)$ is continuous but not continuously differentiable. At the point $q=\frac{1}{2}$ the derivative jumps from $4$ to $5$.
-\end{itemize}
--------------------------------------
-\end{comment}
 
 \section{Block withholding attack - Type 0}
 In this section we analyse the type 0 strategy probability of success.
@@ -349,13 +287,13 @@ To decide if a block-withholding attack of type 0 is beneficial or not we should
 First note that in the second and third regimes in equation \ref{sofq} (or for any $q$ if $\gamma\geq\frac{1}{2}$) the type 0 attacks is beneficial over the honest strategy for any $q$, because for any $q$ it holds that $0\leq q \leq min(2q,1)$. 
 
 In the first regime (i.e. when $q<q_c(\gamma)$) we can find at what value of $q$ the type 0 attacks starts being beneficial over the honest strategy by solving
-\begin{equation}\label{eqn:type0benefitonhonestequation}
+\begin{equation}\label{eq:type0benefitonhonestequation}
 2q\cdot\frac{q(1-\gamma)+\gamma}{(1-q)(1-\gamma)}\geq q
 \end{equation}
 
 which gives the condition $q_b(\gamma)\leq q \leq q_c(\gamma)$, where 
 
-\begin{equation}\label{eqn:qb}
+\begin{equation}\label{eq:qb}
 q_b= \dfrac{1-3\gamma}{3-3\gamma}
 \end{equation}
 
@@ -374,7 +312,7 @@ Note that if $\gamma=0$ this strategy is beneficial only when $q>\frac{1}{3}$ an
 
 Taking all three regimes into account we conclude that the type 0 attack is beneficial over the honest strategy when
 
-\begin{equation}\label{eqn:0overhonest}
+\begin{equation}\label{eq:0overhonest}
 S_{\gamma}(q)\geq q \Longrightarrow
 \begin{cases}
 q>\dfrac{1-3\gamma}{3-3\gamma} & \gamma\in [0,\frac{1}{3}] \\ 
@@ -384,7 +322,7 @@ q>\dfrac{1-3\gamma}{3-3\gamma} & \gamma\in [0,\frac{1}{3}] \\
 
 we can summarize further by writing
 
-\begin{equation}\label{eqn:0overhonestsummary}
+\begin{equation}\label{eq:0overhonestsummary}
 S_{\gamma}(q)\geq q \Longrightarrow
 q>max\left\lbrace\dfrac{1-3\gamma}{3-3\gamma},0\right\rbrace
 \end{equation}
@@ -397,9 +335,9 @@ There are two interesting comparisons one can make between Type 0 and Type I att
 
 One is to compare how they match against the honest strategy. Namely, for a given $\gamma$ do we first hit the regime where a Type 0 or a Type I strategy is more beneficial than the standard strategy.
 
-This type 0 strategy wins earlier (in fact already at $q=0$) when $\gamma\geq\frac{1}{3}$. When $\gamma < \frac{1}{3}$ we can compare $q_b(\gamma)$ (given in equation \ref{eqn:qb}) with $q_0$ (given in equation \ref{eqn:qnot}).
+This type 0 strategy wins earlier (in fact already at $q=0$) when $\gamma\geq\frac{1}{3}$. When $\gamma < \frac{1}{3}$ we can compare $q_b(\gamma)$ (given in equation \ref{eq:qb}) with $q_0$ (given in equation \ref{eq:qnot}).
 
-\begin{equation}\label{eqn:qbornot}
+\begin{equation}\label{eq:qbornot}
 \dfrac{1-3\gamma}{3-3\gamma}<1-\dfrac{1}{\sqrt{2}}
 \end{equation}
 
@@ -415,7 +353,7 @@ To summarize, when $\gamma\geq\frac{1}{3}$ the Type 0 strategy is beneficial ove
 
 Finally, ignoring the honest strategy for a moment, we can ask for the range of parameters $q,\gamma$ where the Type 0 strategy is more beneficial than the Type I strategy. Formally we need to solve:
 
-\begin{equation}\label{eqn:type0overtype1}
+\begin{equation}\label{eq:type0overtype1}
 2q\cdot\frac{q(1-\gamma)+\gamma}{(1-q)(1-\gamma)}\geq \dfrac{q^2}{1-q}\left(
 3-2q
 \right)`
@@ -423,12 +361,12 @@ Finally, ignoring the honest strategy for a moment, we can ask for the range of 
 
 which gives the condition
 
-\begin{equation}\label{eqn:type0over1condition}
+\begin{equation}\label{eq:type0over1condition}
 2q^2-q+\frac{2\gamma}{1-\gamma}\geq 0
 \end{equation}
 
 This condition is satisfied in two regimes for $\gamma$.
-\begin{equation}\label{eqn:type0over1gammaregimes}
+\begin{equation}\label{eq:type0over1gammaregimes}
 S_{\gamma}(q)\geq Q(q) \Longrightarrow
 \begin{cases}
 \mathit{any\;} q & \gamma\in [\frac{1}{17},1] \\ 
@@ -472,7 +410,7 @@ This fact makes the phase space much simpler to analyse.
 \newpage
 
 \begin{itemize}
-\item The circular curve created by the two branches $q_{\pm}$ determines, for a given $\gamma$, which of the two block-withholding strategies, Type 0 or Type I is more beneficial. Inside the circular region (and all the way to the $q$ axis) is the region where Type I is better than type 0. Outside this region Type 0 is better than Type 1. This is determined by equation \ref{eqn:type0over1condition}. Note that this division doesn't specify whether any of the strategies is better than the standard one.
+\item The circular curve created by the two branches $q_{\pm}$ determines, for a given $\gamma$, which of the two block-withholding strategies, Type 0 or Type I is more beneficial. Inside the circular region (and all the way to the $q$ axis) is the region where Type I is better than type 0. Outside this region Type 0 is better than Type 1. This is determined by equation \ref{eq:type0over1condition}. Note that this division doesn't specify whether any of the strategies is better than the standard one.
 \item The Type I strategy is more beneficial than the standard strategy in the region above the horizontal line $q=q_0$. .
 \item The Type 0 strategy is more beneficial than the Standard strategy in the region above the monotonically decreasing curve $q_b(\gamma)$ (extending from $\frac{1}{3}$ on the $q$ axis to $\frac{1}{3}$ on the $\gamma$ axis and the continuing on the $\gamma$ axis all the way to $\gamma=1$).
 \end{itemize}
@@ -617,16 +555,16 @@ q\mathit{a}_0(p)+\sum_{m=2}^{\infty}m\cdot q^m
 ------------------------------
 We start by noting some simple facts.
 \begin{itemize}
-\item Equation \ref{eqn:qnot} tells us that in the regime $q>q_0=1-\frac{1}{\sqrt{2}}$ the Type I strategy is more beneficial than the standard strategy.
-\item Equation \ref{eqn:0overhonest} tells us that in the regime $\gamma\geq\frac{1}{3}$ The Type 0 strategy is more beneficial than the standard strategy.
-\item Equation \ref{eqn:type0over1gammaregimes} tells us that when $\frac{1}{17}\leq \gamma \leq \frac{1}{3}$ Type 0 is more beneficial than Type I for any $q$, so we only need to ask when is Type 0 better than the standard strategy, and we get the answer from equations \ref{eqn:type0benefitonhonestequation} and \ref{eqn:qb} to be $q>q_b(\gamma)=\frac{1-3\gamma}{3-3\gamma}$.
+\item Equation \ref{eq:qnot} tells us that in the regime $q>q_0=1-\frac{1}{\sqrt{2}}$ the Type I strategy is more beneficial than the standard strategy.
+\item Equation \ref{eq:0overhonest} tells us that in the regime $\gamma\geq\frac{1}{3}$ The Type 0 strategy is more beneficial than the standard strategy.
+\item Equation \ref{eq:type0over1gammaregimes} tells us that when $\frac{1}{17}\leq \gamma \leq \frac{1}{3}$ Type 0 is more beneficial than Type I for any $q$, so we only need to ask when is Type 0 better than the standard strategy, and we get the answer from equations \ref{eq:type0benefitonhonestequation} and \ref{eq:qb} to be $q>q_b(\gamma)=\frac{1-3\gamma}{3-3\gamma}$.
 \end{itemize}
 
 The rest of phase space requires some more analysis.
 
 \subsubsection{The regime $\gamma_c=1-\frac{2\sqrt{2}}{3}\sim 0.0572\leq \gamma \leq \frac{1}{17}\sim 0.0588$ }
 
-By definition of $\gamma_c$ (equation \ref{eqn:qbornot}) in this region $q_b(\gamma)<q_0$.
+By definition of $\gamma_c$ (equation \ref{eq:qbornot}) in this region $q_b(\gamma)<q_0$.
 Thus, this region in $\gamma$ breaks up into three regions in $q$. Namely:
 
 \begin{itemize}
@@ -636,7 +574,7 @@ Thus, this region in $\gamma$ breaks up into three regions in $q$. Namely:
 
 \end{itemize}
 
-In this region we learn from equation \ref{eqn:type0over1gammaregimes} that Type 0 is better than Type I only if $q<q_-(\gamma)$ or $q>q_+(\gamma)$. 
+In this region we learn from equation \ref{eq:type0over1gammaregimes} that Type 0 is better than Type I only if $q<q_-(\gamma)$ or $q>q_+(\gamma)$. 
 Let us first attempt to solve for $q_b(\gamma)\leq q < q_-(\gamma)$. For this to be possible we must have $q_b(\gamma)\leq q_-(\gamma)$, or:
 
 \begin{equation}
