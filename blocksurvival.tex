@@ -44,7 +44,7 @@
 \begin{abstract}
 We calculate the probability of success of block-withholding mining strategies in bitcoin-like networks.
 These strategies involve building a secret branch of the block-tree and publishing it opportunistically, aiming to replace the top of the main-branch and rip the reward associated with the secretly mined blocks. We identify two types of block-withholding strategies and chart the parameter space where those are more beneficial than the standard mining strategy described in Nakamoto's paper.
-Our analysis suggests a generalization of the notion of the relative hashing power as a measure for a miner's influence on the network. Block withholding attacks start becoming beneficial only when this measure of influence exceeds a certain threshold.
+Our analysis suggests a generalization of the notion of the relative hashing power as a measure for a miner's influence on the network. Block withholding strategies are beneficial only when this measure of influence exceeds a certain threshold.
 
 
 \end{abstract}
@@ -430,7 +430,7 @@ Interestingly enough, the 3 functions $q_0, q_b(\gamma), q_+(\gamma)$ intersect 
 \end{minipage}
 \linebreak
 
-A miner seeking to maximize profit will select the most beneficial strategy in each region. The resulting phase space is divided into 3 regions characterized by a winning strategy, is depicted in figure \ref{fig:qgammaphasespace}.
+A miner, seeking to maximize profit, can select the most beneficial strategy in each region. The resulting phase space is divided into 3 regions characterized by the winning strategy, is depicted in figure \ref{fig:qgammaphasespace}.
 
 
 \noindent%
@@ -444,52 +444,54 @@ A miner seeking to maximize profit will select the most beneficial strategy in e
 
 \subsection{Discussion}
 
-Note that the regime where either block-withholding strategies are more beneficial than the standard strategy is bounded away from the origin. It is tempting to look at the radial distance from the origin of phase space as a measure of a ``miner's \textit{Influence}" $\mathtt{I}(q,\gamma)\equiv \sqrt{q^2+\gamma^2}$.
+Note that the regime where either block-withholding strategies are more beneficial than the standard strategy is bounded away from the origin. It is tempting to look at the radial distance from the origin of phase space as a measure of a ``miner's \textit{Influence}" 
 
-This definition is partly motivated by the rough symmetry\footnote{All we mean by that is that figure \ref{fig:qgammaphasespace} is almost symmetric under a rotation along the $45^{\circ}$ angle that rotates $\gamma \leftrightarrow q$.} between the parameters $\gamma$ and $q$ which seems to suggest that having a large $\gamma$ is ``similarly difficult" to having a large $q$ and a typical miner will have both parameters in similar scales. 
+\begin{equation}
+\mathtt{I}(q,\gamma)\equiv \sqrt{q^2+\gamma^2}.
+\end{equation}
+
+
+This definition is motivated by the rough symmetry\footnote{All we mean by that is that figure \ref{fig:qgammaphasespace} is almost symmetric under a rotation along the $45^{\circ}$ angle that rotates $\gamma \leftrightarrow q$.} between the parameters $\gamma$ and $q$ which seems to suggest that having a large $\gamma$ is ``similarly difficult" to having a large $q$ and a typical miner will have both parameters in similar scales. 
 
 There are a few remarks in order:
 \begin{itemize}
 \item Figure \ref{fig:qgammaphasespace} marks the regions where a block-withholding strategy in beneficial, but does not guarantee success. Success of either strategies is still guaranteed (i.e. the probability of success is strictly $1$) only in the top half of phase space, in the region where $q\geq \frac{1}{2}$ (the infamous $51\%$ attack).
-\item The authors of \cite{Selfish} identified a region delimited by the curve $\frac{1-\gamma}{3-2\gamma}\leq q \leq \frac{1}{3}$ where the ``selfish" mining strategy is more beneficial than the standard one. As one would expect based on the fact that the ``selfish'' strategy utilizes a combination of the two strategies discussed here, this curve intersects both Type I and Type 0 regions as depicted in \ref{fig:selfish}.
+\item The authors of \cite{Selfish} identified a region delimited by the curve $\frac{1-\gamma}{3-2\gamma}\leq q \leq \frac{1}{3}$ where the ``selfish" mining strategy is more beneficial than the standard one. As one would expect based on the fact that the ``selfish'' strategy utilizes a combination of the two strategies discussed here, this curve intersects both Type I and Type 0 regions as depicted in figure \ref{fig:selfish}.
 \end{itemize}
 
-
+\noindent%
+\begin{minipage}{\linewidth}
+\makebox[\linewidth]{%
+  \includegraphics[keepaspectratio=true,scale=0.7]{selfish.png}}
+\captionof{figure}{In this plot we see the location of the curve describing the ``seflish" strategy of \cite{Selfish} within the $\gamma, q$ phase space.}
+\label{fig:selfish}
+\end{minipage}
+\linebreak
 
 \appendix
 \chapter{Calculation Details}
-\section{Probability distribution} \label{app:probmath}
-
-To find the normalization in the case $n>0$ we use the useful binomial identity holding for any complex $s$ inside the unit circle ($|s|<1$)
-
-\dfrac{1}{(1-s)^n}=\sum_{k=0}^{\infty} {n + k -1\choose k}s^k.
-
-It is now straightforward to show that \ref{eq:pnm} is indeed a probability distribution
-
+\subsection{Probability distribution} \label{app:probmath}
+\begin{equation}
 \sum_{m=0}^{\infty}\mathit{P}(n,m,p)=p^n\sum_{m=0}^{\infty}{n + m -1\choose m}q^m=p^n\dfrac{1}{(1-q)^n}=1
+\end{equation}
 
-\section{Calculating $\mathit{Q}(q)$ } \label{app:calcqofp} 
+where we used the binomial identity holding for any complex $s$ inside the unit circle ($|s|<1$)
+$\dfrac{1}{(1-s)^n}=\sum_{k=0}^{\infty} {n + k -1\choose k}s^k$.
+
+\subsection{$\mathit{Q}(q)$ } \label{app:calcqofp} 
 
 $\mathit{Q}(q)$  can be solved in the two regions for the parameter $q$ given in \ref{eq:az}.
 
 In the case  that $q\in [0,\frac{1}{2}]$
-
 \begin{eqnarray}\label{eq:rpcalc}\nonumber
-&\mathit{Q}(q)=\sum_{m=0}^{\infty}\mathit{P}_{1,q}(m)\mathit{a}_{1-m}(q)=p\sum_{m=0}^{\infty}q^m\mathit{a}_{1-m}(p)=p\left(
-\mathit{a}_1(p)+q\mathit{a}_0(p)+\sum_{m=2}^{\infty}q^m
- \right)=\\\nonumber
- &p\left(
-\left(\dfrac{q}{p}\right)^2+q\dfrac{q}{p}+\left(\sum_{m=0}^{\infty}q^m\right)-1-q
+&\mathit{Q}(q)=\sum_{m=0}^{\infty}\mathit{P}_{1,q}(m)\mathit{a}_{1-m}^{(1)}(q)=(1-q)\sum_{m=0}^{\infty}q^m\mathit{a}_{1-m}^{(1)}(q)=\\\nonumber &
+(1-q)\left(
+\mathit{a}^{(1)}_1(q)+q\mathit{a}^{(1)}_0(q)+\sum_{m=2}^{\infty}q^m
+ \right)=
+(1-q)\left(
+\left(\dfrac{q}{1-q}\right)^2+q\dfrac{q}{1-q}+\left(\sum_{m=0}^{\infty}q^m\right)-1-q
  \right) 
- =p\left(
-\left(\dfrac{q}{p}\right)^2+\dfrac{q^2p}{p^2}+\dfrac{1}{p}-(1+q)
- \right)=\\\nonumber
-&\dfrac{1}{p}\left(
-q^2(1+p)+p-p^2(1+q)
-\right) 
- =\dfrac{1}{p}
-\left(q^2(1+p)+p-p^2(1+q)
- \right)=\\\nonumber
+ =\\\nonumber 
 &\dfrac{1}{1-q}\left(
 q^2(2-q)+1-q-(1-q)^2(1+q)
 \right) 
@@ -504,31 +506,31 @@ q^2(2-q)+1-q-(1-q)^2(1+q)
 In the case  that $q\in [\frac{1}{2},1]$
 
 \begin{eqnarray}\nonumber
-&\mathit{Q}(q)=p\sum_{m=0}^{\infty}q^m\mathit{a}_{1-m}(p)=p\left(
-\mathit{a}_1(p)+q\mathit{a}_0(p)+\sum_{m=2}^{\infty}q^m
+&\mathit{Q}(1)=p\sum_{m=0}^{\infty}q^m\mathit{a}^{(1)}_{1-m}(1)=(1-q)\left(
+\mathit{a}^{(1)}_1(q)+q\mathit{a}^{(1)}_0(q)+\sum_{m=2}^{\infty}q^m
  \right)=\\\nonumber
- &p
+ & (1-q)
 \left(1+q+\left(\sum_{m=0}^{\infty}q^m\right)-1-q
  \right) 
- =p\dfrac{1}{p}=1
+ =(1-q)\dfrac{1}{1-q}=1
 \end{eqnarray}
 
-\section{Calculating $\mathit{T}(q)$ } \label{app:calctofp} 
+\subsection{$\mathit{T}(q)$ } \label{app:calctofp} 
 
 $\mathit{T}(q)$  can be solved in the two regions for the parameter $q$ given in \ref{eq:az}.
 
 In the case  that $q\in [0,\frac{1}{2}]$
 
 \begin{eqnarray}\label{eq:rpcalc}\nonumber
-&\mathit{Q}(q)=\sum_{m=0}^{\infty}\mathit{P}_{1,q}(m)\mathit{b}_{1-m}(q)=p\sum_{m=0}^{\infty}q^m\mathit{b}_{1-m}(p)=p\left(
-\mathit{b}_1(q)+\sum_{m=1}^{\infty}q^m
+&\mathit{Q}(q)=\sum_{m=0}^{\infty}\mathit{P}_{1,q}(m)\mathit{a}^{(0)}_{1-m}(q)=p\sum_{m=0}^{\infty}q^m\mathit{a}^{(0)}_{1-m}(q)=(1-q)\left(
+\mathit{a}^{(0)}_1(q)+\sum_{m=1}^{\infty}q^m
  \right)=\\\nonumber
  &p\left(
-\dfrac{q}{p}+\left(\sum_{m=0}^{\infty}q^m\right)-1
+\dfrac{q}{1-q}+\left(\sum_{m=0}^{\infty}q^m\right)-1
  \right) 
- =p\left(
-\dfrac{q}{p}+\dfrac{1}{1-q}-1
- \right)=q+1-p=2q.\\\nonumber
+ =(1-q)\left(
+\dfrac{q}{1-q}+\dfrac{1}{1-q}-1
+ \right)=q+1-(1-q)=2q.\\\nonumber
 \end{eqnarray}
 
 The case $q\in [\frac{1}{2},1]$ is identical to the one carried above for $\mathit{Q}(q)$.

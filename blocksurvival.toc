@@ -22,7 +22,7 @@
 \contentsline {section}{\numberline {4.3}The Strategy Phase Space}{13}{section.4.3}
 \contentsline {subsection}{\numberline {4.3.1}Discussion}{15}{subsection.4.3.1}
 \contentsline {chapter}{\numberline {A}Calculation Details}{17}{appendix.A}
-\contentsline {section}{\numberline {A.1}Probability distribution}{17}{section.A.1}
-\contentsline {section}{\numberline {A.2}Calculating $\mathit {Q}(q)$ }{17}{section.A.2}
-\contentsline {section}{\numberline {A.3}Calculating $\mathit {T}(q)$ }{18}{section.A.3}
-\contentsline {chapter}{Bibliography}{19}{equation.A.3.1}
+\contentsline {subsection}{\numberline {A.0.2}Probability distribution}{17}{subsection.A.0.2}
+\contentsline {subsection}{\numberline {A.0.3}$\mathit {Q}(q)$ }{17}{subsection.A.0.3}
+\contentsline {subsection}{\numberline {A.0.4}$\mathit {T}(q)$ }{18}{subsection.A.0.4}
+\contentsline {chapter}{Bibliography}{19}{equation.A.0.2}
