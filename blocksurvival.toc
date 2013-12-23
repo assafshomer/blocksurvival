@@ -11,14 +11,16 @@
 \contentsline {section}{\numberline {3.2}Calculating the probability of success}{4}{section.3.2}
 \contentsline {subsection}{\numberline {3.2.1}Getting to the starting point}{4}{subsection.3.2.1}
 \contentsline {subsection}{\numberline {3.2.2}Catching up from the starting point}{5}{subsection.3.2.2}
-\contentsline {section}{\numberline {3.3}Block withholding attack - Type I}{5}{section.3.3}
-\contentsline {subsubsection}{When is Type I better than Standard?}{7}{section*.2}
-\contentsline {section}{\numberline {3.4}Block withholding attack - Type 0}{7}{section.3.4}
-\contentsline {section}{\numberline {3.5}The $\gamma ,q$ phase space}{9}{section.3.5}
-\contentsline {subsection}{\numberline {3.5.1}When is a Type 0 attack beneficial}{9}{subsection.3.5.1}
-\contentsline {subsubsection}{Comparing type 0 to the standard strategy}{9}{section*.5}
-\contentsline {subsection}{\numberline {3.5.2}Comparing Type 0 to Type I}{12}{subsection.3.5.2}
-\contentsline {section}{\numberline {3.6}The Strategy Phase Space}{13}{section.3.6}
+\contentsline {section}{\numberline {3.3}Block Withholding Strategy - Type I}{5}{section.3.3}
+\contentsline {subsection}{\numberline {3.3.1}When is Type I better than Standard?}{6}{subsection.3.3.1}
+\contentsline {section}{\numberline {3.4}Block Withholding Strategy - Type 0}{7}{section.3.4}
+\contentsline {chapter}{\numberline {4}The $\gamma ,q$ phase space}{10}{chapter.4}
+\contentsline {section}{\numberline {4.1}Type 0 vs. Standard}{10}{section.4.1}
+\contentsline {section}{\numberline {4.2}Comparing Type 0 to Type I}{11}{section.4.2}
+\contentsline {subsection}{\numberline {4.2.1}Which block withholding is beneficial first}{12}{subsection.4.2.1}
+\contentsline {subsection}{\numberline {4.2.2}Type 0 vs. Type I}{12}{subsection.4.2.2}
+\contentsline {section}{\numberline {4.3}The Strategy Phase Space}{13}{section.4.3}
+\contentsline {subsection}{\numberline {4.3.1}Discussion}{15}{subsection.4.3.1}
 \contentsline {chapter}{\numberline {A}Calculation Details}{17}{appendix.A}
 \contentsline {section}{\numberline {A.1}Probability distribution}{17}{section.A.1}
 \contentsline {section}{\numberline {A.2}Calculating $\mathit {Q}(q)$ }{17}{section.A.2}

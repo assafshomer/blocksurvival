@@ -11,12 +11,16 @@
 \BOOKMARK [1][-]{section.3.2}{Calculating the probability of success}{chapter.3}
 \BOOKMARK [2][-]{subsection.3.2.1}{Getting to the starting point}{section.3.2}
 \BOOKMARK [2][-]{subsection.3.2.2}{Catching up from the starting point}{section.3.2}
-\BOOKMARK [1][-]{section.3.3}{Block withholding attack - Type I}{chapter.3}
-\BOOKMARK [1][-]{section.3.4}{Block withholding attack - Type 0}{chapter.3}
-\BOOKMARK [1][-]{section.3.5}{The ,q phase space}{chapter.3}
-\BOOKMARK [2][-]{subsection.3.5.1}{When is a Type 0 attack beneficial}{section.3.5}
-\BOOKMARK [2][-]{subsection.3.5.2}{Comparing Type 0 to Type I}{section.3.5}
-\BOOKMARK [1][-]{section.3.6}{The Strategy Phase Space}{chapter.3}
+\BOOKMARK [1][-]{section.3.3}{Block Withholding Strategy - Type I}{chapter.3}
+\BOOKMARK [2][-]{subsection.3.3.1}{When is Type I better than Standard?}{section.3.3}
+\BOOKMARK [1][-]{section.3.4}{Block Withholding Strategy - Type 0}{chapter.3}
+\BOOKMARK [0][-]{chapter.4}{The ,q phase space}{}
+\BOOKMARK [1][-]{section.4.1}{Type 0 vs. Standard}{chapter.4}
+\BOOKMARK [1][-]{section.4.2}{Comparing Type 0 to Type I}{chapter.4}
+\BOOKMARK [2][-]{subsection.4.2.1}{Which block withholding is beneficial first}{section.4.2}
+\BOOKMARK [2][-]{subsection.4.2.2}{Type 0 vs. Type I}{section.4.2}
+\BOOKMARK [1][-]{section.4.3}{The Strategy Phase Space}{chapter.4}
+\BOOKMARK [2][-]{subsection.4.3.1}{Discussion}{section.4.3}
 \BOOKMARK [0][-]{appendix.A}{Calculation Details}{}
 \BOOKMARK [1][-]{section.A.1}{Probability distribution}{appendix.A}
 \BOOKMARK [1][-]{section.A.2}{Calculating Q\(q\) }{appendix.A}

@@ -111,7 +111,7 @@ Treating block mining as a negative binomial random variable, the probability $\
 \subsection{Catching up from the starting point}
 The probability $\mathit{a}_{n,m}^{(r)}(q)$ that the attackers manage to catch-up and overtake the blockchain by at least $r$ blocks, given the situation above\footnote{Namely, that until the moment the main network mines it's $n$th block on top of $\mathit{B}_L$, the block withholders manage to mine $m$ blocks on top of $\mathit{B}_L$ constituting their secret branch.} is given by a Markov chain that depends only on the advantage $z$ of the honest network over the attackers $z=n-m$, and the parameter $r$. Formally, the chain satisfies the recurrence relation
 \begin{equation}\label{eq:markov}
-\mathit{a}^{(r)}_z(q)=(1-q)\mathit{a}_{z+1}(q)+q\mathit{a}_{z-1}(q)
+\mathit{a}^{(r)}_z(q)=(1-q)\mathit{a}^{(r)}_{z+1}(q)+q\mathit{a}^{(r)}_{z-1}(q)
 \end{equation}
 
 with boundary conditions encoding the fact that a success is defined by the secret branch being longer than the main branch by at least $r$ blocks
@@ -132,11 +132,13 @@ The relation \ref{eq:markov} can be solved with boundary conditions \ref{eq:mark
 \mathit{a}^{(r)}_z(q)=\begin{cases}\left( \dfrac{q}{1-q}\right)^{z+r} & q\in [0,\frac{1}{2}] \quad \mathrm{and} \quad z=0,1,2\dots \\ \quad 1 & \mathrm{otherwise} \end{cases}
 \end{equation}
 
-\section{Block withholding attack - Type I}
+\section{Block Withholding Strategy - Type I}
 
-Let $\mathit{Q}(q)$  be the probability that a type I miner succeed in mining a secret branch on top of $\mathit{B}_L$ that is longer than the main branch, which allows her to publish it and replace $\mathit{B}_{L+1}$, and any blocks mined by the network on top of it. 
+The type I strategy is successful when applied on top of $\mathit{B}_L$ if the miner manages to catch-up on $B_{L+1}$ and win by at least one block, after starting with $m=0,1,\dots$ secret blocks. 
+By publishing the secret branch the miner can now replace $\mathit{B}_{L+1}$ and any blocks mined by the network on top of it. 
+Let $\mathit{Q}(q)$ be the probability that a type I miner succeeds. 
 
-The type I strategy is successful when applied on top of the block $\mathit{B}_L$ if the type I miner manage to catch-up on $B_{L+1}$ and win by at least one block, after starting with $m=0,1,\dots$ secret blocks. The starting point for the catch-up process for some $m$ is shown below:
+The starting point for the catch-up process for some $m$ is shown below:
 
 \begin{eqnarray}\label{blockwithholdingboundary}
  \dots \rightarrow \mathit{B}_L\rightarrow &\mathit{B}_{L+1} \qquad\qquad\qquad\qquad\qquad\qquad\qquad\quad \mathrm{Main}\\\nonumber
@@ -166,45 +168,50 @@ In Figure \ref{fig:PlotProbOfSuccess} we plot the probability of a successful Ty
 \noindent%
 \begin{minipage}{\linewidth}
 \makebox[\linewidth]{%
-  \includegraphics[keepaspectratio=true,scale=0.7]{TypeIPOS.pdf}}
+  \includegraphics[keepaspectratio=true,scale=0.7]{TypeIPOScrop.pdf}}
 \captionof{figure}{
-The orange curve plots the probability that the attackers manage to uproot the next honest block and replace it with one of their own. The blue curve is the baseline probability for an honest miner with the same hashing power $q$
+The orange curve plots the probability that a Type I miner manages to uproot the next block mined by the network and replace it (and any blocks mined on top of it) with blocks she mined in her secret branch. The blue curve is the baseline probability for an Standard miner with the same hashing power $q$
 }
 \label{fig:PlotProbOfSuccess}
 \end{minipage}
 
-\subsubsection{When is Type I better than Standard?}
-To find out how big $q$ needs to be for this type of strategy to become more beneficial than the standard strategy we need to calculate:
+\subsection{When is Type I better than Standard?}\label{TypeIoverStandard}
+To find out how big $q$ needs to be for this type of strategy to become more beneficial than the standard strategy we need to solve for $Q(q)\geq q$
 
 \begin{equation}\label{eq:type1overstandard}
 \dfrac{q^2}{1-q}\left(3-2q\right) \geq q
 \end{equation}
 
-which since $0\leq q \leq 1$ gives the condition $q \geq q_0$ where 
+which since $0\leq q \leq 1$ gives the condition 
 
 \begin{equation}\label{eq:qnot}
-q_0=1-\frac{1}{\sqrt{2}} \sim 0.293
+q\geq q_0=1-\frac{1}{\sqrt{2}} \sim 0.293
 \end{equation}
-We conclude that type I strategy is better than the standard strategy for $q>q_0$. Once $q\geq \frac{1}{2}$ we get to the famous ``$51\%$ attack" where the type I strategy is actually guaranteed to succeed.
+We conclude that type I strategy is better than the standard strategy for $q>q_0$. Once $q\geq \frac{1}{2}$ we get to the famous ``$51\%$ attack" where the type I strategy is guaranteed to succeed, but even for $q_0\leq q \leq \frac{1}{2}$ type I increases the probability of success for mining a new block compared to the standard strategy
 
 
-\section{Block withholding attack - Type 0}
-In this section we analyse the type 0 strategy probability of success.
-Instead of publishing the secret branch when it is longer than the main branch, the miners that follow this strategy publish it one step before when the length of the secret branch is the same as the length of the main branch, i.e. when they reach a tie. The reason this is potentially beneficial is that due to latency effects in the bitcoin network (recently discussed in \cite{Zoharetal}) not all miners share the same view of the entire block-tree at all moments. All honest miners shift their efforts to the longest branch they know of, but for some short period of time different parts of the network may be aware of different, and equally valid, longest branches. In such a case, each sub-network continues mining it's branch until the next block is mined by either one of them and a new block-chain is established\footnote{In principle this type of block-chain bifurcation can continue to span multiple blocks, with exponentially decreasing probability.}. 
-Following the notation used in \cite{Selfish} let us denote by $\gamma$ the ratio of standard miners that choose to mine on top of the Type 0 branch.
-This means that $q+\gamma p$ of the total hashing power is now dedicated to making the attackers branch the longest. With some probability the attacker's branch ends up as the winner. Let us denote the probability that this type of tie strategy succeeds by $S_{\gamma}(q)$.
-We can calculate $S_{\gamma}(q)$ starting the same way as we did when we derived \ref{eq:qofp} but use a Markov chain with boundary condition reflecting a tie instead of wining, and multiply that by the probability of an attacker with hashing power $q+\gamma p$ wining the race starting from that point.
+\section{Block Withholding Strategy - Type 0}
 
-Formally, we want to solve \ref{eq:markov} with boundary conditions $b_0=1, b_\infty=0$ which is solved by:
+In this section we analyse calculate the probability of success of a type 0 mining strategy.
+Instead of publishing the secret branch when it is longer than the main branch, a type 0 miner publishes it one step before, when his secret branch is of the same length as the main branch (i.e. when they reach a tie). 
+
+The reason this is potentially beneficial is that due to latency effects in the bitcoin network (recently discussed in \cite{Zoharetal}) not all miners share the same view of the entire block-tree at all moments. All honest miners shift their efforts to the longest branch they know of, but for some period of time different parts of the network may be aware of different, and equally valid, longest branches. In such a case the network bifurcates. Each sub-network continues mining it's longest-branch until the next block is mined by either one and a new block-chain is established\footnote{In principle this type of block-chain bifurcation can continue to span multiple blocks, with exponentially decreasing probability.}. 
+Following the notation used in \cite{Selfish} let us denote by $\gamma$ the ratio of standard miners that choose to mine on top of the newly-published-used-to-be-secret Type 0 branch.
+This means that $q+\gamma p$ of the total hashing power is now dedicated to making the Type 0 branch the longest and with some probability this branch will end up as the winner. 
+
+Let us denote the probability that this type of tie strategy succeeds by $S_{\gamma}(q)$.
+We can calculate $S_{\gamma}(q)$ starting the same way as we did when we derived \ref{eq:qofp} but use a Markov chain with boundary condition reflecting a tie instead of wining. We then multiply that probability by the probability of catching up and wining the race with hashing power $q+\gamma p$, starting from that point.
+
+Formally, we want to solve \ref{eq:markov} with boundary conditions $r=0$:
 
 \begin{equation}\label{eq:bz}
-\mathit{b}_z(q)=\begin{cases}\left( \dfrac{q}{1-q}\right)^z & q\in [0,\frac{1}{2}] \quad \mathrm{and} \quad z=0,1,2\dots \\ \quad 1 & \mathrm{otherwise} \end{cases}
+\mathit{a}_z^{(0)}(q)=\begin{cases}\left( \dfrac{q}{1-q}\right)^z & q\in [0,\frac{1}{2}] \quad \mathrm{and} \quad z=0,1,2\dots \\ \quad 1 & \mathrm{otherwise} \end{cases}
 \end{equation}
 
-Using the same logic used to derive \ref{eq:qofpdef} we get the probability for a tie
+Using the same logic used to derive \ref{eq:qofpdef} we get the probability for a tie is given by
 
 \begin{equation}\label{eq:qofpdef}
-\mathit{T}(q)= \sum_{m=0}^{\infty}\mathit{P}_{1,q}(m)\mathit{b}_{1-m}(q)
+\mathit{T}(q)= \sum_{m=0}^{\infty}\mathit{P}_{1,q}(m)\mathit{a}^{(0)}_{1-m}(q)
 \end{equation}
 
 resulting in (see details in appendix \ref{app:calctofp})
@@ -217,39 +224,30 @@ resulting in (see details in appendix \ref{app:calctofp})
 \end{cases}
 \end{equation}
 
-Now the attacker, joined by $\gamma$ of the honest miners are competing with the rest of the honest miners. The probability to win starting from a tie is thus given by \ref{eq:az}
+Now the type 0 miner, \textbf{joined by $\gamma$ of the standard miners}, are competing with the rest of the standard miners. The probability to \textbf{win} starting from a tie is thus given by (see equation \ref{eq:az}) 
 
 \begin{equation}\label{eq:azeroeff}
-\mathit{a}_0(q_{eff})=\begin{cases} \dfrac{q_{eff}}{1-q_{eff}} & q_{eff}\in [0,\frac{1}{2}] \\  
+\mathit{a}^{(1)}_0(q_{eff})=\begin{cases} \dfrac{q_{eff}}{1-q_{eff}} & q_{eff}\in [0,\frac{1}{2}] \\  
 \quad 1 & q_{eff}\in [\frac{1}{2},1] \\ \end{cases}
 \end{equation}
 
 where 
 \begin{equation}\label{qeff}
-q_{eff}=q+\gamma p=q+\gamma(1-q)
+q_{eff}=q+\gamma p=q+\gamma(1-q).
 \end{equation}
 
-\begin{figure}[qcrit]
-\centering
-\includegraphics[width=100mm]{qcritical.png}
-\caption{The value of $q_c$ as a function of $\gamma$.}
-\label{fig:qcritical}
-\end{figure}
-
-The condition $q_{eff}\in [0,\frac{1}{2}]$ translates to $0\leq q\leq q_{c}(\gamma)$ where
+The condition $q_{eff}\in [0,\frac{1}{2}]$ translates to 
 
 \begin{equation}\label{qcrit}
-q_{c}(\gamma)=\dfrac{1-2\gamma}{2-2\gamma}
+0\leq q\leq q_{c}(\gamma)=\dfrac{1-2\gamma}{2-2\gamma}
 \end{equation}
 
-$q_c$ (depicted in figure \ref{fig:qcritical}) satisfies $0 \leq   q_{c}(\gamma) \leq\dfrac{1}{2}$, monotonically decreases with $\gamma$ and hits $0$ when\footnote{$q_{eff}(\frac{1}{2})=\frac{1}{2}(1+q)$ which is bigger than $\frac{1}{2}$ for any $q$.} $\gamma=\frac{1}{2}$.
+The curve $q_c(\gamma)$ (depicted in figure \ref{fig:qcritical}) satisfies $0 \leq   q_{c}(\gamma) \leq\dfrac{1}{2}$, monotonically decreases with $\gamma$ and hits $0$ when\footnote{$q_{eff}(\frac{1}{2})=\frac{1}{2}(1+q)$ which is bigger than $\frac{1}{2}$ for any $q$.} $\gamma=\frac{1}{2}$.
 
+Based on all that, the solution to $S_\gamma(q)=T(q)\cdot a_0^{(1)}(q_{eff})$ breaks into three regimes:
 
-
-Based on all that, the solution to $S_\gamma(q)=T(q)\cdot a_0(q_{eff})$ breaks into three regimes:
-
-\begin{equation}\label{sofq}
-S_\gamma(q)=\underbrace{T(q)}_{reach\; a\; tie}\cdot \underbrace{a_0(q_{eff})}_{win\;given\;a\;tie}=
+\begin{equation}\label{eq:sofq}
+S_\gamma(q)=\underbrace{T(q)}_{reach\; a\; tie}\cdot \underbrace{a_0^{(1)}(q_{eff})}_{win\;given\;a\;tie}=
 \begin{cases}
 2q\cdot\frac{q_{eff}}{1-q_{eff}}=2q\cdot\frac{q(1-\gamma)+\gamma}{(1-q)(1-\gamma)} & q\in [0,q_c] \\ 
 2q & q\in [q_c,\frac{1}{2}] \\ 
@@ -257,9 +255,20 @@ S_\gamma(q)=\underbrace{T(q)}_{reach\; a\; tie}\cdot \underbrace{a_0(q_{eff})}_{
 \end{cases}
 \end{equation}
 
+\noindent%
+\begin{minipage}{\linewidth}
+\makebox[\linewidth]{%
+  \includegraphics[keepaspectratio=true,scale=0.4]{3regionsqc.png}}
+\captionof{figure}{
+The three regions of the solution to $S_\gamma(q)$. The red curve is $q_c(\gamma)$. 
+}
+\label{fig:qcritical}
+\end{minipage}
+\linebreak
+
 Note that if $\gamma\geq\frac{1}{2}$ the first regime does not exist and the solution degenerates to:
 
-\begin{equation}\label{sofq2}
+\begin{equation}\label{eq:sofq2}
 S_{\gamma\geq\frac{1}{2}}(q)=T(q)\cdot a_0(q_{eff})=
 \begin{cases}
 2q & q\in [0,\frac{1}{2}] \\ 
@@ -267,26 +276,30 @@ S_{\gamma\geq\frac{1}{2}}(q)=T(q)\cdot a_0(q_{eff})=
 \end{cases} \quad = min(2q,1)
 \end{equation}
 
-In figure \ref{fig:type0pos} we plot the probability of a successful type 0 attack for various values of the parameter $\gamma$, against the benchmark honest probability of success and the Type I attack probability of success.
+In figure \ref{fig:type0pos} we plot the probability of success of the Type 0 strategy $S_\gamma(q)$ for various values of the parameter $\gamma$, side by side with the probabilities of success of the Standard and Type I strategies.
 
-
-\begin{figure}[blockwithholdingtype2]
-\centering
-\includegraphics[width=200mm]{type0pos.pdf}
-\caption{The probability of success of a type II block withholding attack as a function of $\gamma$. The blue curve plots the honest probability of success, and the orange curve plots the type I attack.}
+\noindent%
+\begin{minipage}{\linewidth}
+\makebox[\linewidth]{%
+  \includegraphics[keepaspectratio=true,scale=0.8]{Type0POScrop.pdf}}
+\captionof{figure}{The Type 0 strategy probability of success $S_\gamma(q)$, plotted for various values of the parameter $\gamma$ and against the probabilities for the Standard and Type I strategies.}
 \label{fig:type0pos}
-\end{figure}
+\end{minipage}
+\linebreak
 
-\section{The $\gamma,q$ phase space}\label{gqphase}
+\chapter{The $\gamma,q$ phase space}\label{chap:gqphase}
 
-\subsection{When is a Type 0 attack beneficial}
+Our aim in this chapter is to map the $\gamma,q$ phase space and find which strategy yields the maximal probability of success for the miner in each region.
+From section \ref{TypeIoverStandard} we already know that the Type I strategy is better than the Standard strategy if $q\geq q_0$.
+To decide if a block-withholding strategy of type 0 is beneficial or not we should compare it first to the standard probability of success and then, if it is more beneficial, compare it to the Type I strategy to decide which block withholding strategy wins. 
 
-To decide if a block-withholding attack of type 0 is beneficial or not we should compare it to the honest probability of success and to a Type I attack. 
+\section{Type 0 vs. Standard}\label{Type0overStandard}
 
-\subsubsection{Comparing type 0 to the standard strategy}
-First note that in the second and third regimes in equation \ref{sofq} (or for any $q$ if $\gamma\geq\frac{1}{2}$) the type 0 attacks is beneficial over the honest strategy for any $q$, because for any $q$ it holds that $0\leq q \leq min(2q,1)$. 
+A Type 0 strategy is more beneficial than the standard strategy when $S_\gamma(q)\geq q$ where $S_\gamma(q)$ is given in equation \ref{eq:sofq}. 
 
-In the first regime (i.e. when $q<q_c(\gamma)$) we can find at what value of $q$ the type 0 attacks starts being beneficial over the honest strategy by solving
+In the second and third regimes of equation \ref{eq:sofq} (or for any $q$ if $\gamma\geq\frac{1}{2}$, see equation \ref{eq:sofq2} and figure \ref{fig:qcritical}) the type 0 attacks is beneficial over the standard strategy for any $q$, because it is always true that $0\leq q \leq min(2q,1)$. 
+
+In the first regime (i.e. when $q<q_c(\gamma)$) we can find at what value of $q$ the type 0 strategy starts being more beneficial than the standard strategy by solving
 \begin{equation}\label{eq:type0benefitonhonestequation}
 2q\cdot\frac{q(1-\gamma)+\gamma}{(1-q)(1-\gamma)}\geq q
 \end{equation}
@@ -297,20 +310,20 @@ which gives the condition $q_b(\gamma)\leq q \leq q_c(\gamma)$, where
 q_b= \dfrac{1-3\gamma}{3-3\gamma}
 \end{equation}
 
-The curve $q_b)\gamma)$ designating the boundary where the Type 0 strategy starts becoming more beneficial than the standard strategy is plotted in Figure \ref{fig:qbenefit}.
-
-\begin{figure}[qcrit]
-\centering
-\includegraphics[width=100mm]{qcqb.png}
-\caption{The value of $q_c$ and $q_b$ as a function of $\gamma$.}
-\label{fig:qbenefit}
-\end{figure}
-
+The curve $q_b(\gamma)$ designating the boundary where the Type 0 strategy starts becoming more beneficial than the standard strategy is plotted in Figure \ref{fig:qbqc}.
 Note that if $\gamma=0$ this strategy is beneficial only when $q>\frac{1}{3}$ and if $\gamma\geq\frac{1}{3}$ it is beneficial for all $q$.
 
-\newpage
+\noindent%
+\begin{minipage}{\linewidth}
+\makebox[\linewidth]{%
+  \includegraphics[keepaspectratio=true,scale=0.6]{qbqc.png}}
+\captionof{figure}{The Type 0 strategy is more beneficial than the standard strategy outside of the inner curve $q_b(\gamma)$. Standard mining is more beneficial only in region IA.}
+\label{fig:qbqc}
+\end{minipage}
+\linebreak
 
-Taking all three regimes into account we conclude that the type 0 attack is beneficial over the honest strategy when
+
+Taking all three regimes into account we conclude that the Type 0 strategy is more beneficial than the Standard strategy when
 
 \begin{equation}\label{eq:0overhonest}
 S_{\gamma}(q)\geq q \Longrightarrow
@@ -320,43 +333,49 @@ q>\dfrac{1-3\gamma}{3-3\gamma} & \gamma\in [0,\frac{1}{3}] \\
 \end{cases}
 \end{equation}
 
-we can summarize further by writing
+or, summarized further by 
 
 \begin{equation}\label{eq:0overhonestsummary}
 S_{\gamma}(q)\geq q \Longrightarrow
 q>max\left\lbrace\dfrac{1-3\gamma}{3-3\gamma},0\right\rbrace
 \end{equation}
 
-Next we compare this attack to a Type I attack.
+Next we compare between the two block withholding strategies.
 
-\subsection{Comparing Type 0 to Type I}
+\section{Comparing Type 0 to Type I}
 
-There are two interesting comparisons one can make between Type 0 and Type I attacks.
+There are two interesting comparisons one can make between Type 0 and Type I strategies.
+One is to compare how they match against the standard strategy,namely, for a given $\gamma$ do we first hit the regime where a Type 0 or a Type I strategy is more beneficial than the standard strategy.
+The other is to ignore the standard strategy and ask, for a given value of $\gamma, q$ which is better, Type 0 or Type I.
 
-One is to compare how they match against the honest strategy. Namely, for a given $\gamma$ do we first hit the regime where a Type 0 or a Type I strategy is more beneficial than the standard strategy.
-
-This type 0 strategy wins earlier (in fact already at $q=0$) when $\gamma\geq\frac{1}{3}$. When $\gamma < \frac{1}{3}$ we can compare $q_b(\gamma)$ (given in equation \ref{eq:qb}) with $q_0$ (given in equation \ref{eq:qnot}).
+\subsection{Which block withholding is beneficial first}
+Let us first tackle the first question and find out for a given $\gamma$ whether Type 0 or Type I wins first.
+For $\gamma\geq\frac{1}{3}$, Type 0 wins already at $q=0$, so the interesting part is where $\gamma < \frac{1}{3}$ where we can compare $q_b(\gamma)$ (given in equation \ref{eq:qb}) with $q_0$ (given in equation \ref{eq:qnot}). Solving for the intersectin of the two curves
 
 \begin{equation}\label{eq:qbornot}
-\dfrac{1-3\gamma}{3-3\gamma}<1-\dfrac{1}{\sqrt{2}}
+\dfrac{1-3\gamma}{3-3\gamma}=1-\dfrac{1}{\sqrt{2}}
 \end{equation}
 
-Solving for $\gamma$ we obtain that for  $\gamma_c\leq\gamma$ a type 0 strategy is beneficial over the standard strategy sooner (i.e. smaller $q$) than a type I strategy, where $\gamma_c$ is given by:
+We get a single intersection at a special value of $\gamma$
 
 \begin{equation}\label{gamma0before1}
 \gamma_c=1-\frac{2}{3}\sqrt{2}\sim 0.0572
 \end{equation}
 
+A type 0 strategy is more beneficial than the standard strategy sooner (i.e. smaller $q$) than type I for $\gamma \geq\gamma_c$.
+
 Indeed, you can see in Figure \ref{fig:type0pos} that the green curve representing $\gamma=0$ lies below the orange curve which represents the Type I strategy, while the red curve representing $\gamma=0.1>\gamma_c$ lies above it.
 
-To summarize, when $\gamma\geq\frac{1}{3}$ the Type 0 strategy is beneficial over the honest strategy for any value of $q$. When $\gamma<\frac{1}{3}$ , the hashing power of the attacker needs to exceed a threshold before a block withholding strategy is beneficial. If $\gamma_c\leq\gamma\leq\frac{1}{3}$ we bump into the Type 0 first (the threshold given by $q_b=\frac{1-3\gamma}{3-3\gamma}$), while if $\gamma<\gamma_c$ we bump into Type I first (the threshold is given by $q_0=1-\frac{1}{\sqrt{2}}$).
+To summarize, when $\gamma\geq\frac{1}{3}$ the Type 0 strategy is beneficial over the standard strategy for any value of $q$. When $\gamma<\frac{1}{3}$ , the hashing power of the attacker needs to exceed a threshold before a block withholding strategy is beneficial. If $\gamma_c\leq\gamma\leq\frac{1}{3}$ we bump into the Type 0 first (the threshold given by $q_b=\frac{1-3\gamma}{3-3\gamma}$), while if $\gamma<\gamma_c$ we bump into Type I first (the threshold is given by $q_0=1-\frac{1}{\sqrt{2}}$).
 
-Finally, ignoring the honest strategy for a moment, we can ask for the range of parameters $q,\gamma$ where the Type 0 strategy is more beneficial than the Type I strategy. Formally we need to solve:
+\subsection{Type 0 vs. Type I}
+
+Finally, ignoring the standard strategy for a moment, we can ask for the range of parameters $q,\gamma$ where the Type 0 strategy is more beneficial than the Type I strategy. Formally we need to solve:
 
 \begin{equation}\label{eq:type0overtype1}
 2q\cdot\frac{q(1-\gamma)+\gamma}{(1-q)(1-\gamma)}\geq \dfrac{q^2}{1-q}\left(
 3-2q
-\right)`
+\right)
 \end{equation}
 
 which gives the condition
@@ -383,9 +402,7 @@ q_{\pm}(\gamma)=\frac{1}{4}\left(1\pm\sqrt{\frac{1-17\gamma}{1-\gamma}}\right)
 
 \section{The Strategy Phase Space}\label{sec:phasespace}
 
-Now we can chart the strategy phase space parametrized by $\gamma,q$. 
-
-Let us explore the $\gamma\in[0,1] \times q\in [0,1]$ phase space and divide it into regions characterized by the most beneficial mining strategy: \textbf{Standard}, \textbf{Type 0} or \textbf{Type I}.
+We can chart the strategy phase space parametrized by $\gamma,q\in [0,1]^2$, and divide it into regions characterized by the most beneficial mining strategy: \textbf{Standard}, \textbf{Type 0} or \textbf{Type I}.
 
 The $\gamma, q$ phase space is governed by four functions (really three intersecting curves):
 \begin{itemize}
@@ -395,45 +412,45 @@ The $\gamma, q$ phase space is governed by four functions (really three intersec
 \item $q_-(\gamma)=\frac{1}{4}\left(1-\sqrt{\frac{1-17\gamma}{1-\gamma}}\right)$
 \end{itemize}
 where the last two determine which strategy is better, Type 0 or I when $\gamma<\frac{1}{17}$.
-
-\begin{figure}[fourfunctions]
-\centering
-\includegraphics[width=150mm]{intersection4.pdf}
-\caption{The 4 functions sectioning the $\gamma, q$ phase space.}
-\label{fig:fourfunctions}
-\end{figure}
-
-In figure \ref{fig:fourfunctions} we those three curves are plotted.
-Note the interesting fact that all three curves intersect in the single point $\gamma=\gamma_c, q=q_0$.
-This fact makes the phase space much simpler to analyse.
-
-\newpage
+Interestingly enough, the 3 functions $q_0, q_b(\gamma), q_+(\gamma)$ intersect in a single point $\gamma=\gamma_c, q=q_0$ which simplifies the structure of the phase space diagram, slicing it into exactly 6 regions each characterized by one of the 6 possible orderings between the 3 available strategies.
 
 \begin{itemize}
-\item The circular curve created by the two branches $q_{\pm}$ determines, for a given $\gamma$, which of the two block-withholding strategies, Type 0 or Type I is more beneficial. Inside the circular region (and all the way to the $q$ axis) is the region where Type I is better than type 0. Outside this region Type 0 is better than Type 1. This is determined by equation \ref{eq:type0over1condition}. Note that this division doesn't specify whether any of the strategies is better than the standard one.
-\item The Type I strategy is more beneficial than the standard strategy in the region above the horizontal line $q=q_0$. .
-\item The Type 0 strategy is more beneficial than the Standard strategy in the region above the monotonically decreasing curve $q_b(\gamma)$ (extending from $\frac{1}{3}$ on the $q$ axis to $\frac{1}{3}$ on the $\gamma$ axis and the continuing on the $\gamma$ axis all the way to $\gamma=1$).
+\item The circular curve (created by the two branches $q_{\pm}$) determines, for a given $\gamma$, which of the two block-withholding strategies, Type 0 or Type I is more beneficial. Inside the circular region (and all the way to the $q$ axis) is the region where Type I is better than type 0. Outside this region Type 0 is better than Type 1. This is determined by equation \ref{eq:type0over1condition}. Note that this division doesn't specify whether any of the strategies is better than the standard one.
+\item Type I strategy is more beneficial than the Standard strategy in the region above the horizontal line $q=q_0$. .
+\item Type 0 strategy is more beneficial than the Standard strategy in the region above the monotonically decreasing curve $q_b(\gamma)$ (extending from $\frac{1}{3}$ on the $q$ axis to $\frac{1}{3}$ on the $\gamma$ axis and the continuing on the $\gamma$ axis all the way to $\gamma=1$).
 \end{itemize}
 
-The resulting phase space division is thus given by figure \ref{fig:qgammaphasespace}.
 
-\begin{figure}[qgammaphasespace]
-\centering
-\includegraphics[width=130mm]{simpleqgammaphasespace.png}
-\caption{The 3 regions of the $q,\gamma$ phase space. The standard strategy is best in the region near the origin. Type I is best in the little area on top of the standard region. In the rest of phase space the Type 0 strategy is most beneficial.}
+\noindent%
+\begin{minipage}{\linewidth}
+\makebox[\linewidth]{%
+  \includegraphics[keepaspectratio=true,scale=0.7]{6regions.png}}
+\captionof{figure}{The 3 curves sectioning the $\gamma, q$ phase space into 6 regions characterized by a hierarchy of the 3 strategies. For brevity we denote the Type I strategy by "1", the Type 0 strategy by "0" and the Standard strategy by "S". For example, in the top region Type 0 is more beneficial than Type I which in turn is more beneficial than the standard strategy.}
+\label{fig:fourfunctions}
+\end{minipage}
+\linebreak
+
+A miner seeking to maximize profit will select the most beneficial strategy in each region. The resulting phase space is divided into 3 regions characterized by a winning strategy, is depicted in figure \ref{fig:qgammaphasespace}.
+
+
+\noindent%
+\begin{minipage}{\linewidth}
+\makebox[\linewidth]{%
+  \includegraphics[keepaspectratio=true,scale=0.7]{finalphasespace.png}}
+\captionof{figure}{The 3 regions of the $q,\gamma$ phase space. The standard strategy is best in the region near the origin. Type I is best in the little area on top of the standard region. In the rest of phase space the Type 0 strategy is most beneficial.}
 \label{fig:qgammaphasespace}
-\end{figure}
+\end{minipage}
+\linebreak
 
+\subsection{Discussion}
 
-\newpage
+Note that the regime where either block-withholding strategies are more beneficial than the standard strategy is bounded away from the origin. It is tempting to look at the radial distance from the origin of phase space as a measure of a ``miner's \textit{Influence}" $\mathtt{I}(q,\gamma)\equiv \sqrt{q^2+\gamma^2}$.
 
-Note that the regime where either block-withholding strategies are more beneficial than the standard strategy is bounded away from the origin. It is tempting to look at the radial distance from the origin of phase space as a measure of a ``miner's \textit{strength}" $\mathtt{S}(q,\gamma)\equiv \sqrt{q^2+\gamma^2}$.
-
-This definition is partly motivated by the intuitive notion that having a large $\gamma$ is (in some vague sense) ``similarly difficult" to having a large $q$ and a typical miner will have both parameters in similar scales. In a sense, the above phase space diagram lends credibility to this intuitive notion because it suggest a rough symmetry\footnote{All we mean by that is that figure \ref{fig:qgammaphasespace} is almost symmetric under a rotation along the $45^\deg$ angle that rotates $\gamma \leftrightarrow q$.} between the parameters $\gamma$ and $q$.
+This definition is partly motivated by the rough symmetry\footnote{All we mean by that is that figure \ref{fig:qgammaphasespace} is almost symmetric under a rotation along the $45^{\circ}$ angle that rotates $\gamma \leftrightarrow q$.} between the parameters $\gamma$ and $q$ which seems to suggest that having a large $\gamma$ is ``similarly difficult" to having a large $q$ and a typical miner will have both parameters in similar scales. 
 
 There are a few remarks in order:
 \begin{itemize}
-\item Figure \ref{fig:qgammaphasespace} marks the regions where a block-withholding strategy in beneficial, but does not guarantee success. Success of either strategies is still guaranteed (i.e. the probability of success is strictly $1$) only in the top half of phase space, in the region where $q\geq \frac{1}{2}$, a.k.a the $51\%$ attack.
+\item Figure \ref{fig:qgammaphasespace} marks the regions where a block-withholding strategy in beneficial, but does not guarantee success. Success of either strategies is still guaranteed (i.e. the probability of success is strictly $1$) only in the top half of phase space, in the region where $q\geq \frac{1}{2}$ (the infamous $51\%$ attack).
 \item The authors of \cite{Selfish} identified a region delimited by the curve $\frac{1-\gamma}{3-2\gamma}\leq q \leq \frac{1}{3}$ where the ``selfish" mining strategy is more beneficial than the standard one. As one would expect based on the fact that the ``selfish'' strategy utilizes a combination of the two strategies discussed here, this curve intersects both Type I and Type 0 regions as depicted in \ref{fig:selfish}.
 \end{itemize}
 
