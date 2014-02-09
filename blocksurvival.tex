@@ -30,7 +30,7 @@
                     \end{comment}
 \makeatother
 
-\title{\textbf{The Phase Space of Block Withholding Mining Strategies}}
+\title{\textbf{The Phase Space of Block-Hiding Mining Strategies}}
 
 \author{Assaf Shomer\\
 }
@@ -42,9 +42,9 @@
 \maketitle
 %\pagestyle{fancy}
 \begin{abstract}
-We calculate the probability of success of block-withholding mining strategies in bitcoin-like networks.
-These strategies involve building a secret branch of the block-tree and publishing it opportunistically, aiming to replace the top of the main-branch and rip the reward associated with the secretly mined blocks. We identify two types of block-withholding strategies and chart the parameter space where those are more beneficial than the standard mining strategy described in Nakamoto's paper.
-Our analysis suggests a generalization of the notion of the relative hashing power as a measure for a miner's influence on the network. Block withholding strategies are beneficial only when this measure of influence exceeds a certain threshold.
+We calculate the probability of success of block-hiding mining strategies in bitcoin-like networks.
+These strategies involve building a secret branch of the block-tree and publishing it opportunistically, aiming to replace the top of the main-branch and rip the reward associated with the secretly mined blocks. We identify two types of block-hiding strategies and chart the parameter space where those are more beneficial than the standard mining strategy described in Nakamoto's paper.
+Our analysis suggests a generalization of the notion of the relative hashing power as a measure for a miner's influence on the network. Block-hiding strategies are beneficial only when this measure of influence exceeds a certain threshold.
 
 
 \end{abstract}
@@ -55,7 +55,7 @@ Our analysis suggests a generalization of the notion of the relative hashing pow
 \section{Bitcoin and mining}
 Bitcoin is the world's first decentralized digital currency (\cite{Bitcoin}). blah blah
 
-Motivated by the work done in \cite{Selfish} we are interested in finding out if and when the block-withholding strategy gives the miner a higher probability of success in mining blocks, compared to the standard strategy outlined in the bitcoin protocol. 
+Motivated by the work done in \cite{Selfish} we are interested in finding out if and when the block-hiding strategy gives the miner a higher probability of success in mining blocks, compared to the standard strategy outlined in the bitcoin protocol. 
 
 \chapter{Three mining strategies}\label{chap:strategies}
 
@@ -66,10 +66,10 @@ The standard mining strategy follow the bitcoin protocol described in \cite{Bitc
 \dots\rightarrow\mathit{B}_L\rightarrow\mathit{B}_{L+1}\rightarrow\mathit{B}_{L+2}\rightarrow\dots
 \end{equation}
 
-\section{Block Withholding Strategies}
+\section{Block-Hiding Strategies}
 Miners following this type of mining strategies do not share newly found blocks and instead work on extending a $\bf{secret}$ branch of the block-tree. The miners publish their secret branch when it is most beneficial to them. 
 
-\begin{eqnarray}\label{fig:blockwithholdingchain}
+\begin{eqnarray}\label{fig:blockhidingchain}
  \dots \rightarrow \mathit{B}_L\rightarrow &\mathit{B}_{L+1}\rightarrow\mathit{B}_{L+2}
 \rightarrow\dots\rightarrow\mathit{B}_{L+n} \qquad\qquad \mathrm{Main}\\\nonumber
 \searrow & \\\nonumber
@@ -86,19 +86,19 @@ The miners mine their secret branch until it is of the  \textit{same length as t
 \section{Our Goal}\label{subsec:goal}
 
 Our goal is to analyse which mining strategy is the most beneficial as a function of the miner's relative hashing power and the portion of standard miners that join them, in case of a Type 0 strategy.
-To that effect we calculate the probability that a block-withholding miner succeeds in replacing a block (and possibly some number of confirmation blocks on top of it) by publishing a secretly mined branch of the block-tree.
+To that effect we calculate the probability that a block-hiding miner succeeds in replacing a block (and possibly some number of confirmation blocks on top of it) by publishing a secretly mined branch of the block-tree.
 
 \chapter{Calculation}\label{chap:calc}
 
 \section{Setup}\label{calcsetup}
-Let us denote by $\mathcal{H}$ the total hashing power of the network and divide it abstractly into a \emph{Standard} part which holds a portion $p\mathcal{H}$ of the total hashing power (where $p \in [0,1]$) and a \emph{Block Withholding} part, which holds the rest $q\mathcal{H}=(1-p)\mathcal{H}$. 
+Let us denote by $\mathcal{H}$ the total hashing power of the network and divide it abstractly into a \emph{Standard} part which holds a portion $p\mathcal{H}$ of the total hashing power (where $p \in [0,1]$) and a \emph{Block hiding} part, which holds the rest $q\mathcal{H}=(1-p)\mathcal{H}$. 
 
-We start our analysis at a given point in time where the blockchain is of length $L$ and denote the last block mined as $\mathit{B}_L$. As time marches on the Standard miners continue to mine on top of it ($\mathit{B}_{L+1}, \mathit{B}_{L+2}, \dots$) while the block withholding miners are building a separate branch on top of $\mathit{B}_L$ ($\mathit{\tilde{B}}_{L+1}, \mathit{\tilde{B}}_{L+2}, \dots$). This is depicted in figure \ref{fig:blockwithholdingchain}. The block withholding miners aim to replace the top of the chain mined on top of $\mathit{B}_L$ by using one of the two block withholding strategies.
+We start our analysis at a given point in time where the blockchain is of length $L$ and denote the last block mined as $\mathit{B}_L$. As time marches on the Standard miners continue to mine on top of it ($\mathit{B}_{L+1}, \mathit{B}_{L+2}, \dots$) while the block hiding miners are building a separate branch on top of $\mathit{B}_L$ ($\mathit{\tilde{B}}_{L+1}, \mathit{\tilde{B}}_{L+2}, \dots$). This is depicted in figure \ref{fig:blockhidingchain}. The block hiding miners aim to replace the top of the chain mined on top of $\mathit{B}_L$ by using one of the two block hiding strategies.
 
 
 \section{Calculating the probability of success}
 
-Calculating the probability of success for a block withholding strategy involves two parts. We first calculate the probability that the block tree reaches a situation like the one depicted in figure \ref{fig:blockwithholdingchain}. Then we multiply this probability with the probability that the block withholders manage to catchup with the main chain. Our analysis follows the one presented in \cite{Doublespend}.
+Calculating the probability of success for a block hiding strategy involves two parts. We first calculate the probability that the block tree reaches a situation like the one depicted in figure \ref{fig:blockhidingchain}. Then we multiply this probability with the probability that the block-hiding miner manage to catchup with the main chain. Our analysis follows the one presented in \cite{Doublespend}.
 
 \subsection{Getting to the starting point}
 Treating block mining as a negative binomial random variable, the probability $\mathit{P_{n,p}(m)}$ that $m$ blocks are mined in the secret branch {\bf before} $n$ blocks are mined in the main branchis proportional to $p^nq^m$ and can be shown
@@ -109,7 +109,7 @@ Treating block mining as a negative binomial random variable, the probability $\
 \end{equation}
 
 \subsection{Catching up from the starting point}
-The probability $\mathit{a}_{n,m}^{(r)}(q)$ that the attackers manage to catch-up and overtake the blockchain by at least $r$ blocks, given the situation above\footnote{Namely, that until the moment the main network mines it's $n$th block on top of $\mathit{B}_L$, the block withholders manage to mine $m$ blocks on top of $\mathit{B}_L$ constituting their secret branch.} is given by a Markov chain that depends only on the advantage $z$ of the honest network over the attackers $z=n-m$, and the parameter $r$. Formally, the chain satisfies the recurrence relation
+The probability $\mathit{a}_{n,m}^{(r)}(q)$ that the block-hiding miner manage to catch-up and overtake the blockchain by at least $r$ blocks, given the situation above\footnote{Namely, that until the moment the main network mines it's $n$th block on top of $\mathit{B}_L$, the block-hiding miner manages to mine $m$ blocks on top of $\mathit{B}_L$ constituting their secret branch.} is given by a Markov chain that depends only on the advantage $z$ of the honest network over the block-hiding miner $z=n-m$, and the parameter $r$. Formally, the chain satisfies the recurrence relation
 \begin{equation}\label{eq:markov}
 \mathit{a}^{(r)}_z(q)=(1-q)\mathit{a}^{(r)}_{z+1}(q)+q\mathit{a}^{(r)}_{z-1}(q)
 \end{equation}
@@ -132,15 +132,15 @@ The relation \ref{eq:markov} can be solved with boundary conditions \ref{eq:mark
 \mathit{a}^{(r)}_z(q)=\begin{cases}\left( \dfrac{q}{1-q}\right)^{z+r} & q\in [0,\frac{1}{2}] \quad \mathrm{and} \quad z=0,1,2\dots \\ \quad 1 & \mathrm{otherwise} \end{cases}
 \end{equation}
 
-\section{Block Withholding Strategy - Type I}
+\section{Block hiding Strategy - Type I}
 
-The type I strategy is successful when applied on top of $\mathit{B}_L$ if the miner manages to catch-up on $B_{L+1}$ and win by at least one block, after starting with $m=0,1,\dots$ secret blocks. 
+The Type I strategy is successful when applied on top of $\mathit{B}_L$ if the miner manages to catch-up on $B_{L+1}$ and win by at least one block, after starting with $m=0,1,\dots$ secret blocks. 
 By publishing the secret branch the miner can now replace $\mathit{B}_{L+1}$ and any blocks mined by the network on top of it. 
-Let $\mathit{Q}(q)$ be the probability that a type I miner succeeds. 
+Let $\mathit{Q}(q)$ be the probability that a Type I miner succeeds. 
 
 The starting point for the catch-up process for some $m$ is shown below:
 
-\begin{eqnarray}\label{blockwithholdingboundary}
+\begin{eqnarray}\label{blockhidingboundary}
  \dots \rightarrow \mathit{B}_L\rightarrow &\mathit{B}_{L+1} \qquad\qquad\qquad\qquad\qquad\qquad\qquad\quad \mathrm{Main}\\\nonumber
 \searrow & \\\nonumber
 \qquad \qquad \qquad & \widetilde{\mathit{B}}_{L+1}\rightarrow\widetilde{\mathit{B}}_{L+2}
@@ -187,13 +187,13 @@ which since $0\leq q \leq 1$ gives the condition
 \begin{equation}\label{eq:qnot}
 q\geq q_0=1-\frac{1}{\sqrt{2}} \sim 0.293
 \end{equation}
-We conclude that type I strategy is better than the standard strategy for $q>q_0$. Once $q\geq \frac{1}{2}$ we get to the famous ``$51\%$ attack" where the type I strategy is guaranteed to succeed, but even for $q_0\leq q \leq \frac{1}{2}$ type I increases the probability of success for mining a new block compared to the standard strategy
+We conclude that Type I strategy is better than the standard strategy for $q>q_0$. Once $q\geq \frac{1}{2}$ we get to the famous ``$51\%$ attack" where the Type I strategy is guaranteed to succeed, but even for $q_0\leq q \leq \frac{1}{2}$ Type I increases the probability of success for mining a new block compared to the standard strategy
 
 
-\section{Block Withholding Strategy - Type 0}
+\section{Block hiding Strategy - Type 0}
 
-In this section we analyse calculate the probability of success of a type 0 mining strategy.
-Instead of publishing the secret branch when it is longer than the main branch, a type 0 miner publishes it one step before, when his secret branch is of the same length as the main branch (i.e. when they reach a tie). 
+In this section we analyse calculate the probability of success of a Type 0 mining strategy.
+Instead of publishing the secret branch when it is longer than the main branch, a Type 0 miner publishes it one step before, when his secret branch is of the same length as the main branch (i.e. when they reach a tie). 
 
 The reason this is potentially beneficial is that due to latency effects in the bitcoin network (recently discussed in \cite{Zoharetal}) not all miners share the same view of the entire block-tree at all moments. All honest miners shift their efforts to the longest branch they know of, but for some period of time different parts of the network may be aware of different, and equally valid, longest branches. In such a case the network bifurcates. Each sub-network continues mining it's longest-branch until the next block is mined by either one and a new block-chain is established\footnote{In principle this type of block-chain bifurcation can continue to span multiple blocks, with exponentially decreasing probability.}. 
 Following the notation used in \cite{Selfish} let us denote by $\gamma$ the ratio of standard miners that choose to mine on top of the newly-published-used-to-be-secret Type 0 branch.
@@ -224,7 +224,7 @@ resulting in (see details in appendix \ref{app:calctofp})
 \end{cases}
 \end{equation}
 
-Now the type 0 miner, \textbf{joined by $\gamma$ of the standard miners}, are competing with the rest of the standard miners. The probability to \textbf{win} starting from a tie is thus given by (see equation \ref{eq:az}) 
+Now the Type 0 miner, \textbf{joined by $\gamma$ of the standard miners}, are competing with the rest of the standard miners. The probability to \textbf{win} starting from a tie is thus given by (see equation \ref{eq:az}) 
 
 \begin{equation}\label{eq:azeroeff}
 \mathit{a}^{(1)}_0(q_{eff})=\begin{cases} \dfrac{q_{eff}}{1-q_{eff}} & q_{eff}\in [0,\frac{1}{2}] \\  
@@ -291,15 +291,15 @@ In figure \ref{fig:type0pos} we plot the probability of success of the Type 0 st
 
 Our aim in this chapter is to map the $\gamma,q$ phase space and find which strategy yields the maximal probability of success for the miner in each region.
 From section \ref{TypeIoverStandard} we already know that the Type I strategy is better than the Standard strategy if $q\geq q_0$.
-To decide if a block-withholding strategy of type 0 is beneficial or not we should compare it first to the standard probability of success and then, if it is more beneficial, compare it to the Type I strategy to decide which block withholding strategy wins. 
+To decide if a block-hiding strategy of Type 0 is beneficial or not we should compare it first to the standard probability of success and then, if it is more beneficial, compare it to the Type I strategy to decide which block hiding strategy wins. 
 
 \section{Type 0 vs. Standard}\label{Type0overStandard}
 
 A Type 0 strategy is more beneficial than the standard strategy when $S_\gamma(q)\geq q$ where $S_\gamma(q)$ is given in equation \ref{eq:sofq}. 
 
-In the second and third regimes of equation \ref{eq:sofq} (or for any $q$ if $\gamma\geq\frac{1}{2}$, see equation \ref{eq:sofq2} and figure \ref{fig:qcritical}) the type 0 attacks is beneficial over the standard strategy for any $q$, because it is always true that $0\leq q \leq min(2q,1)$. 
+In the second and third regimes of equation \ref{eq:sofq} (or for any $q$ if $\gamma\geq\frac{1}{2}$, see equation \ref{eq:sofq2} and figure \ref{fig:qcritical}) the Type 0 strategy is beneficial over the standard strategy for any $q$, because it is always true that $0\leq q \leq min(2q,1)$. 
 
-In the first regime (i.e. when $q<q_c(\gamma)$) we can find at what value of $q$ the type 0 strategy starts being more beneficial than the standard strategy by solving
+In the first regime (i.e. when $q<q_c(\gamma)$) we can find at what value of $q$ the Type 0 strategy starts being more beneficial than the standard strategy by solving
 \begin{equation}\label{eq:type0benefitonhonestequation}
 2q\cdot\frac{q(1-\gamma)+\gamma}{(1-q)(1-\gamma)}\geq q
 \end{equation}
@@ -340,7 +340,7 @@ S_{\gamma}(q)\geq q \Longrightarrow
 q>max\left\lbrace\dfrac{1-3\gamma}{3-3\gamma},0\right\rbrace
 \end{equation}
 
-Next we compare between the two block withholding strategies.
+Next we compare between the two block hiding strategies.
 
 \section{Comparing Type 0 to Type I}
 
@@ -348,7 +348,7 @@ There are two interesting comparisons one can make between Type 0 and Type I str
 One is to compare how they match against the standard strategy,namely, for a given $\gamma$ do we first hit the regime where a Type 0 or a Type I strategy is more beneficial than the standard strategy.
 The other is to ignore the standard strategy and ask, for a given value of $\gamma, q$ which is better, Type 0 or Type I.
 
-\subsection{Which block withholding is beneficial first}
+\subsection{Which block hiding is beneficial first}
 Let us first tackle the first question and find out for a given $\gamma$ whether Type 0 or Type I wins first.
 For $\gamma\geq\frac{1}{3}$, Type 0 wins already at $q=0$, so the interesting part is where $\gamma < \frac{1}{3}$ where we can compare $q_b(\gamma)$ (given in equation \ref{eq:qb}) with $q_0$ (given in equation \ref{eq:qnot}). Solving for the intersectin of the two curves
 
@@ -362,11 +362,11 @@ We get a single intersection at a special value of $\gamma$
 \gamma_c=1-\frac{2}{3}\sqrt{2}\sim 0.0572
 \end{equation}
 
-A type 0 strategy is more beneficial than the standard strategy sooner (i.e. smaller $q$) than type I for $\gamma \geq\gamma_c$.
+A Type 0 strategy is more beneficial than the standard strategy sooner (i.e. smaller $q$) than Type I for $\gamma \geq\gamma_c$.
 
 Indeed, you can see in Figure \ref{fig:type0pos} that the green curve representing $\gamma=0$ lies below the orange curve which represents the Type I strategy, while the red curve representing $\gamma=0.1>\gamma_c$ lies above it.
 
-To summarize, when $\gamma\geq\frac{1}{3}$ the Type 0 strategy is beneficial over the standard strategy for any value of $q$. When $\gamma<\frac{1}{3}$ , the hashing power of the attacker needs to exceed a threshold before a block withholding strategy is beneficial. If $\gamma_c\leq\gamma\leq\frac{1}{3}$ we bump into the Type 0 first (the threshold given by $q_b=\frac{1-3\gamma}{3-3\gamma}$), while if $\gamma<\gamma_c$ we bump into Type I first (the threshold is given by $q_0=1-\frac{1}{\sqrt{2}}$).
+To summarize, when $\gamma\geq\frac{1}{3}$ the Type 0 strategy is beneficial over the standard strategy for any value of $q$. When $\gamma<\frac{1}{3}$ , the hashing power of the block-hiding miner needs to exceed a threshold before a block hiding strategy is beneficial. If $\gamma_c\leq\gamma\leq\frac{1}{3}$ we bump into the Type 0 first (the threshold given by $q_b=\frac{1-3\gamma}{3-3\gamma}$), while if $\gamma<\gamma_c$ we bump into Type I first (the threshold is given by $q_0=1-\frac{1}{\sqrt{2}}$).
 
 \subsection{Type 0 vs. Type I}
 
@@ -406,7 +406,7 @@ We can chart the strategy phase space parametrized by $\gamma,q\in [0,1]^2$, and
 
 The $\gamma, q$ phase space is governed by four functions (really three intersecting curves):
 \begin{itemize}
-\item $q_0= 1-\frac{1}{\sqrt{2}}$ determining for what $q$ type I is better than standard.
+\item $q_0= 1-\frac{1}{\sqrt{2}}$ determining for what $q$ Type I is better than standard.
 \item $max\lbrace q_b(\gamma)=\frac{1-3\gamma}{3-3\gamma},0\rbrace$ determining for what $q$ Type 0 is better than standard.
 \item $q_+(\gamma)=\frac{1}{4}\left(1+\sqrt{\frac{1-17\gamma}{1-\gamma}}\right)$ 
 \item $q_-(\gamma)=\frac{1}{4}\left(1-\sqrt{\frac{1-17\gamma}{1-\gamma}}\right)$
@@ -415,7 +415,7 @@ where the last two determine which strategy is better, Type 0 or I when $\gamma<
 Interestingly enough, the 3 functions $q_0, q_b(\gamma), q_+(\gamma)$ intersect in a single point $\gamma=\gamma_c, q=q_0$ which simplifies the structure of the phase space diagram, slicing it into exactly 6 regions each characterized by one of the 6 possible orderings between the 3 available strategies.
 
 \begin{itemize}
-\item The circular curve (created by the two branches $q_{\pm}$) determines, for a given $\gamma$, which of the two block-withholding strategies, Type 0 or Type I is more beneficial. Inside the circular region (and all the way to the $q$ axis) is the region where Type I is better than type 0. Outside this region Type 0 is better than Type 1. This is determined by equation \ref{eq:type0over1condition}. Note that this division doesn't specify whether any of the strategies is better than the standard one.
+\item The circular curve (created by the two branches $q_{\pm}$) determines, for a given $\gamma$, which of the two block-hiding strategies, Type 0 or Type I is more beneficial. Inside the circular region (and all the way to the $q$ axis) is the region where Type I is better than type 0. Outside this region Type 0 is better than Type 1. This is determined by equation \ref{eq:type0over1condition}. Note that this division doesn't specify whether any of the strategies is better than the standard one.
 \item Type I strategy is more beneficial than the Standard strategy in the region above the horizontal line $q=q_0$. .
 \item Type 0 strategy is more beneficial than the Standard strategy in the region above the monotonically decreasing curve $q_b(\gamma)$ (extending from $\frac{1}{3}$ on the $q$ axis to $\frac{1}{3}$ on the $\gamma$ axis and the continuing on the $\gamma$ axis all the way to $\gamma=1$).
 \end{itemize}
@@ -444,7 +444,7 @@ A miner, seeking to maximize profit, can select the most beneficial strategy in 
 
 \subsection{Discussion}
 
-Note that the regime where either block-withholding strategies are more beneficial than the standard strategy is bounded away from the origin. It is tempting to look at the radial distance from the origin of phase space as a measure of a ``miner's \textit{Influence}" 
+Note that the regime where either block-hiding strategies are more beneficial than the standard strategy is bounded away from the origin. It is tempting to look at the radial distance from the origin of phase space as a measure of a ``miner's \textit{Influence}" 
 
 \begin{equation}
 \mathtt{I}(q,\gamma)\equiv \sqrt{q^2+\gamma^2}.
@@ -455,7 +455,7 @@ This definition is motivated by the rough symmetry\footnote{All we mean by that 
 
 There are a few remarks in order:
 \begin{itemize}
-\item Figure \ref{fig:qgammaphasespace} marks the regions where a block-withholding strategy in beneficial, but does not guarantee success. Success of either strategies is still guaranteed (i.e. the probability of success is strictly $1$) only in the top half of phase space, in the region where $q\geq \frac{1}{2}$ (the infamous $51\%$ attack).
+\item Figure \ref{fig:qgammaphasespace} marks the regions where a block-hiding strategy in beneficial, but does not guarantee success. Success of either strategies is still guaranteed (i.e. the probability of success is strictly $1$) only in the top half of phase space, in the region where $q\geq \frac{1}{2}$ (the infamous $51\%$ attack).
 \item The authors of \cite{Selfish} identified a region delimited by the curve $\frac{1-\gamma}{3-2\gamma}\leq q \leq \frac{1}{3}$ where the ``selfish" mining strategy is more beneficial than the standard one. As one would expect based on the fact that the ``selfish'' strategy utilizes a combination of the two strategies discussed here, this curve intersects both Type I and Type 0 regions as depicted in figure \ref{fig:selfish}.
 \end{itemize}
 
@@ -587,9 +587,9 @@ By definition of $\gamma_c$ (equation \ref{eq:qbornot}) in this region $q_b(\gam
 Thus, this region in $\gamma$ breaks up into three regions in $q$. Namely:
 
 \begin{itemize}
-\item $q\leq q_b(\gamma)$ In this region neither block withholding strategies are better than the standard strategy, and so a miner will follow the standard strategy.
-\item $q_b(\gamma)\leq q\leq q_0$ In this region Type 0 is better than the standard strategy and type I is not and so a miner will choose the Type 0 strategy.
-\item $q_0\leq q$ In this region both Type 0 and type I are better than the standard strategy and so we need to measure them up against each other to find out which one wins.
+\item $q\leq q_b(\gamma)$ In this region neither block hiding strategies are better than the standard strategy, and so a miner will follow the standard strategy.
+\item $q_b(\gamma)\leq q\leq q_0$ In this region Type 0 is better than the standard strategy and Type I is not and so a miner will choose the Type 0 strategy.
+\item $q_0\leq q$ In this region both Type 0 and Type I are better than the standard strategy and so we need to measure them up against each other to find out which one wins.
 
 \end{itemize}
 
@@ -620,7 +620,7 @@ which gives
 \end{equation}
 
 In this case a solution exists, giving the condition $\gamma<\gamma_c$:
-Since we are analysing the region $\gamma_c\leq \gamma$ we see that in this region the type I strategy is never more beneficial than the Type 0 strategy and thus we conclude that in the region $\gamma_c\leq \gamma \leq \frac{1}{17}$ 
+Since we are analysing the region $\gamma_c\leq \gamma$ we see that in this region the Type I strategy is never more beneficial than the Type 0 strategy and thus we conclude that in the region $\gamma_c\leq \gamma \leq \frac{1}{17}$ 
 \begin{itemize}
 \item $q\leq q_b(\gamma)$ - Standard strategy wins
 \item $q_b(\gamma)\leq q$ - Type 0 strategy wins

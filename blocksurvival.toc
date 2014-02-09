@@ -2,7 +2,7 @@
 \contentsline {section}{\numberline {1.1}Bitcoin and mining}{1}{section.1.1}
 \contentsline {chapter}{\numberline {2}Three mining strategies}{2}{chapter.2}
 \contentsline {section}{\numberline {2.1}The Standard Mining Strategy}{2}{section.2.1}
-\contentsline {section}{\numberline {2.2}Block Withholding Strategies}{2}{section.2.2}
+\contentsline {section}{\numberline {2.2}Block-Hiding Strategies}{2}{section.2.2}
 \contentsline {subsection}{\numberline {2.2.1}Type I (try to win)}{2}{subsection.2.2.1}
 \contentsline {subsection}{\numberline {2.2.2}Type 0 (reach a tie and get some help)}{3}{subsection.2.2.2}
 \contentsline {section}{\numberline {2.3}Our Goal}{3}{section.2.3}
@@ -11,13 +11,13 @@
 \contentsline {section}{\numberline {3.2}Calculating the probability of success}{4}{section.3.2}
 \contentsline {subsection}{\numberline {3.2.1}Getting to the starting point}{4}{subsection.3.2.1}
 \contentsline {subsection}{\numberline {3.2.2}Catching up from the starting point}{5}{subsection.3.2.2}
-\contentsline {section}{\numberline {3.3}Block Withholding Strategy - Type I}{5}{section.3.3}
+\contentsline {section}{\numberline {3.3}Block hiding Strategy - Type I}{5}{section.3.3}
 \contentsline {subsection}{\numberline {3.3.1}When is Type I better than Standard?}{6}{subsection.3.3.1}
-\contentsline {section}{\numberline {3.4}Block Withholding Strategy - Type 0}{7}{section.3.4}
+\contentsline {section}{\numberline {3.4}Block hiding Strategy - Type 0}{7}{section.3.4}
 \contentsline {chapter}{\numberline {4}The $\gamma ,q$ phase space}{10}{chapter.4}
 \contentsline {section}{\numberline {4.1}Type 0 vs. Standard}{10}{section.4.1}
 \contentsline {section}{\numberline {4.2}Comparing Type 0 to Type I}{11}{section.4.2}
-\contentsline {subsection}{\numberline {4.2.1}Which block withholding is beneficial first}{12}{subsection.4.2.1}
+\contentsline {subsection}{\numberline {4.2.1}Which block hiding is beneficial first}{12}{subsection.4.2.1}
 \contentsline {subsection}{\numberline {4.2.2}Type 0 vs. Type I}{12}{subsection.4.2.2}
 \contentsline {section}{\numberline {4.3}The Strategy Phase Space}{13}{section.4.3}
 \contentsline {subsection}{\numberline {4.3.1}Discussion}{15}{subsection.4.3.1}

@@ -2,7 +2,7 @@
 \BOOKMARK [1][-]{section.1.1}{Bitcoin and mining}{chapter.1}
 \BOOKMARK [0][-]{chapter.2}{Three mining strategies}{}
 \BOOKMARK [1][-]{section.2.1}{The Standard Mining Strategy}{chapter.2}
-\BOOKMARK [1][-]{section.2.2}{Block Withholding Strategies}{chapter.2}
+\BOOKMARK [1][-]{section.2.2}{Block-Hiding Strategies}{chapter.2}
 \BOOKMARK [2][-]{subsection.2.2.1}{Type I \(try to win\)}{section.2.2}
 \BOOKMARK [2][-]{subsection.2.2.2}{Type 0 \(reach a tie and get some help\)}{section.2.2}
 \BOOKMARK [1][-]{section.2.3}{Our Goal}{chapter.2}
@@ -11,13 +11,13 @@
 \BOOKMARK [1][-]{section.3.2}{Calculating the probability of success}{chapter.3}
 \BOOKMARK [2][-]{subsection.3.2.1}{Getting to the starting point}{section.3.2}
 \BOOKMARK [2][-]{subsection.3.2.2}{Catching up from the starting point}{section.3.2}
-\BOOKMARK [1][-]{section.3.3}{Block Withholding Strategy - Type I}{chapter.3}
+\BOOKMARK [1][-]{section.3.3}{Block hiding Strategy - Type I}{chapter.3}
 \BOOKMARK [2][-]{subsection.3.3.1}{When is Type I better than Standard?}{section.3.3}
-\BOOKMARK [1][-]{section.3.4}{Block Withholding Strategy - Type 0}{chapter.3}
+\BOOKMARK [1][-]{section.3.4}{Block hiding Strategy - Type 0}{chapter.3}
 \BOOKMARK [0][-]{chapter.4}{The ,q phase space}{}
 \BOOKMARK [1][-]{section.4.1}{Type 0 vs. Standard}{chapter.4}
 \BOOKMARK [1][-]{section.4.2}{Comparing Type 0 to Type I}{chapter.4}
-\BOOKMARK [2][-]{subsection.4.2.1}{Which block withholding is beneficial first}{section.4.2}
+\BOOKMARK [2][-]{subsection.4.2.1}{Which block hiding is beneficial first}{section.4.2}
 \BOOKMARK [2][-]{subsection.4.2.2}{Type 0 vs. Type I}{section.4.2}
 \BOOKMARK [1][-]{section.4.3}{The Strategy Phase Space}{chapter.4}
 \BOOKMARK [2][-]{subsection.4.3.1}{Discussion}{section.4.3}

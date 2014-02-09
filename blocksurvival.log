@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2013.11.18)  23 DEC 2013 15:34
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2013.11.18)  9 FEB 2014 12:21
 entering extended mode
  %&-line parsing enabled.
 **blocksurvival.tex
@@ -957,7 +957,7 @@ LaTeX Warning: There were multiply-defined labels.
  ) 
 Here is how much of TeX's memory you used:
  16849 strings out of 493848
- 283415 string characters out of 1152822
+ 283405 string characters out of 1152822
  387336 words of memory out of 3000000
  19667 multiletter control sequences out of 15000+50000
  25051 words of font info for 98 fonts, out of 3000000 for 9000
@@ -981,7 +981,7 @@ ts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/texmf-texlive/fonts/type1/pu
 blic/amsfonts/cm/cmti12.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfon
 ts/cm/cmti8.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmtt12
 .pfb>
-Output written on blocksurvival.pdf (22 pages, 413862 bytes).
+Output written on blocksurvival.pdf (22 pages, 414069 bytes).
 PDF statistics:
  500 PDF objects out of 1000 (max. 8388607)
  99 named destinations out of 1000 (max. 500000)
