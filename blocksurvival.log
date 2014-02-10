@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2013.11.18)  9 FEB 2014 12:21
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2013.11.18)  10 FEB 2014 11:40
 entering extended mode
  %&-line parsing enabled.
 **blocksurvival.tex
@@ -713,195 +713,202 @@ l.50 \end{abstract}
 
 ]
 Chapter 1.
+
+LaTeX Warning: Citation `hashcash' on page 1 undefined on input line 60.
+
 pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has 
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.60 \chapter
-             {Three mining strategies}\label{chap:strategies} [1
+l.63 
+      [1
 
 ]
-Chapter 2.
-[2
 
-] [3]
+LaTeX Warning: Citation `lear' on page 2 undefined on input line 66.
+
+[2]
+Chapter 2.
+[3
+
+] [4]
 Chapter 3.
 
 Package amsmath Warning: Foreign command \atopwithdelims;
 (amsmath)                \frac or \genfrac should be used instead
-(amsmath)                 on input line 108.
+(amsmath)                 on input line 116.
 
-[4
+[5
 
-] [5]
+] [6]
 
 pdfTeX warning: pdflatex (file ./Images/TypeIPOScrop.pdf): PDF inclusion: found
  PDF version <1.6>, but at most version <1.4> allowed
-<Images/TypeIPOScrop.pdf, id=225, 502.87875pt x 421.575pt>
+<Images/TypeIPOScrop.pdf, id=236, 502.87875pt x 421.575pt>
 File: Images/TypeIPOScrop.pdf Graphic file (type pdf)
 
 <use Images/TypeIPOScrop.pdf>
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 174.
+(caption)                particular \caption on input line 182.
 See the caption package documentation for explanation.
 
-[6 <./Images/TypeIPOScrop.pdf>] [7]
-<Images/3regionsqc.png, id=278, 533.995pt x 432.61626pt>
+[7 <./Images/TypeIPOScrop.pdf>] [8]
+<Images/3regionsqc.png, id=289, 533.995pt x 432.61626pt>
 File: Images/3regionsqc.png Graphic file (type png)
 
 <use Images/3regionsqc.png>
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 264.
+(caption)                particular \caption on input line 272.
 See the caption package documentation for explanation.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 258--268
+Underfull \hbox (badness 10000) in paragraph at lines 266--276
 
  []
 
-[8 <./Images/3regionsqc.png>]
+[9 <./Images/3regionsqc.png>]
 
 pdfTeX warning: pdflatex (file ./Images/Type0POScrop.pdf): PDF inclusion: found
  PDF version <1.6>, but at most version <1.4> allowed
-<Images/Type0POScrop.pdf, id=293, 521.95pt x 423.5825pt>
+<Images/Type0POScrop.pdf, id=304, 521.95pt x 423.5825pt>
 File: Images/Type0POScrop.pdf Graphic file (type pdf)
 
 <use Images/Type0POScrop.pdf>
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 285.
+(caption)                particular \caption on input line 293.
 See the caption package documentation for explanation.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 281--289
+Underfull \hbox (badness 10000) in paragraph at lines 289--297
 
  []
 
-[9 <./Images/Type0POScrop.pdf>]
+[10 <./Images/Type0POScrop.pdf>]
 Chapter 4.
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 290.
+(hyperref)                removing `math shift' on input line 298.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\gamma' on input line 290.
+(hyperref)                removing `\gamma' on input line 298.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 290.
+(hyperref)                removing `math shift' on input line 298.
 
-<Images/qbqc.png, id=332, 530.98375pt x 434.62375pt>
+<Images/qbqc.png, id=344, 530.98375pt x 434.62375pt>
 File: Images/qbqc.png Graphic file (type png)
  <use Images/qbqc.png>
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 320.
+(caption)                particular \caption on input line 328.
 See the caption package documentation for explanation.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 316--324
+Underfull \hbox (badness 10000) in paragraph at lines 324--332
 
  []
 
-[10
+[11
 
-] [11 <./Images/qbqc.png>] [12]
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 409.
+] [12 <./Images/qbqc.png>] [13]
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 417.
 
 
 (/usr/share/texmf-texlive/tex/latex/base/omscmr.fd
 File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 409.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 417.
 
-<Images/6regions.png, id=361, 482.80376pt x 432.61626pt>
+<Images/6regions.png, id=372, 482.80376pt x 432.61626pt>
 File: Images/6regions.png Graphic file (type png)
 
 <use Images/6regions.png>
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 428.
+(caption)                particular \caption on input line 436.
 See the caption package documentation for explanation.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 424--432
+Underfull \hbox (badness 10000) in paragraph at lines 432--440
 
  []
 
-[13] <Images/finalphasespace.png, id=368, 484.81125pt x 435.6275pt>
+[14] <Images/finalphasespace.png, id=379, 484.81125pt x 435.6275pt>
 File: Images/finalphasespace.png Graphic file (type png)
 
 <use Images/finalphasespace.png>
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 440.
+(caption)                particular \caption on input line 448.
 See the caption package documentation for explanation.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 436--444
+Underfull \hbox (badness 10000) in paragraph at lines 444--452
 
  []
 
-[14 <./Images/6regions.png>] [15 <./Images/finalphasespace.png>]
-<Images/selfish.png, id=389, 487.8225pt x 431.6125pt>
+[15 <./Images/6regions.png>] [16 <./Images/finalphasespace.png>]
+<Images/selfish.png, id=401, 487.8225pt x 431.6125pt>
 File: Images/selfish.png Graphic file (type png)
  <use Images/selfish.png>
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 466.
+(caption)                particular \caption on input line 474.
 See the caption package documentation for explanation.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 462--470
+Underfull \hbox (badness 10000) in paragraph at lines 470--478
 
  []
 
-[16 <./Images/selfish.png>]
+[17 <./Images/selfish.png>]
 Appendix A.
 
 Package hyperref Warning: Difference (2) between bookmark levels is greater 
-(hyperref)                than one, level fixed on input line 473.
+(hyperref)                than one, level fixed on input line 481.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 481.
+(hyperref)                removing `math shift' on input line 489.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 481.
+(hyperref)                removing `math shift' on input line 489.
 
 
-Overfull \hbox (49.05229pt too wide) in alignment at lines 486--504
+Overfull \hbox (49.05229pt too wide) in alignment at lines 494--512
  [][][] []
  []
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 518.
+(hyperref)                removing `math shift' on input line 526.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 518.
+(hyperref)                removing `math shift' on input line 526.
 
-[17
+[18
 
 pdfTeX warning (ext4): destination with the same identifier (name{equation.A.0.
 2}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.524 \begin{eqnarray}
+l.532 \begin{eqnarray}
                       \label{eq:rpcalc}\nonumber]pdfTeX warning (ext4): destina
 tion with the same identifier (name{equation.A.0.2}) has been already used, dup
 licate ignored
 <to be read again> 
                    \relax 
-l.524 \begin{eqnarray}
-                      \label{eq:rpcalc}\nonumber [18] (./blocksurvival.bbl
+l.532 \begin{eqnarray}
+                      \label{eq:rpcalc}\nonumber [19] (./blocksurvival.bbl
 Underfull \hbox (badness 10000) in paragraph at lines 11--14
 []\OT1/cmr/m/n/12 Meni Rosen-feld.  Anal-y-sis of hashrate-based double-spendin
 g.
@@ -948,21 +955,24 @@ you forgot something else, as in `\hbox{$x}'. In such cases
 the way to recover is to insert both the forgotten and the
 deleted material, e.g., by typing `I$}'.
 
-) [19
+) [20
 
 ] (./blocksurvival.aux)
+
+LaTeX Warning: There were undefined references.
+
 
 LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 16849 strings out of 493848
- 283405 string characters out of 1152822
+ 16855 strings out of 493848
+ 283461 string characters out of 1152822
  387336 words of memory out of 3000000
- 19667 multiletter control sequences out of 15000+50000
+ 19669 multiletter control sequences out of 15000+50000
  25051 words of font info for 98 fonts, out of 3000000 for 9000
  714 hyphenation exceptions out of 8191
- 56i,10n,55p,764b,371s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 56i,10n,55p,1205b,371s stack positions out of 5000i,500n,10000p,200000b,50000s
 </usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/sha
 re/texmf-texlive/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texmf-te
 xlive/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texmf-texlive/fonts
@@ -981,9 +991,9 @@ ts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/texmf-texlive/fonts/type1/pu
 blic/amsfonts/cm/cmti12.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfon
 ts/cm/cmti8.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmtt12
 .pfb>
-Output written on blocksurvival.pdf (22 pages, 414069 bytes).
+Output written on blocksurvival.pdf (23 pages, 421760 bytes).
 PDF statistics:
- 500 PDF objects out of 1000 (max. 8388607)
- 99 named destinations out of 1000 (max. 500000)
+ 512 PDF objects out of 1000 (max. 8388607)
+ 103 named destinations out of 1000 (max. 500000)
  272 words of extra memory for PDF output out of 10000 (max. 10000000)
 
