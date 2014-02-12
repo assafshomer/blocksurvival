@@ -8,6 +8,7 @@
 \usepackage[all]{xy}
 \usepackage{tikz}
 \usepackage{caption}
+\usepackage{color}
 \usepackage[table]{xcolor}
 
 \newtheorem{definition}{Definition}[chapter]
@@ -162,13 +163,13 @@ By definition of the Type I strategy, the secret branch needs to be longer by at
 
 \section{Block Revocation Probability}
 
-The probability of success of a Type I miner is given by the following sum over all possible $m$s (denoting the length of the secret branch at the beginning of catch-up):
+The probability of success of a Type I miner is given by the following sum over all possible lengths of the secret branch at the beginning of catch-up:
 
 \begin{equation}\label{eq:qofpdef}
 \mathit{Q}(q)=\sum_{m=0}^{\infty}\mathit{P}_{1,q}(m)\mathit{a}^{(1)}_{1-m}(q)
 \end{equation}
 
-which gives (see details in appendix \ref{app:calcqofp})
+which gives (see details in appendix \ref{app:qofq})
 
 \begin{equation}\label{eq:qofp}
 \mathit{Q}(q)=
@@ -195,7 +196,7 @@ The orange curve plots the probability that a Type I miner manages to revoke the
 We can use equations \ref{eq:az} and \ref{eq:pnm} to calculate the probability of success of a Type I miner under the extra constraint that $&\mathit{B}_{L+1}$ receives at least $n$ confirmation before being revoked.
 
 \begin{eqnarray}\label{eq:qn}
-&\mathit{Q}_{(n)}(q)=\sum_{m=0}^{\infty}\mathit{P}_{n,q}(m)\mathit{a}^{(1)}_{n-m}(q)=\\
+&\mathit{Q}_{(n)}^{(1)}(q)=\sum_{m=0}^{\infty}\mathit{P}_{n,q}(m)\mathit{a}^{(1)}_{n-m}(q)=\\
 &\begin{cases}
 1-\sum_{m=0}^n{n + m -1\choose m}\left[(1-q)^nq^m-(1-q)^{m-1}q^{n+1}\right] & \quad q \in [0,\frac{1}{2}] \\
 1 & \quad q \in [\frac{1}{2},1] 
@@ -206,16 +207,16 @@ We can use equations \ref{eq:az} and \ref{eq:pnm} to calculate the probability o
 \resizebox{18cm}{!} {
     \begin{tabular}{l|llllllllll}
     q  & n=1     & n=2     & n=3     & n=4     & n=5     & n=6     & n=7     & n=8     & n=9     & n=10    \\ \hline
-    0\% & 0.00\%  & 0.00\%  & 0.00\%  & 0.00\%  & 0.00\%  & 0.00\%  & 0.00\%  & 0.00\%  & 0.00\%  & 0.00\%  \\
-    2\% & 0.12\%  & 0.01\%  & 0.00\%  & 0.00\%  & 0.00\%  & 0.00\%  & 0.00\%  & 0.00\%  & 0.00\%  & 0.00\%  \\
-    4\% & 0.49\%  & 0.06\%  & 0.01\%  & 0.00\%  & 0.00\%  & 0.00\%  & 0.00\%  & 0.00\%  & 0.00\%  & 0.00\%  \\
-    6\% & 1.10\%  & 0.21\%  & 0.04\%  & 0.01\%  & 0.00\%  & 0.00\%  & 0.00\%  & 0.00\%  & 0.00\%  & 0.00\%  \\
-    8\% & 1.98\%  & 0.49\%  & 0.13\%  & 0.03\%  & 0.01\%  & 0.00\%  & 0.00\%  & 0.00\%  & 0.00\%  & 0.00\%  \\
-    10\% & 3.11\%  & 0.95\%  & 0.30\%  & 0.10\%  & 0.03\%  & 0.01\%  & 0.00\%  & 0.00\%  & 0.00\%  & 0.00\%  \\
-    12\% & 4.52\%  & 1.63\%  & 0.61\%  & 0.23\%  & 0.09\%  & 0.04\%  & 0.01\%  & 0.01\%  & 0.00\%  & 0.00\%  \\
-    14\% & 6.20\%  & 2.56\%  & 1.10\%  & 0.48\%  & 0.21\%  & 0.10\%  & 0.04\%  & 0.02\%  & 0.01\%  & 0.00\%  \\
-    16\% & 8.17\%  & 3.78\%  & 1.82\%  & 0.89\%  & 0.44\%  & 0.22\%  & 0.11\%  & 0.06\%  & 0.03\%  & 0.02\%  \\
-    18\% & 10.43\% & 5.33\%  & 2.82\%  & 1.52\%  & 0.84\%  & 0.46\%  & 0.26\%  & 0.15\%  & 0.08\%  & 0.05\%  \\
+    0\% & \colorbox{gray}{0.00\%}  & \colorbox{gray}{0.00\%}  & \colorbox{gray}{0.00\%}  & \colorbox{gray}{0.00\%}  & \colorbox{gray}{0.00\%}  & \colorbox{gray}{0.00\%}  & \colorbox{gray}{0.00\%}  & \colorbox{gray}{0.00\%}  & \colorbox{gray}{0.00\%}  & \colorbox{gray}{0.00\%}  \\
+    2\% & 0.12\%  & \colorbox{gray}{0.01\%}  & \colorbox{gray}{0.00\%}  & \colorbox{gray}{0.00\%}  & \colorbox{gray}{0.00\%}  & \colorbox{gray}{0.00\%}  & \colorbox{gray}{0.00\%}  & \colorbox{gray}{0.00\%}  & \colorbox{gray}{0.00\%}  & \colorbox{gray}{0.00\%}  \\
+    4\% & 0.49\%  & \colorbox{gray}{0.06\%}  & \colorbox{gray}{0.01\%}  & \colorbox{gray}{0.00\%}  & \colorbox{gray}{0.00\%}  & \colorbox{gray}{0.00\%}  & \colorbox{gray}{0.00\%}  & \colorbox{gray}{0.00\%}  & \colorbox{gray}{0.00\%}  & \colorbox{gray}{0.00\%}  \\
+    6\% & 1.10\%  & 0.21\%  & \colorbox{gray}{0.04\%}  & \colorbox{gray}{0.01\%}  & \colorbox{gray}{0.00\%}  & \colorbox{gray}{0.00\%}  & \colorbox{gray}{0.00\%}  & \colorbox{gray}{0.00\%}  & \colorbox{gray}{0.00\%}  & \colorbox{gray}{0.00\%}  \\
+    8\% & 1.98\%  & 0.49\%  & 0.13\%  & \colorbox{gray}{0.03\%}  & \colorbox{gray}{0.01\%}  & \colorbox{gray}{0.00\%}  & \colorbox{gray}{0.00\%}  & \colorbox{gray}{0.00\%}  & \colorbox{gray}{0.00\%}  & \colorbox{gray}{0.00\%}  \\
+    10\% & 3.11\%  & 0.95\%  & 0.30\%  & 0.10\%  & \colorbox{gray}{0.03\%}  & \colorbox{gray}{0.01\%}  & \colorbox{gray}{0.00\%}  & \colorbox{gray}{0.00\%}  & \colorbox{gray}{0.00\%}  & \colorbox{gray}{0.00\%}  \\
+    12\% & 4.52\%  & 1.63\%  & 0.61\%  & 0.23\%  & \colorbox{gray}{0.09\%}  & \colorbox{gray}{0.04\%}  & \colorbox{gray}{0.01\%}  & \colorbox{gray}{0.01\%}  & \colorbox{gray}{0.00\%}  & \colorbox{gray}{0.00\%}  \\
+    14\% & 6.20\%  & 2.56\%  & 1.10\%  & 0.48\%  & 0.21\%  & 0.10\%  & \colorbox{gray}{0.04\%}  & \colorbox{gray}{0.02\%}  & \colorbox{gray}{0.01\%}  & \colorbox{gray}{0.00\%}  \\
+    16\% & 8.17\%  & 3.78\%  & 1.82\%  & 0.89\%  & 0.44\%  & 0.22\%  & 0.11\%  & \colorbox{gray}{0.06\%}  & \colorbox{gray}{0.03\%}  & \colorbox{gray}{0.02\%}  \\
+    18\% & 10.43\% & 5.33\%  & 2.82\%  & 1.52\%  & 0.84\%  & 0.46\%  & 0.26\%  & 0.15\%  & 0.08\%  & \colorbox{gray}{0.05\%}  \\
     20\% & 13.00\% & 7.24\%  & 4.17\%  & 2.45\%  & 1.46\%  & 0.88\%  & 0.53\%  & 0.32\%  & 0.20\%  & 0.12\%  \\
     22\% & 15.89\% & 9.54\%  & 5.92\%  & 3.74\%  & 2.39\%  & 1.54\%  & 1.00\%  & 0.66\%  & 0.43\%  & 0.28\%  \\
     24\% & 19.10\% & 12.27\% & 8.12\%  & 5.47\%  & 3.73\%  & 2.56\%  & 1.77\%  & 1.23\%  & 0.86\%  & 0.61\%  \\
@@ -235,7 +236,7 @@ We can use equations \ref{eq:az} and \ref{eq:pnm} to calculate the probability o
     ~   & ~       & ~       & ~       & ~       & ~       & ~       & ~       & ~       & ~       & ~       \\
     \end{tabular}
     }
-    \caption {The probability of Block Revocation after n confirmations due to Type I mining}
+    \caption {The probability of Block Revocation after n confirmations due to Type I mining. Gray cells denote probabilities smaller than $0.1\%$}
 \end{table}
 
 
@@ -265,7 +266,7 @@ Using the same logic used to derive \ref{eq:qofpdef} we get the probability for 
 \mathit{T}(q)= \sum_{m=0}^{\infty}\mathit{P}_{1,q}(m)\mathit{a}^{(0)}_{1-m}(q)
 \end{equation}
 
-resulting in (see details in appendix \ref{app:calctofp})
+resulting in (see details in appendix \ref{app:calctofq})
 
 \begin{equation}\label{eq:qofp}
 \mathit{T}(q)=
@@ -539,7 +540,7 @@ There are a few remarks in order:
 
 \appendix
 \chapter{Calculation Details}
-\subsection{Probability distribution} \label{app:probmath}
+\section{Probability distribution} \label{app:probmath}
 \begin{equation}
 \sum_{m=0}^{\infty}\mathit{P}(n,m,p)=p^n\sum_{m=0}^{\infty}{n + m -1\choose m}q^m=p^n\dfrac{1}{(1-q)^n}=1
 \end{equation}
@@ -547,171 +548,73 @@ There are a few remarks in order:
 where we used the binomial identity holding for any complex $s$ inside the unit circle ($|s|<1$)
 $\dfrac{1}{(1-s)^n}=\sum_{k=0}^{\infty} {n + k -1\choose k}s^k$.
 
-\subsection{$\mathit{Q}(q)$ } \label{app:calcqofp} 
+\section{$\mathit{Q_{(n)}^{(r)}}(q)$ } \label{app:calcqofq} 
 
-$\mathit{Q}(q)$  can be solved in the two regions for the parameter $q$ given in \ref{eq:az}.
-
-In the case  that $q\in [0,\frac{1}{2}]$
-\begin{eqnarray}\label{eq:rpcalc}\nonumber
-&\mathit{Q}(q)=\sum_{m=0}^{\infty}\mathit{P}_{1,q}(m)\mathit{a}_{1-m}^{(1)}(q)=(1-q)\sum_{m=0}^{\infty}q^m\mathit{a}_{1-m}^{(1)}(q)=\\\nonumber &
-(1-q)\left(
-\mathit{a}^{(1)}_1(q)+q\mathit{a}^{(1)}_0(q)+\sum_{m=2}^{\infty}q^m
- \right)=
-(1-q)\left(
-\left(\dfrac{q}{1-q}\right)^2+q\dfrac{q}{1-q}+\left(\sum_{m=0}^{\infty}q^m\right)-1-q
- \right) 
- =\\\nonumber 
-&\dfrac{1}{1-q}\left(
-q^2(2-q)+1-q-(1-q)^2(1+q)
-\right) 
- =\\\nonumber
- &\dfrac{1}{1-q}\left(
-2q^2-q^3+1-q-1+2q-q^2 -q+2q^2-q^3
-\right) = \dfrac{q^2}{1-q}\left(
-3-2q
-\right)
+\begin{eqnarray}\label{eq:qngeneral}\nonumber
+&\mathit{Q}_{(n)}^{(r)}(q)=\sum_{m=0}^{\infty}\mathit{P}_{n,q}(m)\mathit{a}^{(r)}_{n-m}(q)=\\ \nonumber
+&
+\begin{cases}
+\sum_{m=0}^{n+r-1}{n + m -1\choose m}(1-q)^nq^m\left(\dfrac{q}{1-q}\right)^{n-m+r}+ \sum_{m=n+r}^{\infty}{n + m -1\choose m}(1-q)^nq^m & \quad q \in [0,\frac{1}{2}] \\ 
+1 & \quad q \in [\frac{1}{2},1] 
+\end{cases} \\ \nonumber
+&=
+\begin{cases}
+\sum_{m=0}^{n+r-1}{n + m -1\choose m}(1-q)^nq^m\left[\left(\dfrac{q}{1-q}\right)^{n-m+r}-1\right]+ 1 & \quad q \in [0,\frac{1}{2}] \\
+1 & \quad q \in [\frac{1}{2},1] 
+\end{cases} \\ \nonumber
+&=
+\begin{cases}
+\sum_{m=0}^{n+r-1}{n + m -1\choose m}\left[(1-q)^{m-r}q^{n+r} - (1-q)^nq^m\right]+ 1 & \quad q \in [0,\frac{1}{2}] \\
+1 & \quad q \in [\frac{1}{2},1] 
+\end{cases} \\ \nonumber
+&=
+\begin{cases}
+1-\sum_{m=0}^{n+r-1}{n + m -1\choose m}\left[(1-q)^nq^m-(1-q)^{m-r}q^{n+r}\right] & \quad q \in [0,\frac{1}{2}] \\
+1 & \quad q \in [\frac{1}{2},1] 
+\end{cases} \\ \nonumber
 \end{eqnarray}
 
-In the case  that $q\in [\frac{1}{2},1]$
+\subsection{$\mathit{Q}(q)$}\label{app:qofq}
+In the case $\mathit{Q}(q)\equiv\mathit{Q_{(1)}^{(1)}}(q)$ we get:
 
-\begin{eqnarray}\nonumber
-&\mathit{Q}(1)=p\sum_{m=0}^{\infty}q^m\mathit{a}^{(1)}_{1-m}(1)=(1-q)\left(
-\mathit{a}^{(1)}_1(q)+q\mathit{a}^{(1)}_0(q)+\sum_{m=2}^{\infty}q^m
- \right)=\\\nonumber
- & (1-q)
-\left(1+q+\left(\sum_{m=0}^{\infty}q^m\right)-1-q
- \right) 
- =(1-q)\dfrac{1}{1-q}=1
+\begin{eqnarray}\label{eq:qnspecific}\nonumber
+&\mathit{Q}(q)=\sum_{m=0}^{\infty}\mathit{P}_{1,q}(m)\mathit{a}^{(1)}_{1-m}(q)\\ \nonumber
+&=
+\begin{cases}
+1-\sum_{m=0}^1\left[(1-q)q^m-(1-q)^{m-1}q^2\right] & \quad q \in [0,\frac{1}{2}] \\
+1 & \quad q \in [\frac{1}{2},1] 
+\end{cases} \\ \nonumber
+&=
+\begin{cases}
+1-(1-q)+\dfrac{q^2}{1-q}-(1-q)q+q^2 & \quad q \in [0,\frac{1}{2}] \\
+1 & \quad q \in [\frac{1}{2},1] 
+\end{cases} \\ \nonumber
+&=
+\begin{cases}
+\dfrac{q^2}{1-q}+2q^2 & \quad q \in [0,\frac{1}{2}] \\
+1 & \quad q \in [\frac{1}{2},1] 
+\end{cases} =
+\begin{cases}
+\dfrac{q^2}{1-q}\left(3-2q\right) & \quad q \in [0,\frac{1}{2}] \\
+1 & \quad q \in [\frac{1}{2},1] 
+\end{cases} \\ \nonumber
 \end{eqnarray}
 
-\subsection{$\mathit{T}(q)$ } \label{app:calctofp} 
+\subsection{$\mathit{T}(q)$}\label{app:tofq}
+In the case $\mathit{T}(q)\equiv\mathit{Q_{(1)}^{(0)}}(q)$ we get:
 
-$\mathit{T}(q)$  can be solved in the two regions for the parameter $q$ given in \ref{eq:az}.
-
-In the case  that $q\in [0,\frac{1}{2}]$
-
-\begin{eqnarray}\label{eq:rpcalc}\nonumber
-&\mathit{Q}(q)=\sum_{m=0}^{\infty}\mathit{P}_{1,q}(m)\mathit{a}^{(0)}_{1-m}(q)=p\sum_{m=0}^{\infty}q^m\mathit{a}^{(0)}_{1-m}(q)=(1-q)\left(
-\mathit{a}^{(0)}_1(q)+\sum_{m=1}^{\infty}q^m
- \right)=\\\nonumber
- &p\left(
-\dfrac{q}{1-q}+\left(\sum_{m=0}^{\infty}q^m\right)-1
- \right) 
- =(1-q)\left(
-\dfrac{q}{1-q}+\dfrac{1}{1-q}-1
- \right)=q+1-(1-q)=2q.\\\nonumber
+\begin{eqnarray}\label{eq:qnspecific}\nonumber
+&\mathit{Q}(q)=\sum_{m=0}^{\infty}\mathit{P}_{1,q}(m)\mathit{a}^{(0)}_{1-m}(q)\\ \nonumber
+&=
+\begin{cases}
+1-\left[(1-q)-q\right] & \quad q \in [0,\frac{1}{2}] \\
+1 & \quad q \in [\frac{1}{2},1] 
+\end{cases} =
+\begin{cases}
+2q & \quad q \in [0,\frac{1}{2}] \\
+1 & \quad q \in [\frac{1}{2},1] 
+\end{cases} \\ \nonumber
 \end{eqnarray}
-
-The case $q\in [\frac{1}{2},1]$ is identical to the one carried above for $\mathit{Q}(q)$.
-
-
-\begin{comment}
---------------------------------
-\section{Calculating $\mathit{R}(p)$ } \label{app:calcrofp}  
-
-$\mathit{R}(p)$  can be solved in the two regions for the parameter $q$ given in \ref{eq:az}.
-
-In the case  that $q\in [0,\dfrac{1}{2}]$
-
-\begin{eqnarray}\label{eq:rpcalc}\nonumber
-&\mathit{R}(p)=p\sum_{m=0}^{\infty}m\cdot q^m\mathit{a}_{1-m}(p)=p\left(
-q\mathit{a}_0(p)+\sum_{m=2}^{\infty}m\cdot q^m
- \right)=\\\nonumber
- &p\left(
-q\dfrac{q}{p}+\left(\sum_{m=0}^{\infty}m\cdot q^m\right)-q
- \right) 
- =p\left(
-\dfrac{q^2}{p}+q\partial_q\left(\sum_{m=0}^{\infty} q^m\right)-q
- \right)=\\\nonumber
-& q^2+pq\partial_q\left(\dfrac{1}{1-q}\right)-pq 
- = q^2+pq\left(\dfrac{1}{p^2} -1\right) =q^2+q\dfrac{(1+p)(1-p)}{p}=
- \\\nonumber
-& q^2\left(1+\dfrac{2-q}{1-q}\right)= \dfrac{q^2}{1-q}\left(
-3-2q\right)=\mathit{Q}(p)
-\end{eqnarray}
-
-
-In the case  that $q\notin [0,\dfrac{1}{2}]$
-
-\begin{eqnarray}\nonumber
-&\mathit{R}(p)=p\sum_{m=0}^{\infty}m\cdot q^m\mathit{a}_{1-m}(p)=p\left(
-q\mathit{a}_0(p)+\sum_{m=2}^{\infty}m\cdot q^m
- \right)=\\\nonumber
- & p\left(q+\left(\sum_{m=0}^{\infty}m\cdot q^m\right)-q \right) =pq\partial_q\left(\dfrac{1}{1-q}\right)=\dfrac{q}{1-q}
-\end{eqnarray}
-
-------------------------------
-We start by noting some simple facts.
-\begin{itemize}
-\item Equation \ref{eq:qnot} tells us that in the regime $q>q_0=1-\frac{1}{\sqrt{2}}$ the Type I strategy is more beneficial than the standard strategy.
-\item Equation \ref{eq:0overhonest} tells us that in the regime $\gamma\geq\frac{1}{3}$ The Type 0 strategy is more beneficial than the standard strategy.
-\item Equation \ref{eq:type0over1gammaregimes} tells us that when $\frac{1}{17}\leq \gamma \leq \frac{1}{3}$ Type 0 is more beneficial than Type I for any $q$, so we only need to ask when is Type 0 better than the standard strategy, and we get the answer from equations \ref{eq:type0benefitonhonestequation} and \ref{eq:qb} to be $q>q_b(\gamma)=\frac{1-3\gamma}{3-3\gamma}$.
-\end{itemize}
-
-The rest of phase space requires some more analysis.
-
-\subsubsection{The regime $\gamma_c=1-\frac{2\sqrt{2}}{3}\sim 0.0572\leq \gamma \leq \frac{1}{17}\sim 0.0588$ }
-
-By definition of $\gamma_c$ (equation \ref{eq:qbornot}) in this region $q_b(\gamma)<q_0$.
-Thus, this region in $\gamma$ breaks up into three regions in $q$. Namely:
-
-\begin{itemize}
-\item $q\leq q_b(\gamma)$ In this region neither block-hiding strategies are better than the standard strategy, and so a miner will follow the standard strategy.
-\item $q_b(\gamma)\leq q\leq q_0$ In this region Type 0 is better than the standard strategy and Type I is not and so a miner will choose the Type 0 strategy.
-\item $q_0\leq q$ In this region both Type 0 and Type I are better than the standard strategy and so we need to measure them up against each other to find out which one wins.
-
-\end{itemize}
-
-In this region we learn from equation \ref{eq:type0over1gammaregimes} that Type 0 is better than Type I only if $q<q_-(\gamma)$ or $q>q_+(\gamma)$. 
-Let us first attempt to solve for $q_b(\gamma)\leq q < q_-(\gamma)$. For this to be possible we must have $q_b(\gamma)\leq q_-(\gamma)$, or:
-
-\begin{equation}
-\frac{1}{4}\left(1-\sqrt{\frac{1-17\gamma}{1-\gamma}}\right)\geq 1-\frac{1}{\sqrt{2}}
-\end{equation}
-
-which gives 
-
-\begin{equation}
-\frac{1}{4}\sqrt{\frac{1-17\gamma}{1-\gamma}}\leq \frac{1}{\sqrt{2}}-\frac{3}{4}<0
-\end{equation}
-
-having no solutions.
-
-However, there is still the option that Type I wins in this region if we can find a solution where $q_0<q\leq q_+(\gamma)$.
-For this to be possible we need $q_+(\gamma)>q_0$:
-\begin{equation}
-\frac{1}{4}\left(1+\sqrt{\frac{1-17\gamma}{1-\gamma}}\right)\geq 1-\frac{1}{\sqrt{2}}
-\end{equation}
-which gives 
-
-\begin{equation}
-\frac{1}{4}\sqrt{\frac{1-17\gamma}{1-\gamma}}\leq \frac{3}{4}-\frac{1}{\sqrt{2}}>0
-\end{equation}
-
-In this case a solution exists, giving the condition $\gamma<\gamma_c$:
-Since we are analysing the region $\gamma_c\leq \gamma$ we see that in this region the Type I strategy is never more beneficial than the Type 0 strategy and thus we conclude that in the region $\gamma_c\leq \gamma \leq \frac{1}{17}$ 
-\begin{itemize}
-\item $q\leq q_b(\gamma)$ - Standard strategy wins
-\item $q_b(\gamma)\leq q$ - Type 0 strategy wins
-\end{itemize}
-
-Finally, 
-
-
-
-
-All this results in the following division of phase space:
-
-\begin{figure}[sectioning]
-\centering
-\includegraphics[width=150mm]{sectioning.png}
-\caption{The 4 functions sectioning the $\gamma, q$ phase space.}
-\label{fig:sectioning}
-\end{figure}
-
-Leading to figure \ref{fig:qgammaphasespace}.
----------------------------------------------------
-\end{comment}
 
 
 

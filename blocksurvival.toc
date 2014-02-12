@@ -23,7 +23,8 @@
 \contentsline {section}{\numberline {6.5}Discussion}{19}{section.6.5}
 \contentsline {chapter}{\numberline {7}Conclusions}{21}{chapter.7}
 \contentsline {chapter}{\numberline {A}Calculation Details}{22}{appendix.A}
-\contentsline {subsection}{\numberline {A.0.1}Probability distribution}{22}{subsection.A.0.1}
-\contentsline {subsection}{\numberline {A.0.2}$\mathit {Q}(q)$ }{22}{subsection.A.0.2}
-\contentsline {subsection}{\numberline {A.0.3}$\mathit {T}(q)$ }{23}{subsection.A.0.3}
-\contentsline {chapter}{Bibliography}{24}{equation.A.0.2}
+\contentsline {section}{\numberline {A.1}Probability distribution}{22}{section.A.1}
+\contentsline {section}{\numberline {A.2}$\mathit {Q_{(n)}^{(r)}}(q)$ }{22}{section.A.2}
+\contentsline {subsection}{\numberline {A.2.1}$\mathit {Q}(q)$}{23}{subsection.A.2.1}
+\contentsline {subsection}{\numberline {A.2.2}$\mathit {T}(q)$}{23}{subsection.A.2.2}
+\contentsline {chapter}{Bibliography}{24}{equation.A.2.2}
