@@ -203,6 +203,8 @@ We can use equations \ref{eq:az} and \ref{eq:pnm} to calculate the probability o
 \end{cases}
 \end{eqnarray}
 
+\newpage
+
 \begin{table}
 \resizebox{18cm}{!} {
     \begin{tabular}{l|llllllllll}
@@ -239,7 +241,16 @@ We can use equations \ref{eq:az} and \ref{eq:pnm} to calculate the probability o
     \caption {The probability of Block Revocation after n confirmations due to Type I mining. Gray cells denote probabilities smaller than $0.1\%$}
 \end{table}
 
+Adding the extra assumption that the Type I miner pre-mined a ``double-spend" block reproduced the results of \cite{Doublespend}:
 
+
+\begin{eqnarray}\label{eq:ds}
+&\sum_{m=0}^{\infty}\mathit{P}_{n,q}(m)\mathit{a}^{(1)}_{n-(m+1)}(q)=\\
+&\begin{cases}
+1-\sum_{m=0}^n{n + m -1\choose m}\left[(1-q)^nq^m-(1-q)^mq^n\right] & \quad q \in [0,\frac{1}{2}] \\
+1 & \quad q \in [\frac{1}{2},1] 
+\end{cases}
+\end{eqnarray}
 
 
 \chapter{Type 0 Strategy}
