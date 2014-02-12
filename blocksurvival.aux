@@ -17,10 +17,9 @@
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
 \newlabel{chap:intro}{{1}{1}{Introduction\relax }{chapter.1}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {1.1}Bitcoin and mining}{1}{section.1.1}}
 \citation{Bitcoin}
 \citation{Selfish}
-\citation{lear}
+\citation{Lear}
 \citation{Bitcoin}
 \@writefile{toc}{\contentsline {chapter}{\numberline {2}Three mining strategies}{3}{chapter.2}}
 \@writefile{lof}{\addvspace {10\p@ }}
@@ -35,92 +34,102 @@
 \@writefile{toc}{\contentsline {section}{\numberline {2.3}Our Goal}{4}{section.2.3}}
 \newlabel{subsec:goal}{{2.3}{4}{Our Goal\relax }{section.2.3}{}}
 \citation{Doublespend}
-\@writefile{toc}{\contentsline {chapter}{\numberline {3}Calculation}{5}{chapter.3}}
+\@writefile{toc}{\contentsline {chapter}{\numberline {3}Setup}{5}{chapter.3}}
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
-\newlabel{chap:calc}{{3}{5}{Calculation\relax }{chapter.3}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {3.1}Setup}{5}{section.3.1}}
-\newlabel{calcsetup}{{3.1}{5}{Setup\relax }{section.3.1}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {3.2}Calculating the probability of success}{5}{section.3.2}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.2.1}Getting to the starting point}{5}{subsection.3.2.1}}
-\newlabel{eq:pnm}{{3.1}{5}{Getting to the starting point\relax }{equation.3.2.1}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.2.2}Catching up from the starting point}{6}{subsection.3.2.2}}
-\newlabel{eq:markov}{{3.2}{6}{Catching up from the starting point\relax }{equation.3.2.2}{}}
-\newlabel{eq:markovbc}{{3.3}{6}{Catching up from the starting point\relax }{equation.3.2.3}{}}
-\newlabel{eq:az}{{3.4}{6}{Catching up from the starting point\relax }{equation.3.2.4}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {3.3}Block hiding Strategy - Type I}{6}{section.3.3}}
-\newlabel{blockhidingboundary}{{3.5}{6}{Block hiding Strategy - Type I\relax }{equation.3.3.5}{}}
-\newlabel{eq:qofpdef}{{3.6}{6}{Block hiding Strategy - Type I\relax }{equation.3.3.6}{}}
-\newlabel{eq:qofp}{{3.7}{7}{Block hiding Strategy - Type I\relax }{equation.3.3.7}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {3.1}{\ignorespaces  The orange curve plots the probability that a Type I miner manages to uproot the next block mined by the network and replace it (and any blocks mined on top of it) with blocks she mined in her secret branch. The blue curve is the baseline probability for an Standard miner with the same hashing power $q$ \relax }}{7}{figure.3.1}}
-\newlabel{fig:PlotProbOfSuccess}{{3.1}{7}{ The orange curve plots the probability that a Type I miner manages to uproot the next block mined by the network and replace it (and any blocks mined on top of it) with blocks she mined in her secret branch. The blue curve is the baseline probability for an Standard miner with the same hashing power $q$ \relax \relax }{figure.3.1}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.3.1}When is Type I better than Standard?}{7}{subsection.3.3.1}}
-\newlabel{TypeIoverStandard}{{3.3.1}{7}{When is Type I better than Standard?\relax }{subsection.3.3.1}{}}
-\newlabel{eq:type1overstandard}{{3.8}{7}{When is Type I better than Standard?\relax }{equation.3.3.8}{}}
+\newlabel{chap:calc}{{3}{5}{Setup\relax }{chapter.3}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {3.1}Calculating the probability of success}{5}{section.3.1}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.1.1}Getting to the starting point}{5}{subsection.3.1.1}}
+\newlabel{eq:pnm}{{3.1}{5}{Getting to the starting point\relax }{equation.3.1.1}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.1.2}Catching up from the starting point}{6}{subsection.3.1.2}}
+\newlabel{eq:markov}{{3.2}{6}{Catching up from the starting point\relax }{equation.3.1.2}{}}
+\newlabel{eq:markovbc}{{3.3}{6}{Catching up from the starting point\relax }{equation.3.1.3}{}}
+\newlabel{eq:az}{{3.4}{6}{Catching up from the starting point\relax }{equation.3.1.4}{}}
+\@writefile{toc}{\contentsline {chapter}{\numberline {4}Type I Strategy}{7}{chapter.4}}
+\@writefile{lof}{\addvspace {10\p@ }}
+\@writefile{lot}{\addvspace {10\p@ }}
+\newlabel{blockhidingboundary}{{4.1}{7}{Type I Strategy\relax }{equation.4.0.1}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {4.1}Block Revocation Probability}{7}{section.4.1}}
+\newlabel{eq:qofpdef}{{4.2}{7}{Block Revocation Probability\relax }{equation.4.1.2}{}}
+\newlabel{eq:qofp}{{4.3}{7}{Block Revocation Probability\relax }{equation.4.1.3}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.1}{\ignorespaces  The orange curve plots the probability that a Type I miner manages to revoke the next block mined by the network and replace it (and any blocks mined on top of it) with blocks she mined in her secret branch. The blue curve is the baseline probability of harvesting a block by a Standard miner with the same hashing power $q$ \relax }}{8}{figure.4.1}}
+\newlabel{fig:PlotProbOfSuccess}{{4.1}{8}{ The orange curve plots the probability that a Type I miner manages to revoke the next block mined by the network and replace it (and any blocks mined on top of it) with blocks she mined in her secret branch. The blue curve is the baseline probability of harvesting a block by a Standard miner with the same hashing power $q$ \relax \relax }{figure.4.1}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {4.2}Block Revocation after $n$ confirmations}{8}{section.4.2}}
+\newlabel{eq:qn}{{4.4}{8}{Block Revocation after $n$ confirmations\relax }{equation.4.2.4}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {4.1}{\ignorespaces The probability of Block Revocation after n confirmations due to Type I mining\relax }}{9}{table.caption.2}}
 \citation{Zoharetal}
 \citation{Selfish}
-\newlabel{eq:qnot}{{3.9}{8}{When is Type I better than Standard?\relax }{equation.3.3.9}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {3.4}Block hiding Strategy - Type 0}{8}{section.3.4}}
-\newlabel{eq:bz}{{3.10}{8}{Block hiding Strategy - Type 0\relax }{equation.3.4.10}{}}
-\newlabel{eq:qofpdef}{{3.11}{8}{Block hiding Strategy - Type 0\relax }{equation.3.4.11}{}}
-\newlabel{eq:qofp}{{3.12}{9}{Block hiding Strategy - Type 0\relax }{equation.3.4.12}{}}
-\newlabel{eq:azeroeff}{{3.13}{9}{Block hiding Strategy - Type 0\relax }{equation.3.4.13}{}}
-\newlabel{qeff}{{3.14}{9}{Block hiding Strategy - Type 0\relax }{equation.3.4.14}{}}
-\newlabel{qcrit}{{3.15}{9}{Block hiding Strategy - Type 0\relax }{equation.3.4.15}{}}
-\newlabel{eq:sofq}{{3.16}{9}{Block hiding Strategy - Type 0\relax }{equation.3.4.16}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {3.2}{\ignorespaces  The three regions of the solution to $S_\gamma (q)$. The red curve is $q_c(\gamma )$. \relax }}{9}{figure.3.2}}
-\newlabel{fig:qcritical}{{3.2}{9}{ The three regions of the solution to $S_\gamma (q)$. The red curve is $q_c(\gamma )$. \relax \relax }{figure.3.2}{}}
-\newlabel{eq:sofq2}{{3.17}{10}{Block hiding Strategy - Type 0\relax }{equation.3.4.17}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {3.3}{\ignorespaces The Type 0 strategy probability of success $S_\gamma (q)$, plotted for various values of the parameter $\gamma $ and against the probabilities for the Standard and Type I strategies.\relax }}{10}{figure.3.3}}
-\newlabel{fig:type0pos}{{3.3}{10}{The Type 0 strategy probability of success $S_\gamma (q)$, plotted for various values of the parameter $\gamma $ and against the probabilities for the Standard and Type I strategies.\relax \relax }{figure.3.3}{}}
-\@writefile{toc}{\contentsline {chapter}{\numberline {4}The $\gamma ,q$ phase space}{11}{chapter.4}}
+\@writefile{toc}{\contentsline {chapter}{\numberline {5}Type 0 Strategy}{10}{chapter.5}}
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
-\newlabel{chap:gqphase}{{4}{11}{The $\gamma ,q$ phase space\relax }{chapter.4}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {4.1}Type 0 vs. Standard}{11}{section.4.1}}
-\newlabel{Type0overStandard}{{4.1}{11}{Type 0 vs. Standard\relax }{section.4.1}{}}
-\newlabel{eq:type0benefitonhonestequation}{{4.1}{11}{Type 0 vs. Standard\relax }{equation.4.1.1}{}}
-\newlabel{eq:qb}{{4.2}{11}{Type 0 vs. Standard\relax }{equation.4.1.2}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4.1}{\ignorespaces The Type 0 strategy is more beneficial than the standard strategy outside of the inner curve $q_b(\gamma )$. Standard mining is more beneficial only in region IA.\relax }}{12}{figure.4.1}}
-\newlabel{fig:qbqc}{{4.1}{12}{The Type 0 strategy is more beneficial than the standard strategy outside of the inner curve $q_b(\gamma )$. Standard mining is more beneficial only in region IA.\relax \relax }{figure.4.1}{}}
-\newlabel{eq:0overhonest}{{4.3}{12}{Type 0 vs. Standard\relax }{equation.4.1.3}{}}
-\newlabel{eq:0overhonestsummary}{{4.4}{12}{Type 0 vs. Standard\relax }{equation.4.1.4}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {4.2}Comparing Type 0 to Type I}{12}{section.4.2}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.2.1}Which block hiding is beneficial first}{13}{subsection.4.2.1}}
-\newlabel{eq:qbornot}{{4.5}{13}{Which block hiding is beneficial first\relax }{equation.4.2.5}{}}
-\newlabel{gamma0before1}{{4.6}{13}{Which block hiding is beneficial first\relax }{equation.4.2.6}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.2.2}Type 0 vs. Type I}{13}{subsection.4.2.2}}
-\newlabel{eq:type0overtype1}{{4.7}{13}{Type 0 vs. Type I\relax }{equation.4.2.7}{}}
-\newlabel{eq:type0over1condition}{{4.8}{13}{Type 0 vs. Type I\relax }{equation.4.2.8}{}}
-\newlabel{eq:type0over1gammaregimes}{{4.9}{13}{Type 0 vs. Type I\relax }{equation.4.2.9}{}}
-\newlabel{qplusminus}{{4.10}{14}{Type 0 vs. Type I\relax }{equation.4.2.10}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {4.3}The Strategy Phase Space}{14}{section.4.3}}
-\newlabel{sec:phasespace}{{4.3}{14}{The Strategy Phase Space\relax }{section.4.3}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4.2}{\ignorespaces The 3 curves sectioning the $\gamma , q$ phase space into 6 regions characterized by a hierarchy of the 3 strategies. For brevity we denote the Type I strategy by "1", the Type 0 strategy by "0" and the Standard strategy by "S". For example, in the top region Type 0 is more beneficial than Type I which in turn is more beneficial than the standard strategy.\relax }}{15}{figure.4.2}}
-\newlabel{fig:fourfunctions}{{4.2}{15}{The 3 curves sectioning the $\gamma , q$ phase space into 6 regions characterized by a hierarchy of the 3 strategies. For brevity we denote the Type I strategy by "1", the Type 0 strategy by "0" and the Standard strategy by "S". For example, in the top region Type 0 is more beneficial than Type I which in turn is more beneficial than the standard strategy.\relax \relax }{figure.4.2}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4.3}{\ignorespaces The 3 regions of the $q,\gamma $ phase space. The standard strategy is best in the region near the origin. Type I is best in the little area on top of the standard region. In the rest of phase space the Type 0 strategy is most beneficial.\relax }}{16}{figure.4.3}}
-\newlabel{fig:qgammaphasespace}{{4.3}{16}{The 3 regions of the $q,\gamma $ phase space. The standard strategy is best in the region near the origin. Type I is best in the little area on top of the standard region. In the rest of phase space the Type 0 strategy is most beneficial.\relax \relax }{figure.4.3}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.3.1}Discussion}{16}{subsection.4.3.1}}
-\citation{Selfish}
-\citation{Selfish}
-\citation{Selfish}
-\@writefile{lof}{\contentsline {figure}{\numberline {4.4}{\ignorespaces In this plot we see the location of the curve describing the ``seflish" strategy of \cite  {Selfish} within the $\gamma , q$ phase space.\relax }}{17}{figure.4.4}}
-\newlabel{fig:selfish}{{4.4}{17}{In this plot we see the location of the curve describing the ``seflish" strategy of \cite {Selfish} within the $\gamma , q$ phase space.\relax \relax }{figure.4.4}{}}
-\@writefile{toc}{\contentsline {chapter}{\numberline {A}Calculation Details}{18}{appendix.A}}
+\newlabel{eq:bz}{{5.1}{10}{Type 0 Strategy\relax }{equation.5.0.1}{}}
+\newlabel{eq:qofpdef}{{5.2}{11}{Type 0 Strategy\relax }{equation.5.0.2}{}}
+\newlabel{eq:qofp}{{5.3}{11}{Type 0 Strategy\relax }{equation.5.0.3}{}}
+\newlabel{eq:azeroeff}{{5.4}{11}{Type 0 Strategy\relax }{equation.5.0.4}{}}
+\newlabel{qeff}{{5.5}{11}{Type 0 Strategy\relax }{equation.5.0.5}{}}
+\newlabel{qcrit}{{5.6}{11}{Type 0 Strategy\relax }{equation.5.0.6}{}}
+\newlabel{eq:sofq}{{5.7}{11}{Type 0 Strategy\relax }{equation.5.0.7}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5.1}{\ignorespaces  The three regions of the solution to $S_\gamma (q)$. The red curve is $q_c(\gamma )$. \relax }}{12}{figure.5.1}}
+\newlabel{fig:qcritical}{{5.1}{12}{ The three regions of the solution to $S_\gamma (q)$. The red curve is $q_c(\gamma )$. \relax \relax }{figure.5.1}{}}
+\newlabel{eq:sofq2}{{5.8}{12}{Type 0 Strategy\relax }{equation.5.0.8}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5.2}{\ignorespaces The Type 0 strategy probability of success $S_\gamma (q)$, plotted for various values of the parameter $\gamma $ and against the probabilities for the Standard and Type I strategies.\relax }}{13}{figure.5.2}}
+\newlabel{fig:type0pos}{{5.2}{13}{The Type 0 strategy probability of success $S_\gamma (q)$, plotted for various values of the parameter $\gamma $ and against the probabilities for the Standard and Type I strategies.\relax \relax }{figure.5.2}{}}
+\@writefile{toc}{\contentsline {chapter}{\numberline {6}The $\gamma ,q$ phase space}{14}{chapter.6}}
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
-\@writefile{toc}{\contentsline {subsection}{\numberline {A.0.2}Probability distribution}{18}{subsection.A.0.2}}
-\newlabel{app:probmath}{{A.0.2}{18}{Probability distribution\relax }{subsection.A.0.2}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {A.0.3}$\mathit  {Q}(q)$ }{18}{subsection.A.0.3}}
-\newlabel{app:calcqofp}{{A.0.3}{18}{$\mathit {Q}(q)$ \relax }{subsection.A.0.3}{}}
-\newlabel{eq:rpcalc}{{A.2}{18}{$\mathit {Q}(q)$ \relax }{equation.A.0.2}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {A.0.4}$\mathit  {T}(q)$ }{19}{subsection.A.0.4}}
-\newlabel{app:calctofp}{{A.0.4}{19}{$\mathit {T}(q)$ \relax }{subsection.A.0.4}{}}
-\newlabel{eq:rpcalc}{{A.2}{19}{$\mathit {T}(q)$ \relax }{equation.A.0.2}{}}
+\newlabel{chap:gqphase}{{6}{14}{The $\gamma ,q$ phase space\relax }{chapter.6}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {6.1}Type I vs. Standard}{14}{section.6.1}}
+\newlabel{TypeIoverStandard}{{6.1}{14}{Type I vs. Standard\relax }{section.6.1}{}}
+\newlabel{eq:type1overstandard}{{6.1}{14}{Type I vs. Standard\relax }{equation.6.1.1}{}}
+\newlabel{eq:qnot}{{6.2}{14}{Type I vs. Standard\relax }{equation.6.1.2}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {6.2}Type 0 vs. Standard}{14}{section.6.2}}
+\newlabel{Type0overStandard}{{6.2}{14}{Type 0 vs. Standard\relax }{section.6.2}{}}
+\newlabel{eq:type0benefitonhonestequation}{{6.3}{15}{Type 0 vs. Standard\relax }{equation.6.2.3}{}}
+\newlabel{eq:qb}{{6.4}{15}{Type 0 vs. Standard\relax }{equation.6.2.4}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {6.1}{\ignorespaces The Type 0 strategy is more beneficial than the standard strategy outside of the inner curve $q_b(\gamma )$. Standard mining is more beneficial only in region IA.\relax }}{15}{figure.6.1}}
+\newlabel{fig:qbqc}{{6.1}{15}{The Type 0 strategy is more beneficial than the standard strategy outside of the inner curve $q_b(\gamma )$. Standard mining is more beneficial only in region IA.\relax \relax }{figure.6.1}{}}
+\newlabel{eq:0overhonest}{{6.5}{15}{Type 0 vs. Standard\relax }{equation.6.2.5}{}}
+\newlabel{eq:0overhonestsummary}{{6.6}{16}{Type 0 vs. Standard\relax }{equation.6.2.6}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {6.3}Comparing Type 0 to Type I}{16}{section.6.3}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.3.1}Which block-hiding is beneficial first}{16}{subsection.6.3.1}}
+\newlabel{eq:qbornot}{{6.7}{16}{Which block-hiding is beneficial first\relax }{equation.6.3.7}{}}
+\newlabel{gamma0before1}{{6.8}{16}{Which block-hiding is beneficial first\relax }{equation.6.3.8}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.3.2}Type 0 vs. Type I}{16}{subsection.6.3.2}}
+\newlabel{eq:type0overtype1}{{6.9}{17}{Type 0 vs. Type I\relax }{equation.6.3.9}{}}
+\newlabel{eq:type0over1condition}{{6.10}{17}{Type 0 vs. Type I\relax }{equation.6.3.10}{}}
+\newlabel{eq:type0over1gammaregimes}{{6.11}{17}{Type 0 vs. Type I\relax }{equation.6.3.11}{}}
+\newlabel{qplusminus}{{6.12}{17}{Type 0 vs. Type I\relax }{equation.6.3.12}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {6.4}The Strategy Phase Space}{17}{section.6.4}}
+\newlabel{sec:phasespace}{{6.4}{17}{The Strategy Phase Space\relax }{section.6.4}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {6.2}{\ignorespaces The 3 curves sectioning the $\gamma , q$ phase space into 6 regions characterized by a hierarchy of the 3 strategies. For brevity we denote the Type I strategy by "1", the Type 0 strategy by "0" and the Standard strategy by "S". For example, in the top region Type 0 is more beneficial than Type I which in turn is more beneficial than the standard strategy.\relax }}{18}{figure.6.2}}
+\newlabel{fig:fourfunctions}{{6.2}{18}{The 3 curves sectioning the $\gamma , q$ phase space into 6 regions characterized by a hierarchy of the 3 strategies. For brevity we denote the Type I strategy by "1", the Type 0 strategy by "0" and the Standard strategy by "S". For example, in the top region Type 0 is more beneficial than Type I which in turn is more beneficial than the standard strategy.\relax \relax }{figure.6.2}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {6.3}{\ignorespaces The 3 regions of the $q,\gamma $ phase space. The standard strategy is best in the region near the origin. Type I is best in the little area on top of the standard region. In the rest of phase space the Type 0 strategy is most beneficial.\relax }}{19}{figure.6.3}}
+\newlabel{fig:qgammaphasespace}{{6.3}{19}{The 3 regions of the $q,\gamma $ phase space. The standard strategy is best in the region near the origin. Type I is best in the little area on top of the standard region. In the rest of phase space the Type 0 strategy is most beneficial.\relax \relax }{figure.6.3}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {6.5}Discussion}{19}{section.6.5}}
+\citation{Selfish}
+\citation{Selfish}
+\citation{Selfish}
+\@writefile{lof}{\contentsline {figure}{\numberline {6.4}{\ignorespaces In this plot we see the location of the curve describing the ``seflish" strategy of \cite  {Selfish} within the $\gamma , q$ phase space.\relax }}{20}{figure.6.4}}
+\newlabel{fig:selfish}{{6.4}{20}{In this plot we see the location of the curve describing the ``seflish" strategy of \cite {Selfish} within the $\gamma , q$ phase space.\relax \relax }{figure.6.4}{}}
+\@writefile{toc}{\contentsline {chapter}{\numberline {7}Conclusions}{21}{chapter.7}}
+\@writefile{lof}{\addvspace {10\p@ }}
+\@writefile{lot}{\addvspace {10\p@ }}
+\@writefile{toc}{\contentsline {chapter}{\numberline {A}Calculation Details}{22}{appendix.A}}
+\@writefile{lof}{\addvspace {10\p@ }}
+\@writefile{lot}{\addvspace {10\p@ }}
+\@writefile{toc}{\contentsline {subsection}{\numberline {A.0.1}Probability distribution}{22}{subsection.A.0.1}}
+\newlabel{app:probmath}{{A.0.1}{22}{Probability distribution\relax }{subsection.A.0.1}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {A.0.2}$\mathit  {Q}(q)$ }{22}{subsection.A.0.2}}
+\newlabel{app:calcqofp}{{A.0.2}{22}{$\mathit {Q}(q)$ \relax }{subsection.A.0.2}{}}
+\newlabel{eq:rpcalc}{{A.2}{22}{$\mathit {Q}(q)$ \relax }{equation.A.0.2}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {A.0.3}$\mathit  {T}(q)$ }{23}{subsection.A.0.3}}
+\newlabel{app:calctofp}{{A.0.3}{23}{$\mathit {T}(q)$ \relax }{subsection.A.0.3}{}}
+\newlabel{eq:rpcalc}{{A.2}{23}{$\mathit {T}(q)$ \relax }{equation.A.0.2}{}}
 \bibstyle{plain}
 \bibdata{blocksurvival}
 \bibcite{Bitcoin}{1}
 \bibcite{Doublespend}{2}
 \bibcite{Selfish}{3}
 \bibcite{Zoharetal}{4}
-\@writefile{toc}{\contentsline {chapter}{Bibliography}{20}{equation.A.0.2}}
+\bibcite{Lear}{5}
+\@writefile{toc}{\contentsline {chapter}{Bibliography}{24}{equation.A.0.2}}

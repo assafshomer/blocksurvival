@@ -5,8 +5,6 @@ Satoshi Nakamoto.
 \newblock Bitcoin p2p virtual currency.
 \newblock http://www.bitcoin.org/.
 
-
-
 \bibitem{Doublespend}
 Meni Rosenfeld.
 \newblock Analysis of hashrate-based double-spending.
@@ -21,6 +19,11 @@ Ittay Eyal, Emin Gun Sirer.
 Yonatan Sompolinsky, Aviv Zohar
 \newblock Accelerating Bitcoin’s Transaction Processing
 \newblock http://www.cs.huji.ac.il/~avivz/pubs/13/btc_scalability_full.pdf
+
+\bibitem{Lear}
+Lear Bahack
+\newblock Theoretical Bitcoin Attacks with less than Half of the Computational Power.
+\newblock http://arxiv.org/abs/1312.7013
 
 
 \end{thebibliography}

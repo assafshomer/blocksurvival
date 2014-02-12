@@ -8,6 +8,7 @@
 \usepackage[all]{xy}
 \usepackage{tikz}
 \usepackage{caption}
+\usepackage[table]{xcolor}
 
 \newtheorem{definition}{Definition}[chapter]
 \newtheorem{theorem}{Theorem}[chapter]
@@ -30,7 +31,7 @@
                     \end{comment}
 \makeatother
 
-\title{\textbf{The Phase Space of Block-Hiding Mining Strategies}}
+\title{\textbf{On the Phase Space of Block-Hiding Strategies}}
 
 \author{Assaf Shomer\\
 }
@@ -52,7 +53,6 @@ Our analysis suggests a generalization of the notion of the relative hashing pow
 \tableofcontents
 \chapter{Introduction}\label{chap:intro}
 \pagenumbering{arabic}
-\section{Bitcoin and mining}
 Bitcoin is the world's first open source, decentralized digital currency (\cite{Bitcoin}). Bitcoin's main innovation is the ability to capture value in digital tokens through the creation of "digital scarcity" \textit{independent of a central authority}. Clearly, a digital token that aims to capture value cannot achieve it's goal if it can be created or duplicated arbitrarily. Precious metals for instance, are scarce due to physical limitations. Fiat money is scarce through regulations and laws. All previous attempts to create a scarce digital resource depended upon a central authority that validates transactions and forces scarcity by disallowing arbitrary creation and multiple usage of the same token. 
 
 Bitcoin achieves the same goals without a central authority. Transaction validation is achieved by duplicating the entire history of all transactions in all nodes of a distributed peer to peer computer network, thus allowing each node in the network to verify transaction validity independently. Each new transaction is immediately transmitted to the entire network. Because of the network's lack of centralization different nodes may be aware of a different, possibly conflicting set of transactions at a given time. 
@@ -63,12 +63,14 @@ Once a valid block is found it is immediately transmitted to the network where a
 
 Thus, Bitcoin's consensus is subject to probability. A transaction that at one time is considered part of the globally accepted history of transactions may not be considered so in the future. However, as shown in \cite{Bitcoin}, the probability that a transaction included in the block-chain is later removed\footnote{Together with the block containing it} diminishes exponentially as more blocks are compounded on top of it. Another limitation to Bitcoin's consensus mechanism is that a node possessing enough computational power can ``hijack" the block-chain and dictate the global set of accepted transactions to be any desired set of valid transactions\footnote{Miners with more than $50\%$ of the networks resources can do that with $100\%$ probability of success. This is known as a the $51\%$ attack.}. These limitations to Bitcoin's consensus mechanism are the price being paid for not using a central authority. 
 
-Bitcoin's consensus mechanism suffers from another weakness. The Bitcoin protocol assumes that miners publish a newly found block immediately and that every node shifts it's mining effort to the top of the block-chain as soon as it is being made aware of a new block. A necessary consequence of Bitcoin's decentralization is that every miner is free to employ alternative mining strategies as it sees fit, in the interest of maximizing it's own profit. If a miner ``breaks the rules", her blocks are in danger of being rejected by the network. However, some wiggle room exists for miners to participate in the Bitcoin network without strictly following the Bitcoin protocol. For example, a miner can choose not to share a newly found block and build a secret branch of the block-tree that she only reveals opportunistically. Such non-traditional strategies were discussed in \cite{Selfish,lear} and were shown to enable miners to increase their profit. In this paper we are interested in finding out if and when  block-hiding strategies give miners a higher probability of success in mining blocks, compared to the standard strategy outlined in the Bitcoin protocol.
+Bitcoin's consensus mechanism suffers from another weakness. The Bitcoin protocol assumes miners publish newly found blocks immediately and that every miner shifts it's mining effort to the top of the block-chain as soon as it is being made aware of a new block. However, these behaviours are not enforced and a necessary consequence of decentralization is that every miner is free to mine as she sees fit. If a miner ``breaks the rules" too aggressively, her blocks are in danger of being rejected by the network. However, some wiggle room exists for miners to participate without strictly following the Bitcoin protocol. For example, a miner can choose not to share a newly found block and build a secret branch of the block-tree that she only reveals opportunistically. Such non-traditional strategies were discussed in \cite{Selfish,Lear} and shown to enable miners to increase their profit. 
+
+In this paper we are interested in finding out if and when non-standard mining strategies that involve building a secret branch of the block-tree and publishing it opportunistically (dubbed ``block-hiding" strategies) give miners a higher probability of success in mining blocks, compared to the standard strategy outlined in the Bitcoin protocol.
 
 \chapter{Three mining strategies}\label{chap:strategies}
 
 \section{The Standard Mining Strategy}
-The standard mining strategy follow the bitcoin protocol described in \cite{Bitcoin}. Such miners publish each block as soon as it is discovered and switch their mining efforts to the head of the blockchain\footnote{In practice different miners may be aware of different branches of the block-tree at a given moment. Such differences are resolved with very high probability once a new block is found because the protocol names the branch with the maximal difficulty to be the blockchain.} as soon as they become aware of a new valid block.
+The standard mining strategy follow the bitcoin protocol described in \cite{Bitcoin}. Such miners publish each block as soon as it is discovered and switch their mining efforts to the head of the block-chain\footnote{In practice different miners may be aware of different branches of the block-tree at a given moment. Such differences are resolved with very high probability once a new block is found.} as soon as they become aware of a new valid block.
 
 \begin{equation}\label{theblockchain}\nonumber
 \dots\rightarrow\mathit{B}_L\rightarrow\mathit{B}_{L+1}\rightarrow\mathit{B}_{L+2}\rightarrow\dots
@@ -86,30 +88,29 @@ Miners following this type of mining strategies do not share newly found blocks 
 \end{eqnarray}
 
 \subsection{Type I (try to win)}
-The miners mine their secret branch until it is \textit{longer than the main branch}. At this time they can publish it and uproot the last $n$ blocks mined by the Standard miners in favour of their $m>n$ secretly mined ones.
+Type I miners mine a secret branch until it is \textit{longer than the main branch}. At this time they can publish it and replace the last $n$ blocks mined by the Standard miners in favour of their $m>n$ secretly mined ones.
 
 \subsection{Type 0 (reach a tie and get some help)}
-The miners mine their secret branch until it is of the  \textit{same length as the main branch}. At this time they publish it. Now the network is bifurcated. The type 0 miners joined by some of the standard miners will mine on top of the newly published Type 0 branch. The rest of the standard miners continue working on the standard branch. If the former manage to find a new block first then the Type 0 strategy was successful. 
+Type 0 miners mine a secret branch until it is of the  \textit{same length as the main branch}. At this time they publish it. Now the network is bifurcated. The Type 0 miners joined by some of the standard miners will mine on top of the newly published Type 0 branch. The rest of the standard miners continue working on the standard branch. If the former manage to find a new block first then the Type 0 strategy was successful. 
 
 \section{Our Goal}\label{subsec:goal}
 
-Our goal is to analyse which mining strategy is the most beneficial as a function of the miner's relative hashing power and the portion of standard miners that join them, in case of a Type 0 strategy.
-To that effect we calculate the probability that a block-hiding miner succeeds in replacing a block (and possibly some number of confirmation blocks on top of it) by publishing a secretly mined branch of the block-tree.
+Our goal is to analyse which mining strategy is most beneficial as a function of the miner's relative hashing power and, in case of a Type 0 strategy, the portion of standard miners that join them.
+To that effect we calculate the probability that a block-hiding miner succeeds in replacing a block (and possibly some number of confirmation blocks on top of it) by publishing a secretly mined branch of the block-tree. Alternatively, this can be viewed as the probability that a block which is part of the block-chain will not survive (i.e. be part of the block-chain in the future) due to the effort of a block-hiding miner.
 
-\chapter{Calculation}\label{chap:calc}
+\chapter{Setup}\label{chap:calc}
 
-\section{Setup}\label{calcsetup}
 Let us denote by $\mathcal{H}$ the total hashing power of the network and divide it abstractly into a \emph{Standard} part which holds a portion $p\mathcal{H}$ of the total hashing power (where $p \in [0,1]$) and a \emph{Block hiding} part, which holds the rest $q\mathcal{H}=(1-p)\mathcal{H}$. 
 
-We start our analysis at a given point in time where the blockchain is of length $L$ and denote the last block mined as $\mathit{B}_L$. As time marches on the Standard miners continue to mine on top of it ($\mathit{B}_{L+1}, \mathit{B}_{L+2}, \dots$) while the block hiding miners are building a separate branch on top of $\mathit{B}_L$ ($\mathit{\tilde{B}}_{L+1}, \mathit{\tilde{B}}_{L+2}, \dots$). This is depicted in figure \ref{fig:blockhidingchain}. The block hiding miners aim to replace the top of the chain mined on top of $\mathit{B}_L$ by using one of the two block hiding strategies.
+We start our analysis at a given point in time where the block-chain is of length $L$ and denote the last block mined as $\mathit{B}_L$. As time marches on the Standard miners continue to mine on top of it ($\mathit{B}_{L+1}, \mathit{B}_{L+2}, \dots$) while the block hiding miners are building a separate branch on top of $\mathit{B}_L$ ($\mathit{\tilde{B}}_{L+1}, \mathit{\tilde{B}}_{L+2}, \dots$). This is depicted in figure \ref{fig:blockhidingchain}. The block-hiding miners aim to replace the top of the chain mined on top of $\mathit{B}_L$ by using one of the two block-hiding strategies.
 
 
 \section{Calculating the probability of success}
 
-Calculating the probability of success for a block hiding strategy involves two parts. We first calculate the probability that the block tree reaches a situation like the one depicted in figure \ref{fig:blockhidingchain}. Then we multiply this probability with the probability that the block-hiding miner manage to catchup with the main chain. Our analysis follows the one presented in \cite{Doublespend}.
+In order to calculate the probability that a block in the block-chain will be removed due to the effort of a block-hiding miner we first calculate the probability that the block-hiding miners manage to extend their secret branch on top of a certain block by $m$ blocks while the block-chain added $n$ confirmations on top of the same block (as depicted in figure \ref{fig:blockhidingchain}) and multiply by the probability that starting from such a configuration the block-hiding miner manages to catchup with the main chain. Our analysis follows the one presented in \cite{Doublespend}.
 
 \subsection{Getting to the starting point}
-Treating block mining as a negative binomial random variable, the probability $\mathit{P_{n,p}(m)}$ that $m$ blocks are mined in the secret branch {\bf before} $n$ blocks are mined in the main branchis proportional to $p^nq^m$ and can be shown
+Treating block mining as a negative binomial random variable, the probability $\mathit{P_{n,p}(m)}$ that $m$ blocks are mined in the secret branch {\bf before} $n$ blocks are mined in the main branch is proportional to $p^nq^m$ and can be shown
 (appendix \ref{app:probmath}) to be given by
 
 \begin{equation}\label{eq:pnm}
@@ -117,7 +118,7 @@ Treating block mining as a negative binomial random variable, the probability $\
 \end{equation}
 
 \subsection{Catching up from the starting point}
-The probability $\mathit{a}_{n,m}^{(r)}(q)$ that the block-hiding miner manage to catch-up and overtake the blockchain by at least $r$ blocks, given the situation above\footnote{Namely, that until the moment the main network mines it's $n$th block on top of $\mathit{B}_L$, the block-hiding miner manages to mine $m$ blocks on top of $\mathit{B}_L$ constituting their secret branch.} is given by a Markov chain that depends only on the advantage $z$ of the honest network over the block-hiding miner $z=n-m$, and the parameter $r$. Formally, the chain satisfies the recurrence relation
+The probability $\mathit{a}_{n,m}^{(r)}(q)$ that a block-hiding miner manages to catch-up and overtake the block-chain by at least $r$ blocks, given the situation above\footnote{Namely, that until the moment the main network mines it's $n$th block on top of $\mathit{B}_L$, the block-hiding miner manages to mine $m$ blocks on top of it.} is given by a Markov chain that depends only on the advantage $z$ of the honest network over the block-hiding miner $z=n-m$, and the parameter $r$. Formally, the chain satisfies the recurrence relation
 \begin{equation}\label{eq:markov}
 \mathit{a}^{(r)}_z(q)=(1-q)\mathit{a}^{(r)}_{z+1}(q)+q\mathit{a}^{(r)}_{z-1}(q)
 \end{equation}
@@ -132,19 +133,21 @@ with boundary conditions encoding the fact that a success is defined by the secr
 \end{cases}
 \end{equation}
 
-
-
 The relation \ref{eq:markov} can be solved with boundary conditions \ref{eq:markovbc} by 
 
 \begin{equation}\label{eq:az}
 \mathit{a}^{(r)}_z(q)=\begin{cases}\left( \dfrac{q}{1-q}\right)^{z+r} & q\in [0,\frac{1}{2}] \quad \mathrm{and} \quad  -r<z\in\mathcal{Z} \\ \quad 1 & \mathrm{otherwise} \end{cases}
 \end{equation}
 
-\section{Block hiding Strategy - Type I}
 
-The Type I strategy is successful when applied on top of $\mathit{B}_L$ if the miner manages to catch-up on $B_{L+1}$ and win by at least one block, after starting with $m=0,1,\dots$ secret blocks. 
-By publishing the secret branch the miner can now replace $\mathit{B}_{L+1}$ and any blocks mined by the network on top of it. 
-Let $\mathit{Q}(q)$ be the probability that a Type I miner succeeds. 
+
+
+\chapter{Type I Strategy}
+
+Let $\mathit{Q}(q)$ be the probability that a Type I miner succeeds. By definition, the Type I strategy is successful when applied on top of $\mathit{B}_L$ if the miner manages to catch-up on $B_{L+1}$ and win by at least one block, after starting with $m=0,1,\dots$ secret blocks. 
+By publishing the secret branch the miner replaces $\mathit{B}_{L+1}$ and any blocks mined by the network on top of it. 
+
+
 
 The starting point for the catch-up process for some $m$ is shown below:
 
@@ -155,7 +158,11 @@ The starting point for the catch-up process for some $m$ is shown below:
 \longrightarrow \quad \dots \longrightarrow\widetilde{\mathit{B}}_{L+m}\qquad \mathrm{Secret}
 \end{eqnarray}
 
-By definition of the Type I strategy, the secret branch needs to be longer by at least one block\footnote{Hence the name: ``Type \textbf{I}".}, so we need to set the boundary condition in \ref{eq:markovbc} to $r=1$, giving: 
+By definition of the Type I strategy, the secret branch needs to be longer by at least one block\footnote{Hence the name: ``Type \textbf{I}".}, so we need to set the boundary condition in \ref{eq:markovbc} to $r=1$. 
+
+\section{Block Revocation Probability}
+
+The probability of success of a Type I miner is given by the following sum over all possible $m$s (denoting the length of the secret branch at the beginning of catch-up):
 
 \begin{equation}\label{eq:qofpdef}
 \mathit{Q}(q)=\sum_{m=0}^{\infty}\mathit{P}_{1,q}(m)\mathit{a}^{(1)}_{1-m}(q)
@@ -178,29 +185,65 @@ In Figure \ref{fig:PlotProbOfSuccess} we plot the probability of a successful Ty
 \makebox[\linewidth]{%
   \includegraphics[keepaspectratio=true,scale=0.7]{TypeIPOScrop.pdf}}
 \captionof{figure}{
-The orange curve plots the probability that a Type I miner manages to uproot the next block mined by the network and replace it (and any blocks mined on top of it) with blocks she mined in her secret branch. The blue curve is the baseline probability for an Standard miner with the same hashing power $q$
+The orange curve plots the probability that a Type I miner manages to revoke the next block mined by the network and replace it (and any blocks mined on top of it) with blocks she mined in her secret branch. The blue curve is the baseline probability of harvesting a block by a Standard miner with the same hashing power $q$
 }
 \label{fig:PlotProbOfSuccess}
 \end{minipage}
 
-\subsection{When is Type I better than Standard?}\label{TypeIoverStandard}
-To find out how big $q$ needs to be for this type of strategy to become more beneficial than the standard strategy we need to solve for $Q(q)\geq q$
+\section{Block Revocation after $n$ confirmations}
 
-\begin{equation}\label{eq:type1overstandard}
-\dfrac{q^2}{1-q}\left(3-2q\right) \geq q
-\end{equation}
+We can use equations \ref{eq:az} and \ref{eq:pnm} to calculate the probability of success of a Type I miner under the extra constraint that $&\mathit{B}_{L+1}$ receives at least $n$ confirmation before being revoked.
 
-which since $0\leq q \leq 1$ gives the condition 
+\begin{eqnarray}\label{eq:qn}
+&\mathit{Q}_{(n)}(q)=\sum_{m=0}^{\infty}\mathit{P}_{n,q}(m)\mathit{a}^{(1)}_{n-m}(q)=\\
+&\begin{cases}
+1-\sum_{m=0}^n{n + m -1\choose m}\left[(1-q)^nq^m-(1-q)^{m-1}q^{n+1}\right] & \quad q \in [0,\frac{1}{2}] \\
+1 & \quad q \in [\frac{1}{2},1] 
+\end{cases}
+\end{eqnarray}
 
-\begin{equation}\label{eq:qnot}
-q\geq q_0=1-\frac{1}{\sqrt{2}} \sim 0.293
-\end{equation}
-We conclude that Type I strategy is better than the standard strategy for $q>q_0$. Once $q\geq \frac{1}{2}$ we get to the famous ``$51\%$ attack" where the Type I strategy is guaranteed to succeed, but even for $q_0\leq q \leq \frac{1}{2}$ Type I increases the probability of success for mining a new block compared to the standard strategy
+\begin{table}
+\resizebox{18cm}{!} {
+    \begin{tabular}{l|llllllllll}
+    q  & n=1     & n=2     & n=3     & n=4     & n=5     & n=6     & n=7     & n=8     & n=9     & n=10    \\ \hline
+    0\% & 0.00\%  & 0.00\%  & 0.00\%  & 0.00\%  & 0.00\%  & 0.00\%  & 0.00\%  & 0.00\%  & 0.00\%  & 0.00\%  \\
+    2\% & 0.12\%  & 0.01\%  & 0.00\%  & 0.00\%  & 0.00\%  & 0.00\%  & 0.00\%  & 0.00\%  & 0.00\%  & 0.00\%  \\
+    4\% & 0.49\%  & 0.06\%  & 0.01\%  & 0.00\%  & 0.00\%  & 0.00\%  & 0.00\%  & 0.00\%  & 0.00\%  & 0.00\%  \\
+    6\% & 1.10\%  & 0.21\%  & 0.04\%  & 0.01\%  & 0.00\%  & 0.00\%  & 0.00\%  & 0.00\%  & 0.00\%  & 0.00\%  \\
+    8\% & 1.98\%  & 0.49\%  & 0.13\%  & 0.03\%  & 0.01\%  & 0.00\%  & 0.00\%  & 0.00\%  & 0.00\%  & 0.00\%  \\
+    10\% & 3.11\%  & 0.95\%  & 0.30\%  & 0.10\%  & 0.03\%  & 0.01\%  & 0.00\%  & 0.00\%  & 0.00\%  & 0.00\%  \\
+    12\% & 4.52\%  & 1.63\%  & 0.61\%  & 0.23\%  & 0.09\%  & 0.04\%  & 0.01\%  & 0.01\%  & 0.00\%  & 0.00\%  \\
+    14\% & 6.20\%  & 2.56\%  & 1.10\%  & 0.48\%  & 0.21\%  & 0.10\%  & 0.04\%  & 0.02\%  & 0.01\%  & 0.00\%  \\
+    16\% & 8.17\%  & 3.78\%  & 1.82\%  & 0.89\%  & 0.44\%  & 0.22\%  & 0.11\%  & 0.06\%  & 0.03\%  & 0.02\%  \\
+    18\% & 10.43\% & 5.33\%  & 2.82\%  & 1.52\%  & 0.84\%  & 0.46\%  & 0.26\%  & 0.15\%  & 0.08\%  & 0.05\%  \\
+    20\% & 13.00\% & 7.24\%  & 4.17\%  & 2.45\%  & 1.46\%  & 0.88\%  & 0.53\%  & 0.32\%  & 0.20\%  & 0.12\%  \\
+    22\% & 15.89\% & 9.54\%  & 5.92\%  & 3.74\%  & 2.39\%  & 1.54\%  & 1.00\%  & 0.66\%  & 0.43\%  & 0.28\%  \\
+    24\% & 19.10\% & 12.27\% & 8.12\%  & 5.47\%  & 3.73\%  & 2.56\%  & 1.77\%  & 1.23\%  & 0.86\%  & 0.61\%  \\
+    26\% & 22.66\% & 15.45\% & 10.83\% & 7.72\%  & 5.57\%  & 4.05\%  & 2.96\%  & 2.18\%  & 1.61\%  & 1.19\%  \\
+    28\% & 26.57\% & 19.12\% & 14.11\% & 10.58\% & 8.01\%  & 6.12\%  & 4.70\%  & 3.63\%  & 2.81\%  & 2.18\%  \\
+    30\% & 30.86\% & 23.30\% & 18.01\% & 14.12\% & 11.18\% & 8.91\%  & 7.15\%  & 5.75\%  & 4.65\%  & 3.77\%  \\
+    32\% & 35.54\% & 28.02\% & 22.56\% & 18.41\% & 15.16\% & 12.56\% & 10.46\% & 8.75\%  & 7.34\%  & 6.18\%  \\
+    34\% & 40.64\% & 33.31\% & 27.83\% & 23.53\% & 20.05\% & 17.19\% & 14.81\% & 12.80\% & 11.10\% & 9.65\%  \\
+    36\% & 46.17\% & 39.20\% & 33.85\% & 29.54\% & 25.96\% & 22.93\% & 20.35\% & 18.11\% & 16.17\% & 14.46\% \\
+    38\% & 52.17\% & 45.72\% & 40.66\% & 36.49\% & 32.95\% & 29.89\% & 27.21\% & 24.85\% & 22.74\% & 20.86\% \\
+    40\% & 58.67\% & 52.91\% & 48.30\% & 44.43\% & 41.08\% & 38.14\% & 35.52\% & 33.16\% & 31.02\% & 29.06\% \\
+    42\% & 65.69\% & 60.78\% & 56.80\% & 53.40\% & 50.41\% & 47.75\% & 45.34\% & 43.14\% & 41.11\% & 39.24\% \\
+    44\% & 73.29\% & 69.39\% & 66.18\% & 63.42\% & 60.97\% & 58.75\% & 56.72\% & 54.85\% & 53.11\% & 51.47\% \\
+    46\% & 81.51\% & 78.76\% & 76.49\% & 74.52\% & 72.75\% & 71.15\% & 69.66\% & 68.28\% & 66.98\% & 65.76\% \\
+    48\% & 90.39\% & 88.95\% & 87.75\% & 86.71\% & 85.77\% & 84.91\% & 84.11\% & 83.37\% & 82.67\% & 82.00\% \\
+    50\% & 100.00\% & 100.00\% & 100.00\% & 100.00\% & 100.00\% & 100.00\% & 100.00\% & 100.00\% & 100.00\% & 100.00\% \\
+    ~   & ~       & ~       & ~       & ~       & ~       & ~       & ~       & ~       & ~       & ~       \\
+    \end{tabular}
+    }
+    \caption {The probability of Block Revocation after n confirmations due to Type I mining}
+\end{table}
 
 
-\section{Block hiding Strategy - Type 0}
 
-In this section we analyse calculate the probability of success of a Type 0 mining strategy.
+
+\chapter{Type 0 Strategy}
+
+In this chapter we calculate the probability of success of a Type 0 mining strategy.
 Instead of publishing the secret branch when it is longer than the main branch, a Type 0 miner publishes it one step before, when his secret branch is of the same length as the main branch (i.e. when they reach a tie). 
 
 The reason this is potentially beneficial is that due to latency effects in the bitcoin network (recently discussed in \cite{Zoharetal}) not all miners share the same view of the entire block-tree at all moments. All honest miners shift their efforts to the longest branch they know of, but for some period of time different parts of the network may be aware of different, and equally valid, longest branches. In such a case the network bifurcates. Each sub-network continues mining it's longest-branch until the next block is mined by either one and a new block-chain is established\footnote{In principle this type of block-chain bifurcation can continue to span multiple blocks, with exponentially decreasing probability.}. 
@@ -299,7 +342,21 @@ In figure \ref{fig:type0pos} we plot the probability of success of the Type 0 st
 
 Our aim in this chapter is to map the $\gamma,q$ phase space and find which strategy yields the maximal probability of success for the miner in each region.
 From section \ref{TypeIoverStandard} we already know that the Type I strategy is better than the Standard strategy if $q\geq q_0$.
-To decide if a block-hiding strategy of Type 0 is beneficial or not we should compare it first to the standard probability of success and then, if it is more beneficial, compare it to the Type I strategy to decide which block hiding strategy wins. 
+To decide if a block-hiding strategy of Type 0 is beneficial or not we should compare it first to the standard probability of success and then, if it is more beneficial, compare it to the Type I strategy to decide which block-hiding strategy wins. 
+
+\section{Type I vs. Standard}\label{TypeIoverStandard}
+To find out how big $q$ needs to be for the Type I of strategy to become more beneficial than the standard strategy we need to solve for $Q(q)\geq q$
+
+\begin{equation}\label{eq:type1overstandard}
+\dfrac{q^2}{1-q}\left(3-2q\right) \geq q
+\end{equation}
+
+which since $0\leq q \leq 1$ gives the condition 
+
+\begin{equation}\label{eq:qnot}
+q\geq q_0=1-\frac{1}{\sqrt{2}} \sim 0.293
+\end{equation}
+We conclude that Type I strategy is better than the standard strategy for $q>q_0$. Once $q\geq \frac{1}{2}$ we get to the famous ``$51\%$ attack" where the Type I strategy is guaranteed to succeed, but even for $q_0\leq q \leq \frac{1}{2}$ Type I increases the probability of success for mining a new block compared to the standard strategy
 
 \section{Type 0 vs. Standard}\label{Type0overStandard}
 
@@ -348,7 +405,7 @@ S_{\gamma}(q)\geq q \Longrightarrow
 q>max\left\lbrace\dfrac{1-3\gamma}{3-3\gamma},0\right\rbrace
 \end{equation}
 
-Next we compare between the two block hiding strategies.
+Next we compare between the two block-hiding strategies.
 
 \section{Comparing Type 0 to Type I}
 
@@ -356,7 +413,7 @@ There are two interesting comparisons one can make between Type 0 and Type I str
 One is to compare how they match against the standard strategy,namely, for a given $\gamma$ do we first hit the regime where a Type 0 or a Type I strategy is more beneficial than the standard strategy.
 The other is to ignore the standard strategy and ask, for a given value of $\gamma, q$ which is better, Type 0 or Type I.
 
-\subsection{Which block hiding is beneficial first}
+\subsection{Which block-hiding is beneficial first}
 Let us first tackle the first question and find out for a given $\gamma$ whether Type 0 or Type I wins first.
 For $\gamma\geq\frac{1}{3}$, Type 0 wins already at $q=0$, so the interesting part is where $\gamma < \frac{1}{3}$ where we can compare $q_b(\gamma)$ (given in equation \ref{eq:qb}) with $q_0$ (given in equation \ref{eq:qnot}). Solving for the intersectin of the two curves
 
@@ -374,7 +431,7 @@ A Type 0 strategy is more beneficial than the standard strategy sooner (i.e. sma
 
 Indeed, you can see in Figure \ref{fig:type0pos} that the green curve representing $\gamma=0$ lies below the orange curve which represents the Type I strategy, while the red curve representing $\gamma=0.1>\gamma_c$ lies above it.
 
-To summarize, when $\gamma\geq\frac{1}{3}$ the Type 0 strategy is beneficial over the standard strategy for any value of $q$. When $\gamma<\frac{1}{3}$ , the hashing power of the block-hiding miner needs to exceed a threshold before a block hiding strategy is beneficial. If $\gamma_c\leq\gamma\leq\frac{1}{3}$ we bump into the Type 0 first (the threshold given by $q_b=\frac{1-3\gamma}{3-3\gamma}$), while if $\gamma<\gamma_c$ we bump into Type I first (the threshold is given by $q_0=1-\frac{1}{\sqrt{2}}$).
+To summarize, when $\gamma\geq\frac{1}{3}$ the Type 0 strategy is beneficial over the standard strategy for any value of $q$. When $\gamma<\frac{1}{3}$ , the hashing power of the block-hiding miner needs to exceed a threshold before a block-hiding strategy is beneficial. If $\gamma_c\leq\gamma\leq\frac{1}{3}$ we bump into the Type 0 first (the threshold given by $q_b=\frac{1-3\gamma}{3-3\gamma}$), while if $\gamma<\gamma_c$ we bump into Type I first (the threshold is given by $q_0=1-\frac{1}{\sqrt{2}}$).
 
 \subsection{Type 0 vs. Type I}
 
@@ -450,9 +507,9 @@ A miner, seeking to maximize profit, can select the most beneficial strategy in 
 \end{minipage}
 \linebreak
 
-\subsection{Discussion}
+\section{Discussion}
 
-Note that the regime where either block-hiding strategies are more beneficial than the standard strategy is bounded away from the origin. It is tempting to look at the radial distance from the origin of phase space as a measure of a ``miner's \textit{Influence}" 
+Note that the regime where either block-hiding strategies are more beneficial than the standard strategy is bounded away from the origin. It is tempting to look at the radial distance from the origin of phase space as a measure of a ``miner's \textit{influence}" 
 
 \begin{equation}
 \mathtt{I}(q,\gamma)\equiv \sqrt{q^2+\gamma^2}.
@@ -475,6 +532,10 @@ There are a few remarks in order:
 \label{fig:selfish}
 \end{minipage}
 \linebreak
+
+\chapter{Conclusions}
+
+
 
 \appendix
 \chapter{Calculation Details}
@@ -595,7 +656,7 @@ By definition of $\gamma_c$ (equation \ref{eq:qbornot}) in this region $q_b(\gam
 Thus, this region in $\gamma$ breaks up into three regions in $q$. Namely:
 
 \begin{itemize}
-\item $q\leq q_b(\gamma)$ In this region neither block hiding strategies are better than the standard strategy, and so a miner will follow the standard strategy.
+\item $q\leq q_b(\gamma)$ In this region neither block-hiding strategies are better than the standard strategy, and so a miner will follow the standard strategy.
 \item $q_b(\gamma)\leq q\leq q_0$ In this region Type 0 is better than the standard strategy and Type I is not and so a miner will choose the Type 0 strategy.
 \item $q_0\leq q$ In this region both Type 0 and Type I are better than the standard strategy and so we need to measure them up against each other to find out which one wins.
 

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2013.11.18)  10 FEB 2014 11:40
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2013.11.18)  12 FEB 2014 09:09
 entering extended mode
  %&-line parsing enabled.
 **blocksurvival.tex
@@ -625,9 +625,27 @@ Package: caption3 2009/10/09 v3.1k caption3 kernel (AR)
 \c@ContinuedFloat=\count137
 Package caption Info: hyperref package is loaded.
 )
+
+! LaTeX Error: Option clash for package xcolor.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.12 
+     
+The package xcolor has already been loaded with options:
+  []
+There has now been an attempt to load it with options
+  [table]
+Adding the global options:
+  ,table
+to your \documentclass declaration may fix this.
+Try typing  <return>  to proceed.
+
 \c@definition=\count138
 \c@theorem=\count139
- (./blocksurvival.aux
+(./blocksurvival.aux
 
 LaTeX Warning: Label `eq:qofpdef' multiply defined.
 
@@ -640,20 +658,20 @@ LaTeX Warning: Label `eq:rpcalc' multiply defined.
 )
 \openout1 = `blocksurvival.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 40.
-LaTeX Font Info:    ... okay on input line 40.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 40.
-LaTeX Font Info:    ... okay on input line 40.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 40.
-LaTeX Font Info:    ... okay on input line 40.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 40.
-LaTeX Font Info:    ... okay on input line 40.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 40.
-LaTeX Font Info:    ... okay on input line 40.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 40.
-LaTeX Font Info:    ... okay on input line 40.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 40.
-LaTeX Font Info:    ... okay on input line 40.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 41.
+LaTeX Font Info:    ... okay on input line 41.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 41.
+LaTeX Font Info:    ... okay on input line 41.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 41.
+LaTeX Font Info:    ... okay on input line 41.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 41.
+LaTeX Font Info:    ... okay on input line 41.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 41.
+LaTeX Font Info:    ... okay on input line 41.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 41.
+LaTeX Font Info:    ... okay on input line 41.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 41.
+LaTeX Font Info:    ... okay on input line 41.
  (/usr/share/texmf-texlive/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count140
@@ -667,7 +685,7 @@ LaTeX Font Info:    ... okay on input line 40.
 \MPnumerator=\count144
 \everyMPtoPDFconversion=\toks46
 )
-Package hyperref Info: Link coloring ON on input line 40.
+Package hyperref Info: Link coloring ON on input line 41.
  (/usr/share/texmf-texlive/tex/latex/hyperref/nameref.sty
 Package: nameref 2007/05/29 v2.31 Cross-referencing by name of section
 
@@ -676,8 +694,8 @@ Package: refcount 2008/08/11 v3.1 Data extraction from references (HO)
 )
 \c@section@level=\count145
 )
-LaTeX Info: Redefining \ref on input line 40.
-LaTeX Info: Redefining \pageref on input line 40.
+LaTeX Info: Redefining \ref on input line 41.
+LaTeX Info: Redefining \pageref on input line 41.
 
 (./blocksurvival.out) (./blocksurvival.out)
 \@outlinefile=\write5
@@ -688,12 +706,12 @@ LaTeX Info: Redefining \pageref on input line 40.
 ABD: EveryShipout initializing macros
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: End \AtBeginDocument code.
-LaTeX Font Info:    Try loading font information for U+msa on input line 44.
+LaTeX Font Info:    Try loading font information for U+msa on input line 45.
 
 (/usr/share/texmf-texlive/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2009/06/22 v3.00 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 44.
+LaTeX Font Info:    Try loading font information for U+msb on input line 45.
 
 (/usr/share/texmf-texlive/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2009/06/22 v3.00 AMS symbols B
@@ -704,14 +722,14 @@ ination with the same identifier (name{page.1}) has been already used, duplicat
 e ignored
 <to be read again> 
                    \relax 
-l.50 \end{abstract}
-                    [1] (./blocksurvival.toc)
+l.51 \end{abstract}
+                    [1] (./blocksurvival.toc [1
+
+])
 \tf@toc=\write6
 \openout6 = `blocksurvival.toc'.
 
- [1
-
-]
+ [2]
 Chapter 1.
 
 LaTeX Warning: Citation `hashcash' on page 1 undefined on input line 60.
@@ -723,11 +741,7 @@ been already used, duplicate ignored
 l.63 
       [1
 
-]
-
-LaTeX Warning: Citation `lear' on page 2 undefined on input line 66.
-
-[2]
+] [2]
 Chapter 2.
 [3
 
@@ -736,180 +750,217 @@ Chapter 3.
 
 Package amsmath Warning: Foreign command \atopwithdelims;
 (amsmath)                \frac or \genfrac should be used instead
-(amsmath)                 on input line 116.
+(amsmath)                 on input line 117.
 
 [5
 
 ] [6]
+Chapter 4.
+[7
+
+]
 
 pdfTeX warning: pdflatex (file ./Images/TypeIPOScrop.pdf): PDF inclusion: found
  PDF version <1.6>, but at most version <1.4> allowed
-<Images/TypeIPOScrop.pdf, id=236, 502.87875pt x 421.575pt>
+<Images/TypeIPOScrop.pdf, id=252, 502.87875pt x 421.575pt>
 File: Images/TypeIPOScrop.pdf Graphic file (type pdf)
 
 <use Images/TypeIPOScrop.pdf>
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 182.
+(caption)                particular \caption on input line 189.
 See the caption package documentation for explanation.
 
-[7 <./Images/TypeIPOScrop.pdf>] [8]
-<Images/3regionsqc.png, id=289, 533.995pt x 432.61626pt>
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 193.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 193.
+
+! Misplaced alignment tab character &.
+<recently read> &
+                 
+l.195 ... miner under the extra constraint that $&
+                                                  \mathit{B}_{L+1}$ receives...
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+
+Overfull \hbox (42.43445pt too wide) in paragraph at lines 206--238
+[][] 
+ []
+
+[8 <./Images/TypeIPOScrop.pdf>] [9]
+Chapter 5.
+[10
+
+] <Images/3regionsqc.png, id=311, 533.995pt x 432.61626pt>
 File: Images/3regionsqc.png Graphic file (type png)
 
 <use Images/3regionsqc.png>
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 272.
+(caption)                particular \caption on input line 315.
 See the caption package documentation for explanation.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 266--276
+Underfull \hbox (badness 10000) in paragraph at lines 309--319
 
  []
 
-[9 <./Images/3regionsqc.png>]
+[11]
 
 pdfTeX warning: pdflatex (file ./Images/Type0POScrop.pdf): PDF inclusion: found
  PDF version <1.6>, but at most version <1.4> allowed
-<Images/Type0POScrop.pdf, id=304, 521.95pt x 423.5825pt>
+<Images/Type0POScrop.pdf, id=325, 521.95pt x 423.5825pt>
 File: Images/Type0POScrop.pdf Graphic file (type pdf)
 
 <use Images/Type0POScrop.pdf>
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 293.
+(caption)                particular \caption on input line 336.
 See the caption package documentation for explanation.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 289--297
+Underfull \hbox (badness 10000) in paragraph at lines 332--340
 
  []
 
-[10 <./Images/Type0POScrop.pdf>]
-Chapter 4.
+[12 <./Images/3regionsqc.png>] [13 <./Images/Type0POScrop.pdf>]
+Chapter 6.
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 298.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\gamma' on input line 298.
+(hyperref)                removing `math shift' on input line 341.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 298.
+(hyperref)                removing `\gamma' on input line 341.
 
-<Images/qbqc.png, id=344, 530.98375pt x 434.62375pt>
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 341.
+
+[14
+
+] <Images/qbqc.png, id=375, 530.98375pt x 434.62375pt>
 File: Images/qbqc.png Graphic file (type png)
- <use Images/qbqc.png>
+
+<use Images/qbqc.png>
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 328.
+(caption)                particular \caption on input line 385.
 See the caption package documentation for explanation.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 324--332
+Underfull \hbox (badness 10000) in paragraph at lines 381--389
 
  []
 
-[11
-
-] [12 <./Images/qbqc.png>] [13]
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 417.
+[15 <./Images/qbqc.png>] [16]
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 474.
 
 
 (/usr/share/texmf-texlive/tex/latex/base/omscmr.fd
 File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 417.
-
-<Images/6regions.png, id=372, 482.80376pt x 432.61626pt>
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 474.
+ [17]
+<Images/6regions.png, id=405, 482.80376pt x 432.61626pt>
 File: Images/6regions.png Graphic file (type png)
 
 <use Images/6regions.png>
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 436.
+(caption)                particular \caption on input line 493.
 See the caption package documentation for explanation.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 432--440
+Underfull \hbox (badness 10000) in paragraph at lines 489--497
 
  []
 
-[14] <Images/finalphasespace.png, id=379, 484.81125pt x 435.6275pt>
+<Images/finalphasespace.png, id=407, 484.81125pt x 435.6275pt>
 File: Images/finalphasespace.png Graphic file (type png)
 
 <use Images/finalphasespace.png>
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 448.
+(caption)                particular \caption on input line 505.
 See the caption package documentation for explanation.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 444--452
+Underfull \hbox (badness 10000) in paragraph at lines 501--509
 
  []
 
-[15 <./Images/6regions.png>] [16 <./Images/finalphasespace.png>]
-<Images/selfish.png, id=401, 487.8225pt x 431.6125pt>
+[18 <./Images/6regions.png>] [19 <./Images/finalphasespace.png>]
+<Images/selfish.png, id=428, 487.8225pt x 431.6125pt>
 File: Images/selfish.png Graphic file (type png)
  <use Images/selfish.png>
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 474.
+(caption)                particular \caption on input line 531.
 See the caption package documentation for explanation.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 470--478
+Underfull \hbox (badness 10000) in paragraph at lines 527--535
 
  []
 
-[17 <./Images/selfish.png>]
+[20 <./Images/selfish.png>]
+Chapter 7.
+[21
+
+]
 Appendix A.
 
 Package hyperref Warning: Difference (2) between bookmark levels is greater 
-(hyperref)                than one, level fixed on input line 481.
+(hyperref)                than one, level fixed on input line 542.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 489.
+(hyperref)                removing `math shift' on input line 550.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 489.
+(hyperref)                removing `math shift' on input line 550.
 
 
-Overfull \hbox (49.05229pt too wide) in alignment at lines 494--512
+Overfull \hbox (49.05229pt too wide) in alignment at lines 555--573
  [][][] []
  []
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 526.
+(hyperref)                removing `math shift' on input line 587.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 526.
+(hyperref)                removing `math shift' on input line 587.
 
-[18
+[22
 
 pdfTeX warning (ext4): destination with the same identifier (name{equation.A.0.
 2}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.532 \begin{eqnarray}
+l.593 \begin{eqnarray}
                       \label{eq:rpcalc}\nonumber]pdfTeX warning (ext4): destina
 tion with the same identifier (name{equation.A.0.2}) has been already used, dup
 licate ignored
 <to be read again> 
                    \relax 
-l.532 \begin{eqnarray}
-                      \label{eq:rpcalc}\nonumber [19] (./blocksurvival.bbl
-Underfull \hbox (badness 10000) in paragraph at lines 11--14
+l.593 \begin{eqnarray}
+                      \label{eq:rpcalc}\nonumber [23] (./blocksurvival.bbl
+Underfull \hbox (badness 10000) in paragraph at lines 9--12
 []\OT1/cmr/m/n/12 Meni Rosen-feld.  Anal-y-sis of hashrate-based double-spendin
 g.
  []
@@ -920,7 +971,7 @@ Missing character: There is no ™ in font cmr12!
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.23 ...tp://www.cs.huji.ac.il/~avivz/pubs/13/btc_
+l.21 ...tp://www.cs.huji.ac.il/~avivz/pubs/13/btc_
                                                   scalability_full.pdf
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
@@ -928,7 +979,7 @@ you left one out. Proceed, with fingers crossed.
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.24 
+l.22 
      
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
@@ -936,7 +987,7 @@ you left one out. Proceed, with fingers crossed.
 ! Missing } inserted.
 <inserted text> 
                 }
-l.24 
+l.22 
      
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
@@ -947,7 +998,7 @@ my insertion and my current dilemma will both disappear.
 ! Extra }, or forgotten \endgroup.
 \par ...m \@noitemerr {\@@par }\fi \else {\@@par }
                                                   \fi 
-l.24 
+l.22 
      
 I've deleted a group-closing symbol because it seems to be
 spurious, as in `$x}$'. But perhaps the } is legitimate and
@@ -955,7 +1006,7 @@ you forgot something else, as in `\hbox{$x}'. In such cases
 the way to recover is to insert both the forgotten and the
 deleted material, e.g., by typing `I$}'.
 
-) [20
+) [24
 
 ] (./blocksurvival.aux)
 
@@ -966,13 +1017,13 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 16855 strings out of 493848
- 283461 string characters out of 1152822
- 387336 words of memory out of 3000000
- 19669 multiletter control sequences out of 15000+50000
+ 16866 strings out of 493848
+ 283533 string characters out of 1152822
+ 401336 words of memory out of 3000000
+ 19671 multiletter control sequences out of 15000+50000
  25051 words of font info for 98 fonts, out of 3000000 for 9000
  714 hyphenation exceptions out of 8191
- 56i,10n,55p,1205b,371s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 56i,13n,55p,959b,375s stack positions out of 5000i,500n,10000p,200000b,50000s
 </usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/sha
 re/texmf-texlive/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texmf-te
 xlive/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texmf-texlive/fonts
@@ -991,9 +1042,9 @@ ts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/texmf-texlive/fonts/type1/pu
 blic/amsfonts/cm/cmti12.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfon
 ts/cm/cmti8.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmtt12
 .pfb>
-Output written on blocksurvival.pdf (23 pages, 421760 bytes).
+Output written on blocksurvival.pdf (28 pages, 429474 bytes).
 PDF statistics:
- 512 PDF objects out of 1000 (max. 8388607)
- 103 named destinations out of 1000 (max. 500000)
- 272 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 546 PDF objects out of 1000 (max. 8388607)
+ 112 named destinations out of 1000 (max. 500000)
+ 280 words of extra memory for PDF output out of 10000 (max. 10000000)
 
