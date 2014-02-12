@@ -552,12 +552,15 @@ There are a few remarks in order:
 \appendix
 \chapter{Calculation Details}
 \section{Probability distribution} \label{app:probmath}
-\begin{equation}
-\sum_{m=0}^{\infty}\mathit{P}(n,m,p)=p^n\sum_{m=0}^{\infty}{n + m -1\choose m}q^m=p^n\dfrac{1}{(1-q)^n}=1
+\begin{equation}\nonumber
+\sum_{m=0}^{\infty}\mathit{P}_{n,q}(m)=p^n\sum_{m=0}^{\infty}{n + m -1\choose m}q^m=p^n\dfrac{1}{(1-q)^n}=1
 \end{equation}
 
 where we used the binomial identity holding for any complex $s$ inside the unit circle ($|s|<1$)
-$\dfrac{1}{(1-s)^n}=\sum_{k=0}^{\infty} {n + k -1\choose k}s^k$.
+\begin{equation}\label{eq:binident}\nonumber
+\dfrac{1}{(1-s)^n}=\sum_{k=0}^{\infty} {n + k -1\choose k}s^k
+\end{equation}
+
 
 \section{$\mathit{Q_{(n)}^{(r)}}(q)$ } \label{app:calcqofq} 
 

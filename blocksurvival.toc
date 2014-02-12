@@ -27,4 +27,4 @@
 \contentsline {section}{\numberline {A.2}$\mathit {Q_{(n)}^{(r)}}(q)$ }{22}{section.A.2}
 \contentsline {subsection}{\numberline {A.2.1}$\mathit {Q}(q)$}{23}{subsection.A.2.1}
 \contentsline {subsection}{\numberline {A.2.2}$\mathit {T}(q)$}{23}{subsection.A.2.2}
-\contentsline {chapter}{Bibliography}{24}{equation.A.2.2}
+\contentsline {chapter}{Bibliography}{24}{equation.A.2.1}
