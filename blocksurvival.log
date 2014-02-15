@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2013.11.18)  15 FEB 2014 13:22
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2013.11.18)  16 FEB 2014 00:27
 entering extended mode
  %&-line parsing enabled.
 **blocksurvival.tex
@@ -731,15 +731,13 @@ l.52 \end{abstract}
 
  [2]
 Chapter 1.
-
-LaTeX Warning: Citation `hashcash' on page 1 undefined on input line 61.
-
 pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has 
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.64 
-      [1
+l.65 T
+      hus, Bitcoin's consensus is subject to probability. A transaction that...
+[1
 
 ] [2]
 Chapter 2.
@@ -848,69 +846,69 @@ Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 
 [14
 
-] <Images/qbqc.png, id=384, 530.98375pt x 434.62375pt>
+] <Images/qbqc.png, id=383, 530.98375pt x 434.62375pt>
 File: Images/qbqc.png Graphic file (type png)
 
 <use Images/qbqc.png>
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 401.
+(caption)                particular \caption on input line 399.
 See the caption package documentation for explanation.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 397--405
+Underfull \hbox (badness 10000) in paragraph at lines 395--403
 
  []
 
 [15 <./Images/qbqc.png>] [16]
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 490.
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 488.
 
 
 (/usr/share/texmf-texlive/tex/latex/base/omscmr.fd
 File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 490.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 488.
  [17]
-<Images/6regions.png, id=414, 482.80376pt x 432.61626pt>
+<Images/6regions.png, id=413, 482.80376pt x 432.61626pt>
 File: Images/6regions.png Graphic file (type png)
 
 <use Images/6regions.png>
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 509.
+(caption)                particular \caption on input line 507.
 See the caption package documentation for explanation.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 505--513
+Underfull \hbox (badness 10000) in paragraph at lines 503--511
 
  []
 
-<Images/finalphasespace.png, id=416, 484.81125pt x 435.6275pt>
+<Images/finalphasespace.png, id=415, 484.81125pt x 435.6275pt>
 File: Images/finalphasespace.png Graphic file (type png)
 
 <use Images/finalphasespace.png>
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 521.
+(caption)                particular \caption on input line 519.
 See the caption package documentation for explanation.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 517--525
+Underfull \hbox (badness 10000) in paragraph at lines 515--523
 
  []
 
 [18 <./Images/6regions.png>] [19 <./Images/finalphasespace.png>]
-<Images/selfish.png, id=437, 487.8225pt x 431.6125pt>
+<Images/selfish.png, id=436, 487.8225pt x 431.6125pt>
 File: Images/selfish.png Graphic file (type png)
  <use Images/selfish.png>
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 547.
+(caption)                particular \caption on input line 545.
 See the caption package documentation for explanation.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 543--551
+Underfull \hbox (badness 10000) in paragraph at lines 541--549
 
  []
 
@@ -922,32 +920,32 @@ Chapter 7.
 Appendix A.
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 569.
+(hyperref)                removing `math shift' on input line 571.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `subscript' on input line 569.
+(hyperref)                removing `subscript' on input line 571.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `superscript' on input line 569.
+(hyperref)                removing `superscript' on input line 571.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 569.
+(hyperref)                removing `math shift' on input line 571.
 
 
-Overfull \hbox (4.00198pt too wide) in alignment at lines 571--593
+Overfull \hbox (4.00198pt too wide) in alignment at lines 573--595
  [][][] []
  []
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 595.
+(hyperref)                removing `math shift' on input line 597.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 595.
+(hyperref)                removing `math shift' on input line 597.
 
 [22
 
@@ -956,92 +954,57 @@ pdfTeX warning (ext4): destination with the same identifier (name{equation.A.1.
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.598 \begin{eqnarray}
+l.600 \begin{eqnarray}
                       \label{eq:qnspecific}\nonumber]pdfTeX warning (ext4): des
 tination with the same identifier (name{equation.A.2.1}) has been already used,
  duplicate ignored
 <to be read again> 
                    \relax 
-l.598 \begin{eqnarray}
+l.600 \begin{eqnarray}
                       \label{eq:qnspecific}\nonumber
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 621.
+(hyperref)                removing `math shift' on input line 623.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 621.
+(hyperref)                removing `math shift' on input line 623.
 
 pdfTeX warning (ext4): destination with the same identifier (name{equation.A.2.
 1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.624 \begin{eqnarray}
+l.626 \begin{eqnarray}
                       \label{eq:qnspecific}\nonumber [23] (./blocksurvival.bbl
 Underfull \hbox (badness 10000) in paragraph at lines 9--12
 []\OT1/cmr/m/n/12 Meni Rosen-feld.  Anal-y-sis of hashrate-based double-spendin
 g.
  []
 
+
+Underfull \hbox (badness 1867) in paragraph at lines 19--21
+[]\OT1/cmr/m/n/12 Vitalik Bu-terin  http://bitcoinmagazine.com/9402/mining-pool
+-centralization-crisis-
+ []
+
 Missing character: There is no â in font cmr12!
 Missing character: There is no € in font cmr12!
 Missing character: There is no ™ in font cmr12!
-! Missing $ inserted.
-<inserted text> 
-                $
-l.21 ...tp://www.cs.huji.ac.il/~avivz/pubs/13/btc_
-                                                  scalability_full.pdf
-I've inserted a begin-math/end-math symbol since I think
-you left one out. Proceed, with fingers crossed.
-
-! Missing $ inserted.
-<inserted text> 
-                $
-l.22 
-     
-I've inserted a begin-math/end-math symbol since I think
-you left one out. Proceed, with fingers crossed.
-
-! Missing } inserted.
-<inserted text> 
-                }
-l.22 
-     
-I've inserted something that you may have forgotten.
-(See the <inserted text> above.)
-With luck, this will get me unwedged. But if you
-really didn't forget anything, try typing `2' now; then
-my insertion and my current dilemma will both disappear.
-
-! Extra }, or forgotten \endgroup.
-\par ...m \@noitemerr {\@@par }\fi \else {\@@par }
-                                                  \fi 
-l.22 
-     
-I've deleted a group-closing symbol because it seems to be
-spurious, as in `$x}$'. But perhaps the } is legitimate and
-you forgot something else, as in `\hbox{$x}'. In such cases
-the way to recover is to insert both the forgotten and the
-deleted material, e.g., by typing `I$}'.
-
 ) [24
 
 ] (./blocksurvival.aux)
-
-LaTeX Warning: There were undefined references.
-
 
 LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 16874 strings out of 493848
- 283623 string characters out of 1152822
- 411336 words of memory out of 3000000
+ 16875 strings out of 493848
+ 283648 string characters out of 1152822
+ 411334 words of memory out of 3000000
  19677 multiletter control sequences out of 15000+50000
  25220 words of font info for 99 fonts, out of 3000000 for 9000
  714 hyphenation exceptions out of 8191
- 56i,15n,55p,959b,375s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 56i,15n,55p,960b,375s stack positions out of 5000i,500n,10000p,200000b,50000s
 </usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/sha
 re/texmf-texlive/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texmf-te
 xlive/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texmf-texlive/fonts
@@ -1060,9 +1023,9 @@ ts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texmf-texlive/fonts/type1/pub
 lic/amsfonts/cm/cmti10.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfont
 s/cm/cmti12.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmti8.
 pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
-Output written on blocksurvival.pdf (28 pages, 442707 bytes).
+Output written on blocksurvival.pdf (28 pages, 442283 bytes).
 PDF statistics:
- 557 PDF objects out of 1000 (max. 8388607)
- 114 named destinations out of 1000 (max. 500000)
+ 564 PDF objects out of 1000 (max. 8388607)
+ 115 named destinations out of 1000 (max. 500000)
  288 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -58,7 +58,7 @@ Bitcoin is the world's first open source, decentralized digital currency (\cite{
 
 Bitcoin achieves the same goals without a central authority. Transaction validation is achieved by duplicating the entire history of all transactions in all nodes of a distributed peer to peer computer network, thus allowing each node in the network to verify transaction validity independently. Each new transaction is immediately transmitted to the entire network. Because of the network's lack of centralization different nodes may be aware of a different, possibly conflicting set of transactions at a given time. 
 
-Bitcoin's main innovation is a way to achieve consensus about \emph{accepted transaction history} amongst all nodes of the network. This is done by having each node independently bundle a set of valid transactions of his choice into a data structure called a \textit{block} in a process called ``mining". Mining a block demands computational effort, a.k.a \textit{proof of work} \cite{hashcash}, which in Bitcoin is dialled to ensure one valid block is created approximately every 10 minutes. Each valid block references it's predecessor thus creating a \textit{block-chain} which is the globally accepted history of transactions. Nodes that find valid blocks are rewarded with new bitcoins, creating an economic incentive to mining.
+Bitcoin's main innovation is a way to achieve consensus about \emph{accepted transaction history} amongst all nodes of the network. This is done by having each node independently bundle a set of valid transactions of his choice into a data structure called a \textit{block} in a process called ``mining". Mining a block demands computational effort, a.k.a \textit{proof of work}. Each valid block references it's predecessor thus creating a \textit{block-chain} which is the globally accepted history of transactions. Nodes that find valid blocks are rewarded with new bitcoins, creating an economic incentive to mining.
 
 Once a valid block is found it is immediately transmitted to the network where all other nodes can easily (and quickly) verify it's validity and accept the one-block-longer block-chain as the new valid history of transactions. However, since block creation is random it is possible that more than one node manages to create a valid block and transmit it to the network. Each node chooses the longest branch\footnote{More precisely, the branch with maximal proof of work.} it is being made aware of first as the block-chain. When several branches are in state of a tie, the network's consensus about the ``true" block-chain is temporarily broken. Consensus is restored when a new block is found, breaking the tie, a fact that can be globally accepted. 
 
@@ -357,8 +357,6 @@ In figure \ref{fig:type0pos} we plot the probability of success of the Type 0 st
 \chapter{The $\gamma,q$ phase space}\label{chap:gqphase}
 
 Our aim in this chapter is to map the $\gamma,q$ phase space and find which strategy yields the maximal probability of success for the miner in each region.
-From section \ref{TypeIoverStandard} we already know that the Type I strategy is better than the Standard strategy if $q\geq q_0$.
-To decide if a block-hiding strategy of Type 0 is beneficial or not we should compare it first to the standard probability of success and then, if it is more beneficial, compare it to the Type I strategy to decide which block-hiding strategy wins. 
 
 \section{Type I vs. Standard}\label{TypeIoverStandard}
 To find out how big $q$ needs to be for the Type I of strategy to become more beneficial than the standard strategy we need to solve for $Q(q)\geq q$
@@ -421,7 +419,7 @@ S_{\gamma}(q)\geq q \Longrightarrow
 q>max\left\lbrace\dfrac{1-3\gamma}{3-3\gamma},0\right\rbrace
 \end{equation}
 
-Next we compare between the two block-hiding strategies.
+To decide if Type 0 is beneficial or not it is not enough to compare it to the Standard strategy. Even in the regime where it is more beneficial than the Standard strategy we must compare it to Type I to decide which block-hiding strategy wins. In the next section we do exactly that and compare the two block-hiding strategies.
 
 \section{Comparing Type 0 to Type I}
 
@@ -523,7 +521,7 @@ A miner, seeking to maximize profit, can select the most beneficial strategy in 
 \end{minipage}
 \linebreak
 
-\section{Discussion}
+\section{Comments}
 
 Note that the regime where either block-hiding strategies are more beneficial than the standard strategy is bounded away from the origin. It is tempting to look at the radial distance from the origin of phase space as a measure of a ``miner's \textit{influence}" 
 
@@ -532,7 +530,7 @@ Note that the regime where either block-hiding strategies are more beneficial th
 \end{equation}
 
 
-This definition is motivated by the rough symmetry\footnote{All we mean by that is that figure \ref{fig:qgammaphasespace} is almost symmetric under a rotation along the $45^{\circ}$ angle that rotates $\gamma \leftrightarrow q$.} between the parameters $\gamma$ and $q$ which seems to suggest that having a large $\gamma$ is ``similarly difficult" to having a large $q$ and a typical miner will have both parameters in similar scales. 
+This definition is motivated by the rough symmetry\footnote{All we mean by that is that figure \ref{fig:qgammaphasespace} is almost symmetric under a rotation along the $45^{\circ}$ angle that rotates $\gamma \leftrightarrow q$.} between the parameters $\gamma$ and $q$.
 
 There are a few remarks in order:
 \begin{itemize}
@@ -549,8 +547,12 @@ There are a few remarks in order:
 \end{minipage}
 \linebreak
 
-\chapter{Summary and Conclusion}
-In this paper we analysed the probability 
+\chapter{Summary}
+The Bitcoin protocol leaves some aspects of mining as heuristics that are not enforced. This wiggle room allows miners to explore mining strategies that deviate from what was described in \cite{Bitcoin} but are still technically valid and will be accepted by all nodes in the Bitcoin network. Bitcoin's  main innovation is the ability to withstand ``Double Spend" attacks, which can be viewed as a particular case of a block-hiding mining strategy. Other variants were known for quite a while \cite{Lear,Selfish} and serve as an interesting theoretical ground for studying the limits of the Bitcoin protocol. 
+ 
+In this paper we analysed the probability of success of block-hiding miners, charted the phase space  associated with block-hiding strategies and identified the most beneficial mining strategy in each regime. As a corollary we calculated the probability of block revocation due to the presence of a Type I miner. Our analysis extend the results of \cite{Selfish} and refine the notion of when exactly a miner becomes ``too big", starting to pose a potential threat to the Bitcoin network (see \cite{Centralization} for a recent discussion). 
+
+As long as miners posses a small enough fraction of the total hashing power and are not too well connected to lure an disproportionally big part of the network to mine on top of their block in case of a tie, the Standard mining strategy as presented in \cite{Bitcoin} turns out to be the most beneficial. It would be interesting if keeping miners in the safe zone can be actively discouraged by additions to the protocol.
 
 
 \appendix

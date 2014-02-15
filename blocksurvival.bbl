@@ -15,15 +15,18 @@ Ittay Eyal, Emin Gun Sirer.
 \newblock Majority is not Enough: Bitcoin Mining is Vulnerable.
 \newblock http://arxiv.org/abs/1311.0243
 
+\bibitem{Centralization}
+Vitalik Buterin
+\newblock http://bitcoinmagazine.com/9402/mining-pool-centralization-crisis-levels/
+
 \bibitem{Zoharetal}
 Yonatan Sompolinsky, Aviv Zohar
 \newblock Accelerating Bitcoin’s Transaction Processing
-\newblock http://www.cs.huji.ac.il/~avivz/pubs/13/btc_scalability_full.pdf
+\newblock https://eprint.iacr.org/2013/881.pdf
 
 \bibitem{Lear}
 Lear Bahack
 \newblock Theoretical Bitcoin Attacks with less than Half of the Computational Power.
 \newblock http://arxiv.org/abs/1312.7013
-
 
 \end{thebibliography}
