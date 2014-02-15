@@ -121,7 +121,7 @@ Treating block mining as a negative binomial random variable, the probability $\
 \end{equation}
 
 \subsection{Catching up from the starting point}
-The probability $\mathit{a}_{n,m}^{(r)}(q)$ that a block-hiding miner manages to catch-up and overtake the block-chain by at least $r$ blocks, given the situation above\footnote{Namely, that until the moment the main network mines it's $n$th block on top of $\mathit{B}_L$, the block-hiding miner manages to mine $m$ blocks on top of it.} is given by a Markov chain that depends only on the advantage $z$ of the honest network over the block-hiding miner $z=n-m$, and the parameter $r$. Formally, the chain satisfies the recurrence relation
+The probability $\mathit{a}_{n,m}^{(r)}(q)$ that a block-hiding miner manages to catch-up and overtake the block-chain by at least $r$ blocks, given the situation above\footnote{Namely, that until the moment the main network mines it's $n$th block on top of $\mathit{B}_L$, the block-hiding miner manages to mine $m$ blocks on top of it.} is given by a Markov chain that depends only on the advantage $z=n-m$ of the main network over the block-hiding miner and the parameter $r$. Formally, the chain satisfies the recurrence relation
 \begin{equation}\label{eq:markov}
 \mathit{a}^{(r)}_z(q)=(1-q)\mathit{a}^{(r)}_{z+1}(q)+q\mathit{a}^{(r)}_{z-1}(q)
 \end{equation}
@@ -165,7 +165,7 @@ By definition of the Type I strategy, the secret branch needs to be longer by at
 
 \section{Block Revocation Probability}
 
-The probability of success of a Type I miner is given by the following sum over all possible lengths of the secret branch at the beginning of catch-up:
+The probability of success of a Type I miner is given by the a sum over all lengths of the secret branch at the beginning of catch-up. For each length $m$ we multiply the probability of getting to that starting point \ref{eq:pnm} while the main branch mines $\mathit{B}_{L+1}$ by the probability of catching up with the main branch from that starting point. The result is the following sum: 
 
 \begin{equation}\label{eq:qofpdef}
 \mathit{Q}(q)=\sum_{m=0}^{\infty}\mathit{P}_{1,q}(m)\mathit{a}^{(1)}_{1-m}(q)
@@ -204,6 +204,8 @@ We can use equations \ref{eq:az} and \ref{eq:pnm} to calculate the probability o
 1 & \quad q \in [\frac{1}{2},1] 
 \end{cases}
 \end{eqnarray}
+
+Below we show the probability of block-revocation by a Type I miner for some values of $q$ and some number of confirmations. If we use Satoshi's heuristics for safely considering a block as part of the block-chain if the probability of revocation by an attacker with $10\%$ of the hashing power is less than $0.1\%$ we see that $5$ confirmations will do. 
 
 \newpage
 
@@ -260,7 +262,7 @@ Adding the extra assumption that the Type I miner pre-mined a ``double-spend" bl
 In this chapter we calculate the probability of success of a Type 0 mining strategy.
 Instead of publishing the secret branch when it is longer than the main branch, a Type 0 miner publishes it one step before, when his secret branch is of the same length as the main branch (i.e. when they reach a tie). 
 
-The reason this is potentially beneficial is that due to latency effects in the bitcoin network (recently discussed in \cite{Zoharetal}) not all miners share the same view of the entire block-tree at all moments. All honest miners shift their efforts to the longest branch they know of, but for some period of time different parts of the network may be aware of different, and equally valid, longest branches. In such a case the network bifurcates. Each sub-network continues mining it's longest-branch until the next block is mined by either one and a new block-chain is established\footnote{In principle this type of block-chain bifurcation can continue to span multiple blocks, with exponentially decreasing probability.}. 
+The reason this is potentially beneficial is that due to latency effects in the bitcoin network (recently discussed in \cite{Zoharetal}) not all miners share the same view of the entire block-tree at all moments. All Standard miners shift their efforts to the longest branch they know of, but for some period of time different parts of the network may be aware of different, and equally valid, longest branches. In such a case the network bifurcates. Each sub-network continues mining it's longest-branch until the next block is mined by either one and a new block-chain is established\footnote{In principle this type of block-chain bifurcation can continue to span multiple blocks, with exponentially decreasing probability.}. 
 Following the notation used in \cite{Selfish} let us denote by $\gamma$ the ratio of standard miners that choose to mine on top of the newly-published-used-to-be-secret Type 0 branch.
 This means that $q+\gamma p$ of the total hashing power is now dedicated to making the Type 0 branch the longest and with some probability this branch will end up as the winner. 
 
@@ -547,7 +549,7 @@ There are a few remarks in order:
 \end{minipage}
 \linebreak
 
-\chapter{Conclusions}
+\chapter{Summary and Conclusion}
 
 
 
