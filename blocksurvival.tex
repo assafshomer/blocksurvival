@@ -96,7 +96,9 @@ Type 0 miners mine a secret branch until it is of the  \textit{same length as th
 
 \section{Our Goal}\label{subsec:goal}
 
-Our goal is to analyse which mining strategy is most beneficial as a function of the miner's relative hashing power and, in case of a Type 0 strategy, the portion of standard miners that join them.
+A miner of relative power $q$ can choose to follow any one of the mining strategies. If she selects to follow the gospel of \cite{Bitcoin} the probability of success in mining a new block equals $q$. Alternatively, she could follow one of the block-hiding strategies, and when the rest of the network mines a new block, mine a secret branch and publish it opportunistically instead of immediately switching her mining efforts to the head of the chain.  
+
+Our goal in this work is to analyse \textit{which mining strategy is most beneficial in that it gives the highest probability of eventually claiming the rewards associated with the next block.} 
 To that effect we calculate the probability that a block-hiding miner succeeds in replacing a block (and possibly some number of confirmation blocks on top of it) by publishing a secretly mined branch of the block-tree. Alternatively, this can be viewed as the probability that a block which is part of the block-chain will not survive (i.e. be part of the block-chain in the future) due to the effort of a block-hiding miner.
 
 \chapter{Setup}\label{chap:calc}
