@@ -58,7 +58,7 @@ Bitcoin is the world's first open source, decentralized digital currency (\cite{
 
 Bitcoin achieves the same goals without a central authority. Transaction validation is achieved by duplicating the entire history of all transactions in all nodes of a distributed peer to peer computer network, thus allowing each node in the network to verify transaction validity independently. Each new transaction is immediately transmitted to the entire network. Because of the network's lack of centralization different nodes may be aware of a different, possibly conflicting set of transactions at a given time. 
 
-Bitcoin's main innovation is a way to achieve consensus about \emph{\underline{the} accepted transaction history} amongst all nodes of the network. This is done by having each node independently bundle a set of valid transactions of his choice into a data structure called a \textit{block} in a process called ``mining". Mining a block demands computational effort, a.k.a \textit{proof of work} \cite{hashcash}, which in Bitcoin is dialled to ensure one valid block is created approximately every 10 minutes. Each valid block references it's predecessor thus creating a \textit{block-chain} which is the globally accepted history of transactions. Nodes that find valid blocks are rewarded with new bitcoins, creating an economic incentive to mining.
+Bitcoin's main innovation is a way to achieve consensus about \emph{accepted transaction history} amongst all nodes of the network. This is done by having each node independently bundle a set of valid transactions of his choice into a data structure called a \textit{block} in a process called ``mining". Mining a block demands computational effort, a.k.a \textit{proof of work} \cite{hashcash}, which in Bitcoin is dialled to ensure one valid block is created approximately every 10 minutes. Each valid block references it's predecessor thus creating a \textit{block-chain} which is the globally accepted history of transactions. Nodes that find valid blocks are rewarded with new bitcoins, creating an economic incentive to mining.
 
 Once a valid block is found it is immediately transmitted to the network where all other nodes can easily (and quickly) verify it's validity and accept the one-block-longer block-chain as the new valid history of transactions. However, since block creation is random it is possible that more than one node manages to create a valid block and transmit it to the network. Each node chooses the longest branch\footnote{More precisely, the branch with maximal proof of work.} it is being made aware of first as the block-chain. When several branches are in state of a tie, the network's consensus about the ``true" block-chain is temporarily broken. Consensus is restored when a new block is found, breaking the tie, a fact that can be globally accepted. 
 
@@ -550,7 +550,7 @@ There are a few remarks in order:
 \linebreak
 
 \chapter{Summary and Conclusion}
-
+In this paper we analysed the probability 
 
 
 \appendix
