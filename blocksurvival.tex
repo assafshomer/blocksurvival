@@ -36,7 +36,7 @@ Our analysis suggests a generalization of the notion of the relative hashing pow
 \tableofcontents
 \chapter{Introduction}\label{chap:intro}
 \pagenumbering{arabic}
-Bitcoin is the world's first open source, decentralized digital currency (\cite{Bitcoin}). Bitcoin's main innovation is the ability to capture value in digital tokens through the creation of "digital scarcity" \textit{independent of a central authority}. Clearly, a digital token that aims to capture value cannot achieve it's goal if it can be created or duplicated arbitrarily. Precious metals for instance, are scarce due to physical limitations. Fiat money is scarce through regulations and laws. All previous attempts to create a scarce digital resource depended upon a central authority that validates transactions and forces scarcity by disallowing arbitrary creation and multiple usage of the same token. 
+Bitcoin is the world's first open source, decentralized digital currency. Bitcoin's main innovation is the ability to capture value in digital tokens through the creation of ``digital scarcity" \textit{independent of a central authority}. Clearly, a digital token that aims to capture value cannot achieve it's goal if it can be created or duplicated arbitrarily. Precious metals for instance, are scarce due to physical limitations. Fiat money is scarce through regulations and laws. All previous attempts to create a scarce digital resource depended upon a central authority that validates transactions and forces scarcity by disallowing arbitrary creation and multiple usage of the same token. 
 
 Bitcoin achieves the same goals without a central authority. Transaction validation is achieved by duplicating the entire history of all transactions in all nodes of a distributed peer to peer computer network, thus allowing each node in the network to verify transaction validity independently. Each new transaction is immediately transmitted to the entire network. Because of the network's lack of centralization different nodes may be aware of a different, possibly conflicting set of transactions at a given time. 
 
@@ -177,7 +177,7 @@ The orange curve plots the probability that a Type I miner manages to revoke the
 
 \section{Block Revocation after $n$ confirmations}
 
-We can use equations \ref{eq:az} and \ref{eq:pnm} to calculate the probability of success of a Type I miner under the extra constraint that $&\mathit{B}_{L+1}$ receives at least $n$ confirmation before being revoked.
+We can use equations \ref{eq:az} and \ref{eq:pnm} to calculate the probability of success of a Type I miner under the extra constraint that $\mathit{B}_{L+1}$ receives at least $n$ confirmation before being revoked.
 
 \begin{eqnarray}\label{eq:qn}
 &\mathit{Q}_{(n)}^{(1)}(q)=\sum_{m=0}^{\infty}\mathit{P}_{n,q}(m)\mathit{a}^{(1)}_{n-m}(q)=\\
@@ -486,7 +486,7 @@ Interestingly enough, the 3 functions $q_0, q_b(\gamma), q_+(\gamma)$ intersect 
 \begin{minipage}{\linewidth}
 \makebox[\linewidth]{%
   \includegraphics[keepaspectratio=true,scale=0.7]{6regions.png}}
-\captionof{figure}{The 3 curves sectioning the $\gamma, q$ phase space into 6 regions characterized by a hierarchy of the 3 strategies. For brevity we denote the Type I strategy by "1", the Type 0 strategy by "0" and the Standard strategy by "S". For example, in the top region Type 0 is more beneficial than Type I which in turn is more beneficial than the standard strategy.}
+\captionof{figure}{The 3 curves sectioning the $\gamma, q$ phase space into 6 regions characterized by a hierarchy of the 3 strategies. For brevity we denote the Type I strategy by ``1", the Type 0 strategy by ``0" and the Standard strategy by ``S". For example, in the top region Type 0 is more beneficial than Type I which in turn is more beneficial than the standard strategy.}
 \label{fig:fourfunctions}
 \end{minipage}
 \linebreak
