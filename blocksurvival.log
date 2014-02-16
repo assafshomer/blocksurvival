@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2013.11.18)  16 FEB 2014 08:33
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2013.11.18)  16 FEB 2014 08:44
 entering extended mode
  %&-line parsing enabled.
 **blocksurvival.tex
@@ -753,12 +753,12 @@ Chapter 4.
 
 ]
 
-pdfTeX warning: pdflatex (file ./Images/TypeIPOScrop.pdf): PDF inclusion: found
- PDF version <1.6>, but at most version <1.4> allowed
-<Images/TypeIPOScrop.pdf, id=259, 502.87875pt x 421.575pt>
-File: Images/TypeIPOScrop.pdf Graphic file (type pdf)
+pdfTeX warning: pdflatex (file ./Images/TypeIPOS.pdf): PDF inclusion: found PDF
+ version <1.6>, but at most version <1.4> allowed
+<Images/TypeIPOS.pdf, id=264, 502.87875pt x 421.575pt>
+File: Images/TypeIPOS.pdf Graphic file (type pdf)
 
-<use Images/TypeIPOScrop.pdf>
+<use Images/TypeIPOS.pdf>
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
 (caption)                particular \caption on input line 174.
@@ -784,7 +784,7 @@ up above has ended a previous alignment prematurely,
 you're probably due for more error messages, and you
 might try typing `S' now just to see what is salvageable.
 
-[8 <./Images/TypeIPOScrop.pdf>]
+[8 <./Images/TypeIPOS.pdf>]
 Overfull \hbox (42.39957pt too wide) in paragraph at lines 195--227
 [][] 
  []
@@ -793,10 +793,23 @@ Overfull \hbox (42.39957pt too wide) in paragraph at lines 195--227
 Chapter 5.
 [10
 
-] <Images/3regionsqc.png, id=320, 533.995pt x 432.61626pt>
-File: Images/3regionsqc.png Graphic file (type png)
+]
 
-<use Images/3regionsqc.png>
+LaTeX Warning: File `3regionsqc.png' not found on input line 310.
+
+
+! Package pdftex.def Error: File `3regionsqc.png' not found.
+
+See the pdftex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.310 ...ectratio=true,scale=0.4]{3regionsqc.png}}
+                                                  
+Using draft setting for this image.
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
 (caption)                particular \caption on input line 313.
@@ -807,14 +820,13 @@ Underfull \hbox (badness 10000) in paragraph at lines 307--317
 
  []
 
-[11]
 
-pdfTeX warning: pdflatex (file ./Images/Type0POScrop.pdf): PDF inclusion: found
- PDF version <1.6>, but at most version <1.4> allowed
-<Images/Type0POScrop.pdf, id=334, 521.95pt x 423.5825pt>
-File: Images/Type0POScrop.pdf Graphic file (type pdf)
 
-<use Images/Type0POScrop.pdf>
+pdfTeX warning: pdflatex (file ./Images/Type0POS.pdf): PDF inclusion: found PDF
+ version <1.6>, but at most version <1.4> allowed
+<Images/Type0POS.pdf, id=326, 521.95pt x 423.5825pt>
+File: Images/Type0POS.pdf Graphic file (type pdf)
+ <use Images/Type0POS.pdf>
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
 (caption)                particular \caption on input line 334.
@@ -825,7 +837,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 330--338
 
  []
 
-[12 <./Images/3regionsqc.png>] [13 <./Images/Type0POScrop.pdf>]
+[11] [12 <./Images/Type0POS.pdf>]
 Chapter 6.
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
@@ -839,9 +851,9 @@ Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 (hyperref)                removing `math shift' on input line 339.
 
-[14
+[13
 
-] <Images/qbqc.png, id=383, 530.98375pt x 434.62375pt>
+] <Images/qbqc.png, id=381, 530.98375pt x 434.62375pt>
 File: Images/qbqc.png Graphic file (type png)
 
 <use Images/qbqc.png>
@@ -855,7 +867,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 377--385
 
  []
 
-[15 <./Images/qbqc.png>] [16]
+[14 <./Images/qbqc.png>] [15]
 LaTeX Font Info:    Try loading font information for OMS+cmr on input line 470.
 
 
@@ -864,8 +876,8 @@ File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 470.
- [17]
-<Images/6regions.png, id=413, 482.80376pt x 432.61626pt>
+ [16]
+<Images/6regions.png, id=412, 482.80376pt x 432.61626pt>
 File: Images/6regions.png Graphic file (type png)
 
 <use Images/6regions.png>
@@ -879,7 +891,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 485--493
 
  []
 
-<Images/finalphasespace.png, id=415, 484.81125pt x 435.6275pt>
+<Images/finalphasespace.png, id=414, 484.81125pt x 435.6275pt>
 File: Images/finalphasespace.png Graphic file (type png)
 
 <use Images/finalphasespace.png>
@@ -893,8 +905,8 @@ Underfull \hbox (badness 10000) in paragraph at lines 497--505
 
  []
 
-[18 <./Images/6regions.png>] [19 <./Images/finalphasespace.png>]
-<Images/selfish.png, id=436, 487.8225pt x 431.6125pt>
+[17 <./Images/6regions.png>] [18 <./Images/finalphasespace.png>]
+<Images/selfish.png, id=435, 487.8225pt x 431.6125pt>
 File: Images/selfish.png Graphic file (type png)
  <use Images/selfish.png>
 
@@ -907,13 +919,9 @@ Underfull \hbox (badness 10000) in paragraph at lines 523--531
 
  []
 
-[20 <./Images/selfish.png>]
+[19 <./Images/selfish.png>]
 Chapter 7.
-[21
-
-]
-Chapter 8.
-[22
+[20
 
 ]
 Appendix A.
@@ -946,7 +954,7 @@ Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 (hyperref)                removing `math shift' on input line 581.
 
-[23
+[21
 
 pdfTeX warning (ext4): destination with the same identifier (name{equation.A.1.
 1}) has been already used, duplicate ignored
@@ -974,7 +982,7 @@ pdfTeX warning (ext4): destination with the same identifier (name{equation.A.2.
 <to be read again> 
                    \relax 
 l.610 \begin{eqnarray}
-                      \label{eq:qnspecific}\nonumber [24] (./blocksurvival.bbl
+                      \label{eq:qnspecific}\nonumber [22] (./blocksurvival.bbl
 Underfull \hbox (badness 10000) in paragraph at lines 9--12
 []\OT1/cmr/m/n/12 Meni Rosen-feld.  Anal-y-sis of hashrate-based double-spendin
 g.
@@ -989,7 +997,7 @@ Underfull \hbox (badness 1867) in paragraph at lines 19--21
 Missing character: There is no â in font cmr12!
 Missing character: There is no € in font cmr12!
 Missing character: There is no ™ in font cmr12!
-) [25
+) [23
 
 ] (./blocksurvival.aux)
 
@@ -997,34 +1005,37 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 16956 strings out of 493848
- 284655 string characters out of 1152822
+ 16952 strings out of 493848
+ 284516 string characters out of 1152822
  411763 words of memory out of 3000000
- 19749 multiletter control sequences out of 15000+50000
+ 19746 multiletter control sequences out of 15000+50000
  26768 words of font info for 105 fonts, out of 3000000 for 9000
  714 hyphenation exceptions out of 8191
  56i,16n,55p,960b,375s stack positions out of 5000i,500n,10000p,200000b,50000s
-</usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/sha
-re/texmf-texlive/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texmf-te
-xlive/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texmf-texlive/fonts
-/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texmf-texlive/fonts/type1/publ
-ic/amsfonts/cm/cmmi12.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts
-/cm/cmmi6.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmmi7.pf
-b></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/shar
-e/texmf-texlive/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texmf-texl
-ive/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texmf-texlive/fonts/ty
-pe1/public/amsfonts/cm/cmr17.pfb></usr/share/texmf-texlive/fonts/type1/public/a
-msfonts/cm/cmr6.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cm
-r7.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/
-share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf
--texlive/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texmf-texlive/fon
-ts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texmf-texlive/fonts/type1/pub
-lic/amsfonts/cm/cmti10.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfont
-s/cm/cmti12.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmti8.
-pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
-Output written on blocksurvival.pdf (29 pages, 447795 bytes).
+pdfTeX warning (dest): name{chapter.8} has been referenced but does not exist
+, replaced by a fixed one
+
+</usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share
+/texmf-texlive/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texmf-texl
+ive/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texmf-texlive/fonts/t
+ype1/public/amsfonts/cm/cmmi10.pfb></usr/share/texmf-texlive/fonts/type1/public
+/amsfonts/cm/cmmi12.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/c
+m/cmmi6.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmmi7.pfb>
+</usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/
+texmf-texlive/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texmf-texliv
+e/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texmf-texlive/fonts/type
+1/public/amsfonts/cm/cmr17.pfb></usr/share/texmf-texlive/fonts/type1/public/ams
+fonts/cm/cmr6.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmr7
+.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/sh
+are/texmf-texlive/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf-t
+exlive/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texmf-texlive/fonts
+/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texmf-texlive/fonts/type1/publi
+c/amsfonts/cm/cmti10.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/
+cm/cmti12.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmti8.pf
+b></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
+Output written on blocksurvival.pdf (27 pages, 435462 bytes).
 PDF statistics:
- 569 PDF objects out of 1000 (max. 8388607)
- 117 named destinations out of 1000 (max. 500000)
- 288 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 564 PDF objects out of 1000 (max. 8388607)
+ 116 named destinations out of 1000 (max. 500000)
+ 291 words of extra memory for PDF output out of 10000 (max. 10000000)
 
