@@ -1,2 +1,2 @@
-## Blcok Survival Probabilities
-Analysis of survival probabilites of bitcoin blocks in the presence of block-withholding miners
+## On the phase space of Block-Hiding Strategies
+A research paper analysing the parameter space of block-hiding mining strategies in bitcoin-like networks.
