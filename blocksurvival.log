@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2013.11.18)  16 FEB 2014 01:52
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2013.11.18)  16 FEB 2014 08:33
 entering extended mode
  %&-line parsing enabled.
 **blocksurvival.tex
@@ -912,65 +912,69 @@ Chapter 7.
 [21
 
 ]
+Chapter 8.
+[22
+
+]
 Appendix A.
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 553.
+(hyperref)                removing `math shift' on input line 555.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `subscript' on input line 553.
+(hyperref)                removing `subscript' on input line 555.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `superscript' on input line 553.
+(hyperref)                removing `superscript' on input line 555.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 553.
+(hyperref)                removing `math shift' on input line 555.
 
 
-Overfull \hbox (4.00198pt too wide) in alignment at lines 555--577
+Overfull \hbox (4.00198pt too wide) in alignment at lines 557--579
  [][][] []
  []
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 579.
+(hyperref)                removing `math shift' on input line 581.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 579.
+(hyperref)                removing `math shift' on input line 581.
 
-[22
+[23
 
 pdfTeX warning (ext4): destination with the same identifier (name{equation.A.1.
 1}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.582 \begin{eqnarray}
+l.584 \begin{eqnarray}
                       \label{eq:qnspecific}\nonumber]pdfTeX warning (ext4): des
 tination with the same identifier (name{equation.A.2.1}) has been already used,
  duplicate ignored
 <to be read again> 
                    \relax 
-l.582 \begin{eqnarray}
+l.584 \begin{eqnarray}
                       \label{eq:qnspecific}\nonumber
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 605.
+(hyperref)                removing `math shift' on input line 607.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 605.
+(hyperref)                removing `math shift' on input line 607.
 
 pdfTeX warning (ext4): destination with the same identifier (name{equation.A.2.
 1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.608 \begin{eqnarray}
-                      \label{eq:qnspecific}\nonumber [23] (./blocksurvival.bbl
+l.610 \begin{eqnarray}
+                      \label{eq:qnspecific}\nonumber [24] (./blocksurvival.bbl
 Underfull \hbox (badness 10000) in paragraph at lines 9--12
 []\OT1/cmr/m/n/12 Meni Rosen-feld.  Anal-y-sis of hashrate-based double-spendin
 g.
@@ -985,7 +989,7 @@ Underfull \hbox (badness 1867) in paragraph at lines 19--21
 Missing character: There is no â in font cmr12!
 Missing character: There is no € in font cmr12!
 Missing character: There is no ™ in font cmr12!
-) [24
+) [25
 
 ] (./blocksurvival.aux)
 
@@ -993,9 +997,9 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 16954 strings out of 493848
- 284639 string characters out of 1152822
- 411762 words of memory out of 3000000
+ 16956 strings out of 493848
+ 284655 string characters out of 1152822
+ 411763 words of memory out of 3000000
  19749 multiletter control sequences out of 15000+50000
  26768 words of font info for 105 fonts, out of 3000000 for 9000
  714 hyphenation exceptions out of 8191
@@ -1018,9 +1022,9 @@ ts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texmf-texlive/fonts/type1/pub
 lic/amsfonts/cm/cmti10.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfont
 s/cm/cmti12.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmti8.
 pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
-Output written on blocksurvival.pdf (28 pages, 446746 bytes).
+Output written on blocksurvival.pdf (29 pages, 447795 bytes).
 PDF statistics:
- 564 PDF objects out of 1000 (max. 8388607)
- 115 named destinations out of 1000 (max. 500000)
+ 569 PDF objects out of 1000 (max. 8388607)
+ 117 named destinations out of 1000 (max. 500000)
  288 words of extra memory for PDF output out of 10000 (max. 10000000)
 

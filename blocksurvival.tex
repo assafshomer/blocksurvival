@@ -529,13 +529,15 @@ There are a few remarks in order:
 \end{minipage}
 \linebreak
 
-\chapter{Summary}
+\chapter{Summary and Conclusions}
 The Bitcoin protocol leaves some aspects of mining as heuristics that are not enforced. This wiggle room allows miners to explore mining strategies that deviate from what was described in \cite{Bitcoin} but are still technically valid and will be accepted by all nodes in the Bitcoin network. Bitcoin's  main innovation is the ability to withstand ``Double Spend" attacks, which can be viewed as a particular case of a block-hiding mining strategy. Other variants were known for quite a while \cite{Lear,Selfish} and serve as an interesting theoretical ground for studying the limits of the Bitcoin protocol. 
  
 In this paper we analysed the probability of success of block-hiding miners, charted the phase space  associated with block-hiding strategies and identified the most beneficial mining strategy in each regime. As a corollary we calculated the probability of block revocation due to the presence of a Type I miner. Our analysis extend the results of \cite{Selfish} and refine the notion of when exactly a miner becomes ``too big", starting to pose a potential threat to the Bitcoin network (see \cite{Centralization} for a recent discussion). 
 
 As long as miners posses a small enough fraction of the total hashing power and are not too well connected to lure an disproportionally big part of the network to mine on top of their block in case of a tie, the Standard mining strategy as presented in \cite{Bitcoin} turns out to be the most beneficial. It would be interesting if keeping miners in the safe zone can be actively discouraged by additions to the protocol.
 
+\chapter{Acknowledgements}
+We would like to thank Aviv Zohar and Meni Rosenfeld for comments on earlier versions of this manuscript.
 
 \appendix
 \chapter{Calculation Details}
