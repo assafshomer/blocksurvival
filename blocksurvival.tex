@@ -177,7 +177,7 @@ The orange curve plots the probability that a Type I miner manages to revoke the
 
 \section{Block Revocation after $n$ confirmations}
 
-We can use equations \ref{eq:az} and \ref{eq:pnm} to calculate the probability of success of a Type I miner under the extra constraint that $\mathit{B}_{L+1}$ receives at least $n$ confirmation before being revoked.
+We can use equations \ref{eq:az} and \ref{eq:pnm} to calculate the probability of success of a Type I miner under the extra constraint that $\mathit{B}_{L+1}$ receives at least $n$ confirmation before being revoked (details of the calculation are given in appendix \ref{app:calcqofq})
 
 \begin{eqnarray}\label{eq:qn}
 &\mathit{Q}_{(n)}^{(1)}(q)=\sum_{m=0}^{\infty}\mathit{P}_{n,q}(m)\mathit{a}^{(1)}_{n-m}(q)=\\
@@ -188,8 +188,6 @@ We can use equations \ref{eq:az} and \ref{eq:pnm} to calculate the probability o
 \end{eqnarray}
 
 Below we show the probability of block-revocation by a Type I miner for some values of $q$ and some number of confirmations. If we use Satoshi's heuristics for safely considering a block as part of the block-chain if the probability of revocation by an attacker with $10\%$ of the hashing power is less than $0.1\%$ we see that $5$ confirmations will do. 
-
-\newpage
 
 \begin{table}
 \resizebox{18cm}{!} {
@@ -227,7 +225,7 @@ Below we show the probability of block-revocation by a Type I miner for some val
     \caption {The probability of Block Revocation after n confirmations due to Type I mining. Gray cells denote probabilities smaller than $0.1\%$}
 \end{table}
 
-Adding the extra assumption that the Type I miner pre-mined a ``double-spend" block reproduced the results of \cite{Doublespend}:
+Adding the extra assumption that the Type I miner pre-mined a ``double-spend" block reproduces the results of \cite{Doublespend}:
 
 
 \begin{eqnarray}\label{eq:ds}
